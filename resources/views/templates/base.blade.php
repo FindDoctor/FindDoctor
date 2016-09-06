@@ -10,8 +10,9 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="css/app.css">
-		@yield('css')
+		@section('css')
+			<link rel="stylesheet" href="css/app.css">
+		@show
 	</head>
 
 	<body>
@@ -27,7 +28,7 @@
 	                    <span class="icon-bar"></span>
 	                    <span class="icon-bar"></span>
 	                </button>
-	                <a class="navbar-brand" href="#">Project name</a>
+	                <a class="navbar-brand" href="#">Project Name</a>
 	            </div>
 	            <div id="navbar" class="navbar-collapse collapse">
 	                <form class="navbar-form navbar-right" role="form">
@@ -49,11 +50,35 @@
 	        </div>
 	    </div>
 
-		<footer>
-            <p>&copy; Company 2016</p>
-        </footer>
+		<div class="container">
+		    <!-- Example row of columns -->
+		    <div class="row">
+			    <div class="col-md-4">
+			        <h2>Heading</h2>
+			        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+			        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+			    </div>
+			    <div class="col-md-4">
+			        <h2>Heading</h2>
+			        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+			        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+		        </div>
+			    <div class="col-md-4">
+			        <h2>Heading</h2>
+			        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+			        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+			    </div>
+		    </div>
 
-		<script src="js/app.js"></script>
-		@yield('js')
+		    <hr>
+
+		    <footer>
+			    <p>&copy; Company 2016</p>
+		    </footer>
+		</div> <!-- /container -->
+
+		@section('js')
+			<script src="js/app.js"></script>
+		@show
 	</body>
 </html>
