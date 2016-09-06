@@ -21,8 +21,11 @@
 
 @section('js')
 	@parent
-	
+
 	<script>
-		alert("teste")
+		$(document).ready(function () {
+			console.log("Carregado");
+			alert("teste");
+		})
 	</script>
 @endsection
