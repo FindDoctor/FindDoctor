@@ -124,7 +124,7 @@ eval("module.exports = function(module) {\r\n\tif(!module.webpackPolyfill) {\r\n
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(0);\n\nfunction initMap() {\n\tvar uluru = {lat: -25.363, lng: 131.044};\n\tvar map = new google.maps.Map(document.getElementById('map'), {\n\t  zoom: 4,\n\t  center: uluru\n\t});\n\tvar marker = new google.maps.Marker({\n\t  position: uluru,\n\t  map: map\n\t});\n}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiOS5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9yZXNvdXJjZXMvYXNzZXRzL2pzL2FwcC5qcz84YjY3Il0sInNvdXJjZXNDb250ZW50IjpbInJlcXVpcmUoJy4vYm9vdHN0cmFwJyk7XG5cbmZ1bmN0aW9uIGluaXRNYXAoKSB7XG5cdHZhciB1bHVydSA9IHtsYXQ6IC0yNS4zNjMsIGxuZzogMTMxLjA0NH07XG5cdHZhciBtYXAgPSBuZXcgZ29vZ2xlLm1hcHMuTWFwKGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdtYXAnKSwge1xuXHQgIHpvb206IDQsXG5cdCAgY2VudGVyOiB1bHVydVxuXHR9KTtcblx0dmFyIG1hcmtlciA9IG5ldyBnb29nbGUubWFwcy5NYXJrZXIoe1xuXHQgIHBvc2l0aW9uOiB1bHVydSxcblx0ICBtYXA6IG1hcFxuXHR9KTtcbn1cblxuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyByZXNvdXJjZXMvYXNzZXRzL2pzL2FwcC5qcyJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Iiwic291cmNlUm9vdCI6IiJ9");
+eval("__webpack_require__(0);\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiOS5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9yZXNvdXJjZXMvYXNzZXRzL2pzL2FwcC5qcz84YjY3Il0sInNvdXJjZXNDb250ZW50IjpbInJlcXVpcmUoJy4vYm9vdHN0cmFwJyk7XG5cblxuXG4vLyBXRUJQQUNLIEZPT1RFUiAvL1xuLy8gcmVzb3VyY2VzL2Fzc2V0cy9qcy9hcHAuanMiXSwibWFwcGluZ3MiOiJBQUFBOyIsInNvdXJjZVJvb3QiOiIifQ==");
 
 /***/ }
 /******/ ]);
