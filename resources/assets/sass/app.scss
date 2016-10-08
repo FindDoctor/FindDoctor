@@ -9,7 +9,7 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 html, body {
-  background-color: #fff;
+  background-color: #FBFBFB;
   color: #636b6f;
   font-family: 'Raleway';
   font-weight: 100;
@@ -34,7 +34,7 @@ html, body {
 .top-right {
   position: absolute;
   right: 10px;
-  top: 18px;
+  top: 21px;
 }
 
 .content {
@@ -59,8 +59,54 @@ html, body {
   margin-bottom: 30px;
 }
 
-.navbar img {
-  height: 54px;
+.navbar{
+
+  margin-bottom: 0;
+  height:65px;
+  background:#FBF9F6;
+
+  .navbar-brand{
+    img {
+      height: 38px;
+    }
+  }
+}
+
+.filtros{
+  background:#D8CFBE;
+  color:white;
+  padding:0 40px;
+}
+
+.container{
+  .cards-medicos{
+    .row{
+      .thumbnail{
+        background:#D8CFBE;
+        color:white;
+        float:left;
+
+        img{
+          float:left;
+          width:50%;
+        }
+
+        .caption{
+          float:left;
+          width:50%;
+
+          h3{
+            margin-top:0;
+            font-size:16px;
+          }
+          a{
+            width:100%;
+          }
+        }
+
+      }
+    }
+  }
 }
 
 .map {

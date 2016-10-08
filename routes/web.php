@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('pages.inicio');
 });
 
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'IndexController@index');
+
