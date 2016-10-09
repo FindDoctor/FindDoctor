@@ -31,8 +31,13 @@
 	  </div>
 		@if (Route::has('login'))
 			<div class="top-right links">
-				<a href="{{ url('/login') }}">Entrar</a>
-				<a href="{{ url('/register') }}">Cadastrar</a>
+				@if (Auth::guest())
+					<a href="{{ url('/login') }}">Entrar</a>
+					<a href="{{ url('/register') }}">Cadastrar</a>
+				@else
+					Bem vindo, {{ Auth::user()->nome }}
+					<a href="{{ url('/logout') }}">Sair</a>
+				@endif
 			</div>
 		@endif
 	</nav>
