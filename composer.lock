@@ -1,20 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @matheusmpinheiro
- Unwatch 3
-  Star 0
- Fork 0 FindDoctor/FindDoctor
- Code  Pull requests 0  Projects 0  Wiki  Pulse  Graphs
-Branch: master Find file Copy pathFindDoctor/composer.lock
-6c7859a  on Sep 6
-@Gruutak Gruutak Adicionada classes Html e Form
-1 contributor
-RawBlameHistory     
-3490 lines (3489 sloc)  123 KB
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
@@ -3504,5 +3487,3 @@ RawBlameHistory
     },
     "platform-dev": []
 }
-Contact GitHub API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Status Help
