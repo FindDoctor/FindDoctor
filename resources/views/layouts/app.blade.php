@@ -52,6 +52,7 @@
 			</div>
 
 			<div class="col-md-4">
+				<h4>Saiba Mais</h4>
 				<ul>
 					<li>
 						Quem somos nós?
@@ -70,7 +71,7 @@
 			</div>
 
 			<div class="col-md-2 midias-socias">
-				Mídias Sociais
+				<h4>Mídias Sociais</h4>
 				<ul class="md-list">
 					<li><img alt="Brand" class="icon-midia-social" alt="facebook" src="{{ url('/imgs/facebook-icon.png') }}"></li>
 					<li><img alt="Brand" class="icon-midia-social" alt="twitter" src="{{ url('/imgs/twitter-icon.png') }}"></li>

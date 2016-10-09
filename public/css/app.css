@@ -5824,7 +5824,9 @@ html, body {
   padding: 0 40px; }
   .filtros form {
     max-width: 1170px;
-    margin: 0 auto 50px auto; }
+    margin: 0 auto 50px auto;
+    font-family: "HelveticaNeue-Light" label;
+      font-family-font-family: 'HelveticaNeue'; }
 
 .container .cards-medicos .row .thumbnail {
   background: #D8CFBE;
@@ -5900,7 +5902,8 @@ html, body {
 .footer {
   width: 100%;
   height: 150px;
-  background: #FBF9F6; }
+  background: #FBF9F6;
+  font-family: "HelveticaNeue"; }
   .footer section {
     padding: 20px 0; }
     .footer section.container {
