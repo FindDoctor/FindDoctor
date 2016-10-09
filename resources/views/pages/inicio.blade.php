@@ -82,13 +82,12 @@
 
 
         <div class="container">
-            
+
 
             <div id="cards-medicos" class="cards cards-medicos">
                 <div class="row">
 
-                <?php for($x = 0; $x < 10; $x++){?>
-                  
+                @for($x = 0; $x < 10; $x++)
                     <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                       <img src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg" alt="...">
@@ -99,8 +98,7 @@
                       </div>
                     </div>
                     </div>
-
-                <?php } ?>
+				@endfor
 
                 </div>
             </div>
