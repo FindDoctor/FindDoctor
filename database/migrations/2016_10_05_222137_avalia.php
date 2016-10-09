@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TabelaAvalia extends Migration
+class avalia extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +14,15 @@ class TabelaAvalia extends Migration
     public function up()
     {
         schema::create('avalia', function(Blueprint $table){
-            $table->integer('pacienteCPF');
-            $table->integer('nCRM');
+            $table->integer('pacientecpf');
+            $table->integer('ncrm');
             $table->string('comentarios', 255);
             $table->integer('nota');
-            $table->primary('pacienteCPF', 'nCRM');
+            $table->primary('pacientecpf', 'ncrm');
         });
         schema::table('avalia', function($table){
-            $table->foreign('nCRM')->references('CRM')->on('medico')->onDelete('cascade');
-            $table->foreign('pacienteCPF')->references('CPF')->on('paciente')->onDelete('cascade');
+            $table->foreign('ncrm')->references('crm')->on('medico')->onDelete('cascade');
+            $table->foreign('pacientecpf')->references('cpf')->on('paciente')->onDelete('cascade');
         });
     }
 

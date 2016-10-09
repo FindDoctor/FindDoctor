@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TabelaMedico extends Migration
+class convenio extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class TabelaMedico extends Migration
      */
     public function up()
     {
-        Schema::create('Medico', function (Blueprint $table){
-            $table->engine = 'InnoDB';
-            $table->integer('CRM')->primary('CRM');
-            $table->string('Nome');
-            $table->string('E-mail')->unique();
-            $table->string('Senha');
+        schema::create('convenio', function(Blueprint $table){
+            $table->increments('id_convenio');
+            $table->string('nome', 70);
         });
     }
 
@@ -29,6 +26,6 @@ class TabelaMedico extends Migration
      */
     public function down()
     {
-        schema::drop('Medico');
+        schema::drop('convenio');
     }
 }

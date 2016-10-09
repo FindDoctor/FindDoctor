@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TabelaPossui extends Migration
+class possui extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,13 @@ class TabelaPossui extends Migration
     public function up()
     {
         schema::create('possui', function(Blueprint $table){
-            $table->engine = 'InnoDB';
-            $table->integer('especialidadeID')->unsigned();
-            $table->integer('nCRM');
-            $table->primary('especialidadeID','nCRM');
+            $table->integer('especialidadeid')->unsigned();
+            $table->integer('ncrm');
+            $table->primary('especialidadeid','ncrm');
         });
         schema::table('possui', function($table){
-            $table->foreign('nCRM')->references('CRM')->on('medico')->onDelete('cascade');
-            $table->foreign('especialidadeID')->references('id_especialidade')->on('especialidade')->onDelete('cascade');
+            $table->foreign('ncrm')->references('crm')->on('medico')->onDelete('cascade');
+            $table->foreign('especialidadeid')->references('id_especialidade')->on('especialidade')->onDelete('cascade');
         });
     }
 
