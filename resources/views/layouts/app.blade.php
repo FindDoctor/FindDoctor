@@ -37,9 +37,7 @@
 		@endif
 	</nav>
 
-	<div class="content">
-    	@yield('content')
-    </div>
+    @yield('content')
 
 	<div id="footer" class="footer">
 
