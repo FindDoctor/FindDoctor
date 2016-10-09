@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TabelaAtende extends Migration
+class atende extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,13 @@ class TabelaAtende extends Migration
     public function up()
     {
         schema::create('atende', function(Blueprint $table){
-            $table->integer('convenioID')->unsigned();
-            $table->integer('nCRM');
-            $table->primary('convenioID', 'nCRM');
+            $table->integer('convenioid')->unsigned();
+            $table->integer('ncrm');
+            $table->primary('convenioid', 'ncrm');
         });
         schema::table('atende', function($table){
-            $table->foreign('nCRM')->references('CRM')->on('medico')->onDelete('cascade');
-            $table->foreign('convenioID')->references('id_convenio')->on('convenio')->onDelete('cascade');
+            $table->foreign('ncrm')->references('crm')->on('medico')->onDelete('cascade');
+            $table->foreign('convenioid')->references('id_convenio')->on('convenio')->onDelete('cascade');
         });
     }
 

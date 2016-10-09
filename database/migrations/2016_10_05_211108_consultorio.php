@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TabelaConsultorio extends Migration
+class consultorio extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,7 @@ class TabelaConsultorio extends Migration
      */
     public function up()
     {
-        schema::create('Consultorio', function (Blueprint $table){
-            $table->engine = 'InnoDB';
+        schema::create('consultorio', function (Blueprint $table){
             $table->increments('id_consultorio');
             $table->string('endereco', 100);
             $table->integer('telefone');
@@ -28,6 +27,6 @@ class TabelaConsultorio extends Migration
      */
     public function down()
     {
-        schema::drop('Consultorio');
+        schema::drop('consultorio');
     }
 }

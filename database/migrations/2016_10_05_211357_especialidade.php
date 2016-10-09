@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TabelaConvenio extends Migration
+class especialidade extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class TabelaConvenio extends Migration
      */
     public function up()
     {
-        schema::create('convenio', function(Blueprint $table){
-            $table->engine = 'InnoDB';
-            $table->increments('id_convenio');
-            $table->string('nome', 70);
+        schema::create('especialidade', function(Blueprint $table){
+            $table->increments('id_especialidade');
+            $table->string('descricao', 100);
         });
     }
 
@@ -27,6 +26,6 @@ class TabelaConvenio extends Migration
      */
     public function down()
     {
-        schema::drop('convenio');
+        schema::drop('especialidade');
     }
 }
