@@ -31,8 +31,13 @@
 	  </div>
 		@if (Route::has('login'))
 			<div class="top-right links">
-				<a href="{{ url('/login') }}">Entrar</a>
-				<a href="{{ url('/register') }}">Cadastrar</a>
+				@if (Auth::guest())
+					<a href="{{ url('/login') }}">Entrar</a>
+					<a href="{{ url('/register') }}">Cadastrar</a>
+				@else
+					Bem vindo, {{ Auth::user()->nome }}
+					<a href="{{ Auth::logout() }}">Sair</a>
+				@endif
 			</div>
 		@endif
 	</nav>
@@ -61,15 +66,15 @@
 						Contato
 					</li>
 
-				</ul>				
+				</ul>
 			</div>
-			
+
 			<div class="col-md-2 midias-socias">
-				Mídias Sociais		
+				Mídias Sociais
 				<ul class="md-list">
 					<li><img alt="Brand" class="icon-midia-social" alt="facebook" src="{{ url('/imgs/facebook-icon.png') }}"></li>
 					<li><img alt="Brand" class="icon-midia-social" alt="twitter" src="{{ url('/imgs/twitter-icon.png') }}"></li>
-					<li><img alt="Brand" class="icon-midia-social" alt="google plus" src="{{ url('/imgs/g+-icon.png') }}"></li>	
+					<li><img alt="Brand" class="icon-midia-social" alt="google plus" src="{{ url('/imgs/g+-icon.png') }}"></li>
 				</ul>
 
 
@@ -93,7 +98,7 @@
 		<div class="copyright">
 			<div class="container">
 				© FindDoctor 2016
-			</div>	
+			</div>
 		</div>
 
 	</div>

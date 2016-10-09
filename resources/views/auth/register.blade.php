@@ -24,15 +24,15 @@
                             </div>
                         </div>
 
-                         <div class="form-group{{ $errors->has('crmcpf') ? ' has-error' : '' }}">
-                            <label for="crmcpf" class="col-md-4 control-label">CPF/CRM</label>
+                         <div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
+                            <label for="cpf" class="col-md-4 control-label">CPF</label>
 
                             <div class="col-md-6">
-                                <input id="crmcpf" type="text" class="form-control" name="crmcpf" value="{{ old('crmcpf') }}" required autofocus>
+                                <input id="cpf" type="text" class="form-control" name="cpf" value="{{ old('cpf') }}" required autofocus>
 
-                                @if ($errors->has('crmcpf'))
+                                @if ($errors->has('cpf'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('crmcpf') }}</strong>
+                                        <strong>{{ $errors->first('cpf') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -80,29 +80,29 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Senha</label>
+                        <div class="form-group{{ $errors->has('senha') ? ' has-error' : '' }}">
+                            <label for="senha" class="col-md-4 control-label">Senha</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="senha" type="password" class="form-control" name="senha" required>
 
-                                @if ($errors->has('password'))
+                                @if ($errors->has('senha'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong>{{ $errors->first('senha') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirmar Senha</label>
+                        <div class="form-group{{ $errors->has('senha_confirmation') ? ' has-error' : '' }}">
+                            <label for="senha-confirm" class="col-md-4 control-label">Confirmar Senha</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="senha-confirm" type="password" class="form-control" name="senha_confirmation" required>
 
-                                @if ($errors->has('password_confirmation'))
+                                @if ($errors->has('senha_confirmation'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                        <strong>{{ $errors->first('senha_confirmation') }}</strong>
                                     </span>
                                 @endif
                             </div>

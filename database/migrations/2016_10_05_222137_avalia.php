@@ -14,7 +14,7 @@ class avalia extends Migration
     public function up()
     {
         schema::create('avalia', function(Blueprint $table){
-            $table->integer('pacientecpf');
+            $table->string('pacientecpf', 12);
             $table->integer('ncrm');
             $table->string('comentarios', 255);
             $table->integer('nota');
@@ -22,7 +22,7 @@ class avalia extends Migration
         });
         schema::table('avalia', function($table){
             $table->foreign('ncrm')->references('crm')->on('medico')->onDelete('cascade');
-            $table->foreign('pacientecpf')->references('cpf')->on('paciente')->onDelete('cascade');
+            $table->foreign('pacientecpf')->references('cpf')->on('pacientes')->onDelete('cascade');
         });
     }
 
