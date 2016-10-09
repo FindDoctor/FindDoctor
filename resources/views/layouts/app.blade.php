@@ -31,8 +31,8 @@
 	  </div>
 		@if (Route::has('login'))
 			<div class="top-right links">
-				<a href="{{ url('/login') }}">Login</a>
-				<a href="{{ url('/register') }}">Register</a>
+				<a href="{{ url('/login') }}">Entrar</a>
+				<a href="{{ url('/register') }}">Cadastrar</a>
 			</div>
 		@endif
 	</nav>
