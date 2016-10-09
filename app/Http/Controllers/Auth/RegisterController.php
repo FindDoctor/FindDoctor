@@ -49,10 +49,10 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'nome' => 'required|max:70|min:6',
-			'crmcpf' => 'required|max:11|min:11',
-			'telefone' => 'required|max:11|min:10'
-            'email' => 'required|email|max:50|unique:paciente',
-			'endereco' => 'required|max:100|min:6'
+			'cpf' => 'required|max:11|min:10',
+			'telefone' => 'required|max:11|min:10',
+            'email' => 'required|email|max:50|unique:pacientes',
+			'endereco' => 'required|max:100|min:6',
             'senha' => 'required|min:6|confirmed',
         ]);
     }
@@ -67,7 +67,7 @@ class RegisterController extends Controller
     {
         return Paciente::create([
             'nome' => $data['nome'],
-            'cpf' => $data['crmcpf'],
+            'cpf' => $data['cpf'],
             'telefone' => $data['telefone'],
             'email' => $data['email'],
             'endereco' => $data['endereco'],
