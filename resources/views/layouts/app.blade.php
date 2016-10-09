@@ -24,7 +24,7 @@
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 		<div class="navbar-header">
-		  <a class="navbar-brand" href="#">
+		  <a class="navbar-brand" href="{{ url('/') }}">
 			<img alt="Brand" height="54px" src="{{ url('/imgs/logo-fd.png') }}">
 		  </a>
 		</div>
