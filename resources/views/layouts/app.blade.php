@@ -42,11 +42,66 @@
 		@endif
 	</nav>
 
-    @yield('content')
+	<div class="content">
+    	@yield('content')
+    </div>
 
 	<div id="footer" class="footer">
 
-		BYE
+		<section class="container">
+			<div class="col-md-4">
+				<img id="logo-bottom" alt="Brand" height="54px" src="{{ url('/imgs/logo-fd.png') }}">
+			</div>
+
+			<div class="col-md-4">
+				<ul>
+					<li>
+						Quem somos nós?
+					</li>
+					<li>
+						Como funciona?
+					</li>
+					<li>
+						Reclame aqui
+					</li>
+					<li>
+						Contato
+					</li>
+
+				</ul>				
+			</div>
+			
+			<div class="col-md-2 midias-socias">
+				Mídias Sociais		
+				<ul class="md-list">
+					<li><img alt="Brand" class="icon-midia-social" alt="facebook" src="{{ url('/imgs/facebook-icon.png') }}"></li>
+					<li><img alt="Brand" class="icon-midia-social" alt="twitter" src="{{ url('/imgs/twitter-icon.png') }}"></li>
+					<li><img alt="Brand" class="icon-midia-social" alt="google plus" src="{{ url('/imgs/g+-icon.png') }}"></li>	
+				</ul>
+
+
+			</div>
+
+			<div class="col-md-2">
+				<div class="vcard">
+					<p class="fn">FindDoctor<p>
+					<p class="adr">
+					<span class="street-address">HTML5 Hospital</span><br>
+					<span class="region">Doctorville</span><br>
+					<span class="postal-code">Postal Code</span><br>
+					<span class="country-name">Great Britain</span>
+					</p>
+					<p class="tel">+44 (0)XXXX XXXXXX</p>
+				</div>
+			</div>
+
+		</section>
+
+		<div class="copyright">
+			<div class="container">
+				© FindDoctor 2016
+			</div>	
+		</div>
 
 	</div>
 

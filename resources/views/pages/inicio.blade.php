@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-		<div class="map" id="map"></div>
-
-
+		    <div class="map" id="map"></div>
         <div id="filtros" class="filtros">
                 <form id="filtros-home" class="form-horizontal">
                     <fieldset>

@@ -114,8 +114,46 @@ html, body {
   width: 100%;
 }
 
+.content{
+  padding: 40px 0;
+}
+
 .footer {
   width: 100%;
-  height: 200px;
-  border: 1px solid black;
+  height: 150px;
+  background:#FBF9F6;
+
+  section{
+
+    padding: 20px 0;
+    &.container{
+      padding-top:40px;
+
+      img{
+        cursor:pointer;
+      }
+
+      ul{
+        list-style: none;
+        width: 200px;
+        padding: 0;
+      }
+
+     .icon-midia-social{
+        width:32px;
+        height: 32px;
+        float: left;
+        margin-right: 10px;
+      }    
+
+    }
+  }
+
+  .copyright{
+    width: 100%;
+    color: white;
+    background:black;
+  }
 }
+
+
