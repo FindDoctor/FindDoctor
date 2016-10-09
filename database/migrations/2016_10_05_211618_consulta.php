@@ -16,16 +16,16 @@ class consulta extends Migration
         schema::create('consulta', function(Blueprint $table){
             $table->integer('ncrm');
             $table->integer('consultorioid')->unsigned();
-            $table->integer('pacientecpf');
+            $table->string('pacientecpf', 12);
             $table->time('hora');
             $table->date('data');
             $table->primary(array('ncrm','pacientecpf','consultorioid'));
         });
-        
+
         schema::table('consulta', function($table){
             $table->foreign('ncrm')->references('crm')->on('medico')->onDelete('cascade');
             $table->foreign('consultorioid')->references('id_consultorio')->on('consultorio')->onDelete('cascade');
-            $table->foreign('pacientecpf')->references('cpf')->on('paciente')->onDelete('cascade');
+            $table->foreign('pacientecpf')->references('cpf')->on('pacientes')->onDelete('cascade');
         });
     }
 
