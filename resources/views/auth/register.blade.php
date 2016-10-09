@@ -24,15 +24,15 @@
                             </div>
                         </div>
 
-                         <div class="form-group{{ $errors->has('crmcpf') ? ' has-error' : '' }}">
-                            <label for="crmcpf" class="col-md-4 control-label">CPF/CRM</label>
+                         <div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
+                            <label for="cpf" class="col-md-4 control-label">CPF</label>
 
                             <div class="col-md-6">
-                                <input id="crmcpf" type="text" class="form-control" name="crmcpf" value="{{ old('crmcpf') }}" required autofocus>
+                                <input id="cpf" type="text" class="form-control" name="cpf" value="{{ old('cpf') }}" required autofocus>
 
-                                @if ($errors->has('crmcpf'))
+                                @if ($errors->has('cpf'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('crmcpf') }}</strong>
+                                        <strong>{{ $errors->first('cpf') }}</strong>
                                     </span>
                                 @endif
                             </div>
