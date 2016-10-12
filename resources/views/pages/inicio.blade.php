@@ -107,7 +107,7 @@
 		@parent
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAguzcFY7o2fh08MZKHlIisrTvxrHBE1Z4"></script>
-		<script src="{{ url('/js/index.js') }}"></script>
+		<script src="{{ URL::asset('js/index.js') }}"></script>
 @endsection
     </body>
 </html>

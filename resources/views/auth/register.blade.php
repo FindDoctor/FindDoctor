@@ -151,5 +151,5 @@
 @section('js')
 	@parent
 
-	<script src="{{ url('/js/register.js') }}"></script>
+	<script src="{{ URL::asset('js/register.js') }}"></script>
 @endsection
