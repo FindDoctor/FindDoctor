@@ -15,13 +15,13 @@ class CreateMedicosTable extends Migration
     {
         Schema::create('medicos', function (Blueprint $table){
 			$table->increments('id');
-            $table->integer('crm')->unique();
+            $table->string('crm')->unique();
             $table->string('nome');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('Endereco', 100)->nullable();
-            $table->integer('Telefone')->nullable();
-			$table->rememberToken();
+            $table->string('Telefone')->nullable();
+			$table->rememberToken()->nullable();
  -          $table->timestamps();
         });
     }

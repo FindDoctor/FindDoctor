@@ -21,7 +21,7 @@ class CreatePacientesTable extends Migration
             $table->string('password');
             $table->string('telefone');
             $table->string('endereco',100);
-			$table->rememberToken();
+			$table->rememberToken()->nullable();
  -          $table->timestamps();
         });
     }
