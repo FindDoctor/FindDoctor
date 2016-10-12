@@ -15,11 +15,11 @@ class CreateMedicoconsultorioTable extends Migration
     {
         schema::create('medicoconsultorio', function(Blueprint $table){
             $table->integer('consultorioid')->unsigned();
-            $table->integer('ncrm');
+            $table->unsignedInteger('medico_id');
         });
 
         schema::table('medicoconsultorio', function($table){
-            $table->foreign('ncrm')->references('crm')->on('medicos')->onDelete('cascade');
+            $table->foreign('medico_id')->references('id')->on('medicos')->onDelete('cascade');
             $table->foreign('consultorioid')->references('id_consultorio')->on('consultorio')->onDelete('cascade');
         });
     }

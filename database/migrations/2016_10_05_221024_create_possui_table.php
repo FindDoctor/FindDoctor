@@ -15,11 +15,11 @@ class CreatePossuiTable extends Migration
     {
         schema::create('possui', function(Blueprint $table){
             $table->integer('especialidadeid')->unsigned();
-            $table->integer('ncrm');
-            $table->primary('especialidadeid','ncrm');
+            $table->unsignedInteger('medico_id');
+            $table->primary('especialidadeid','medico_id');
         });
         schema::table('possui', function($table){
-            $table->foreign('ncrm')->references('crm')->on('medicos')->onDelete('cascade');
+            $table->foreign('medico_id')->references('id')->on('medicos')->onDelete('cascade');
             $table->foreign('especialidadeid')->references('id_especialidade')->on('especialidade')->onDelete('cascade');
         });
     }

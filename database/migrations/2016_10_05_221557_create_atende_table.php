@@ -15,11 +15,11 @@ class CreateAtendeTable extends Migration
     {
         schema::create('atende', function(Blueprint $table){
             $table->integer('convenioid')->unsigned();
-            $table->integer('ncrm');
-            $table->primary('convenioid', 'ncrm');
+            $table->unsignedInteger('medico_id');
+            $table->primary('convenioid', 'medico_id');
         });
         schema::table('atende', function($table){
-            $table->foreign('ncrm')->references('crm')->on('medicos')->onDelete('cascade');
+            $table->foreign('medico_id')->references('id')->on('medicos')->onDelete('cascade');
             $table->foreign('convenioid')->references('id_convenio')->on('convenio')->onDelete('cascade');
         });
     }

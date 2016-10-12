@@ -33,6 +33,6 @@ class CreateMedicosTable extends Migration
      */
     public function down()
     {
-        schema::drop('medico');
+        schema::drop('medicos');
     }
 }
