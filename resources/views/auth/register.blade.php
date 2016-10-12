@@ -80,29 +80,29 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('senha') ? ' has-error' : '' }}">
-                            <label for="senha" class="col-md-4 control-label">Senha</label>
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Senha</label>
 
                             <div class="col-md-6">
-                                <input id="senha" type="password" class="form-control" name="senha" required>
+                                <input id="password" type="password" class="form-control" name="password" required>
 
-                                @if ($errors->has('senha'))
+                                @if ($errors->has('password'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('senha') }}</strong>
+                                        <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('senha_confirmation') ? ' has-error' : '' }}">
-                            <label for="senha-confirm" class="col-md-4 control-label">Confirmar Senha</label>
+                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                            <label for="password-confirm" class="col-md-4 control-label">Confirmar Senha</label>
 
                             <div class="col-md-6">
-                                <input id="senha-confirm" type="password" class="form-control" name="senha_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 
-                                @if ($errors->has('senha_confirmation'))
+                                @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('senha_confirmation') }}</strong>
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </span>
                                 @endif
                             </div>

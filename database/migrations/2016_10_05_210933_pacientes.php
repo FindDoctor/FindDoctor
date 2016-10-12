@@ -18,7 +18,7 @@ class Pacientes extends Migration
             $table->string('cpf', 12)->unique();
             $table->string('nome',70);
             $table->string('email',50)->unique();
-            $table->string('senha');
+            $table->string('password');
             $table->string('telefone');
             $table->string('endereco',100);
 			$table->rememberToken();

@@ -53,7 +53,7 @@ class RegisterController extends Controller
 			'telefone' => 'required|max:11|min:10',
             'email' => 'required|email|max:50|unique:pacientes',
 			'endereco' => 'required|max:100|min:6',
-            'senha' => 'required|min:6|confirmed',
+            'password' => 'required|min:6|confirmed',
         ]);
     }
 
@@ -71,7 +71,7 @@ class RegisterController extends Controller
             'telefone' => $data['telefone'],
             'email' => $data['email'],
             'endereco' => $data['endereco'],
-            'senha' => bcrypt($data['senha']),
+            'password' => bcrypt($data['password']),
         ]);
     }
 }
