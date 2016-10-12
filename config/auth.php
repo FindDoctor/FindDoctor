@@ -107,11 +107,13 @@ return [
     'passwords' => [
         'pacientes' => [
             'provider' => 'pacientes',
+			'email' => 'auth.pacientes.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
         'medicos' => [
             'provider' => 'medicos',
+			'email' => 'auth.medicos.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
