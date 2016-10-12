@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Paciente;
+use App\Medico;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -47,14 +48,26 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'nome' => 'required|max:70|min:6',
-			'cpf' => 'required|max:11|min:10',
-			'telefone' => 'required|max:11|min:10',
-            'email' => 'required|email|max:50|unique:pacientes',
-			'endereco' => 'required|max:100|min:6',
-            'password' => 'required|min:6|confirmed',
-        ]);
+		if(array_key_exists("cpf", $data)) {
+			return Validator::make($data, [
+	            'nome' => 'required|max:70|min:6',
+				'cpf' => 'required|max:11|min:10|unique:pacientes',
+				'telefone' => 'required|max:11|min:10',
+	            'email' => 'required|email|max:50|unique:pacientes',
+				'endereco' => 'required|max:100|min:6',
+	            'password' => 'required|min:6|confirmed',
+	        ]);
+		}
+		else {
+			return Validator::make($data, [
+	            'nome' => 'required|max:70|min:6',
+				'crm' => 'required|unique:medicos',
+				'telefone' => 'required|max:11|min:10',
+	            'email' => 'required|email|max:50|unique:medicos',
+				'endereco' => 'required|max:100|min:6',
+	            'password' => 'required|min:6|confirmed',
+	        ]);
+		}
     }
 
     /**
@@ -65,13 +78,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return Paciente::create([
-            'nome' => $data['nome'],
-            'cpf' => $data['cpf'],
-            'telefone' => $data['telefone'],
-            'email' => $data['email'],
-            'endereco' => $data['endereco'],
-            'password' => bcrypt($data['password']),
-        ]);
+		if(array_key_exists("cpf", $data)) {
+	        return Paciente::create([
+	            'nome' => $data['nome'],
+	            'cpf' => $data['cpf'],
+	            'telefone' => $data['telefone'],
+	            'email' => $data['email'],
+	            'endereco' => $data['endereco'],
+	            'password' => bcrypt($data['password']),
+	        ]);
+		}
+		else {
+			return Medico::create([
+	            'nome' => $data['nome'],
+	            'crm' => $data['crm'],
+	            'telefone' => $data['telefone'],
+	            'email' => $data['email'],
+	            'endereco' => $data['endereco'],
+	            'password' => bcrypt($data['password']),
+	        ]);
+		}
     }
 }

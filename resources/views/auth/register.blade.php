@@ -7,7 +7,18 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Cadastrar</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+					<div id="tipoCadastro" class="form-group">
+						<div id="tipoCadastro" class="col-md-6 col-md-offset-4">
+							<button class="btn btn-primary" id="tipoPaciente">
+								Sou paciente
+							</button>
+							<button class="btn btn-primary" id="tipoMedico">
+								Sou médico
+							</button>
+						</div>
+					</div>
+
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}" id="formCadastro" hidden>
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
@@ -24,7 +35,7 @@
                             </div>
                         </div>
 
-                         <div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}" id="cpf">
                             <label for="cpf" class="col-md-4 control-label">CPF</label>
 
                             <div class="col-md-6">
@@ -33,6 +44,20 @@
                                 @if ($errors->has('cpf'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('cpf') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('crm') ? ' has-error' : '' }}" id="crm">
+                            <label for="crm" class="col-md-4 control-label">CRM</label>
+
+                            <div class="col-md-6">
+                                <input id="crm" type="text" class="form-control" name="crm" value="{{ old('crm') }}" required autofocus>
+
+                                @if ($errors->has('crm'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('crm') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -121,4 +146,10 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+	@parent
+
+	<script src="{{ url('/js/register.js') }}"></script>
 @endsection

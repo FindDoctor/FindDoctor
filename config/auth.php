@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'pacientes',
         ],
+        'medicos' => [
+            'driver' => 'session',
+            'provider' => 'medicos',
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -70,6 +74,11 @@ return [
             'model' => App\Paciente::class,
         ],
 
+        'medicos' => [
+            'driver' => 'eloquent',
+            'model' => App\Medico::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -98,6 +107,11 @@ return [
     'passwords' => [
         'pacientes' => [
             'provider' => 'pacientes',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'medicos' => [
+            'provider' => 'medicos',
             'table' => 'password_resets',
             'expire' => 60,
         ],
