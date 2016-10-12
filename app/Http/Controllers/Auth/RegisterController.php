@@ -53,7 +53,7 @@ class RegisterController extends Controller
 	            'nome' => 'required|max:70|min:6',
 				'cpf' => 'required|max:11|min:10|unique:pacientes',
 				'telefone' => 'required|max:11|min:10',
-	            'email' => 'required|email|max:50|unique:pacientes',
+	            'email' => 'required|email|max:50|unique:pacientes|unique:medicos',
 				'endereco' => 'required|max:100|min:6',
 	            'password' => 'required|min:6|confirmed',
 	        ]);
@@ -63,7 +63,7 @@ class RegisterController extends Controller
 	            'nome' => 'required|max:70|min:6',
 				'crm' => 'required|unique:medicos',
 				'telefone' => 'required|max:11|min:10',
-	            'email' => 'required|email|max:50|unique:medicos',
+	            'email' => 'required|email|max:50|unique:medicos|unique:pacientes',
 				'endereco' => 'required|max:100|min:6',
 	            'password' => 'required|min:6|confirmed',
 	        ]);
