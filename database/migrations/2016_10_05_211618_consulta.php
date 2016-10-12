@@ -23,7 +23,7 @@ class consulta extends Migration
         });
 
         schema::table('consulta', function($table){
-            $table->foreign('ncrm')->references('crm')->on('medico')->onDelete('cascade');
+            $table->foreign('ncrm')->references('crm')->on('medicos')->onDelete('cascade');
             $table->foreign('consultorioid')->references('id_consultorio')->on('consultorio')->onDelete('cascade');
             $table->foreign('pacientecpf')->references('cpf')->on('pacientes')->onDelete('cascade');
         });

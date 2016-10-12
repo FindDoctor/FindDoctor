@@ -19,7 +19,7 @@ class atende extends Migration
             $table->primary('convenioid', 'ncrm');
         });
         schema::table('atende', function($table){
-            $table->foreign('ncrm')->references('crm')->on('medico')->onDelete('cascade');
+            $table->foreign('ncrm')->references('crm')->on('medicos')->onDelete('cascade');
             $table->foreign('convenioid')->references('id_convenio')->on('convenio')->onDelete('cascade');
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Medico extends Migration
+class Medicos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Medico extends Migration
      */
     public function up()
     {
-        Schema::create('medico', function (Blueprint $table){
+        Schema::create('medicos', function (Blueprint $table){
 			$table->increments('id');
             $table->integer('crm')->unique();
             $table->string('nome');

@@ -17,9 +17,9 @@ class medicoconsultorio extends Migration
             $table->integer('consultorioid')->unsigned();
             $table->integer('ncrm');
         });
-        
+
         schema::table('medicoconsultorio', function($table){
-            $table->foreign('ncrm')->references('crm')->on('medico')->onDelete('cascade');
+            $table->foreign('ncrm')->references('crm')->on('medicos')->onDelete('cascade');
             $table->foreign('consultorioid')->references('id_consultorio')->on('consultorio')->onDelete('cascade');
         });
     }

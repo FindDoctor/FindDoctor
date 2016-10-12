@@ -19,7 +19,7 @@ class possui extends Migration
             $table->primary('especialidadeid','ncrm');
         });
         schema::table('possui', function($table){
-            $table->foreign('ncrm')->references('crm')->on('medico')->onDelete('cascade');
+            $table->foreign('ncrm')->references('crm')->on('medicos')->onDelete('cascade');
             $table->foreign('especialidadeid')->references('id_especialidade')->on('especialidade')->onDelete('cascade');
         });
     }

@@ -21,7 +21,7 @@ class avalia extends Migration
             $table->primary('pacientecpf', 'ncrm');
         });
         schema::table('avalia', function($table){
-            $table->foreign('ncrm')->references('crm')->on('medico')->onDelete('cascade');
+            $table->foreign('ncrm')->references('crm')->on('medicos')->onDelete('cascade');
             $table->foreign('pacientecpf')->references('cpf')->on('pacientes')->onDelete('cascade');
         });
     }
