@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class avalia extends Migration
+class CreatePossuiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class avalia extends Migration
      */
     public function up()
     {
-        schema::create('avalia', function(Blueprint $table){
-            $table->string('pacientecpf', 12);
+        schema::create('possui', function(Blueprint $table){
+            $table->integer('especialidadeid')->unsigned();
             $table->integer('ncrm');
-            $table->string('comentarios', 255);
-            $table->integer('nota');
-            $table->primary('pacientecpf', 'ncrm');
+            $table->primary('especialidadeid','ncrm');
         });
-        schema::table('avalia', function($table){
+        schema::table('possui', function($table){
             $table->foreign('ncrm')->references('crm')->on('medicos')->onDelete('cascade');
-            $table->foreign('pacientecpf')->references('cpf')->on('pacientes')->onDelete('cascade');
+            $table->foreign('especialidadeid')->references('id_especialidade')->on('especialidade')->onDelete('cascade');
         });
     }
 
@@ -33,6 +31,6 @@ class avalia extends Migration
      */
     public function down()
     {
-        schema::drop('avalia');
+        schema::drop('possui');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class convenio extends Migration
+class CreateConsultorioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class convenio extends Migration
      */
     public function up()
     {
-        schema::create('convenio', function(Blueprint $table){
-            $table->increments('id_convenio');
-            $table->string('nome', 70);
+        schema::create('consultorio', function (Blueprint $table){
+            $table->increments('id_consultorio');
+            $table->string('endereco', 100);
+            $table->integer('telefone');
         });
     }
 
@@ -26,6 +27,6 @@ class convenio extends Migration
      */
     public function down()
     {
-        schema::drop('convenio');
+        schema::drop('consultorio');
     }
 }

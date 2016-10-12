@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class possui extends Migration
+class CreateMedicoconsultorioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class possui extends Migration
      */
     public function up()
     {
-        schema::create('possui', function(Blueprint $table){
-            $table->integer('especialidadeid')->unsigned();
+        schema::create('medicoconsultorio', function(Blueprint $table){
+            $table->integer('consultorioid')->unsigned();
             $table->integer('ncrm');
-            $table->primary('especialidadeid','ncrm');
         });
-        schema::table('possui', function($table){
+
+        schema::table('medicoconsultorio', function($table){
             $table->foreign('ncrm')->references('crm')->on('medicos')->onDelete('cascade');
-            $table->foreign('especialidadeid')->references('id_especialidade')->on('especialidade')->onDelete('cascade');
+            $table->foreign('consultorioid')->references('id_consultorio')->on('consultorio')->onDelete('cascade');
         });
     }
 
@@ -31,6 +31,6 @@ class possui extends Migration
      */
     public function down()
     {
-        schema::drop('possui');
+        schema::drop('medicoconsultorio');
     }
 }
