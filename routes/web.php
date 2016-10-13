@@ -15,3 +15,14 @@ Auth::routes();
 
 Route::get('/', 'IndexController@index');
 Route::get('/home', 'IndexController@index');
+
+//Medico Login
+Route::get('medico/login', 'MedicoAuth\LoginController@showLoginForm');
+Route::post('medico/login', 'MedicoAuth\LoginController@login');
+Route::get('medico/logout', 'MedicoAuth\LoginController@logout');
+
+//Medico Passwords
+Route::post('medico/password/email', 'MedicoAuth\ForgotPasswordController@sendResetLinkEmail');
+Route::post('medico/password/reset', 'MedicoAuth\ResetPasswordController@reset');
+Route::get('medico/password/reset', 'MedicoAuth\ForgotPasswordController@showLinkRequestForm');
+Route::get('medico/password/reset/{token}', 'MedicoAuth\ResetPasswordController@showResetForm');

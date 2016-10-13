@@ -36,13 +36,14 @@ return [
     */
 
     'guards' => [
+        'medico' => [
+            'driver' => 'session',
+            'provider' => 'medicos',
+        ],
+
         'web' => [
             'driver' => 'session',
             'provider' => 'pacientes',
-        ],
-        'medicos' => [
-            'driver' => 'session',
-            'provider' => 'medicos',
         ],
 
         'api' => [
