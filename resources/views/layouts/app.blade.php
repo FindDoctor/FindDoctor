@@ -90,7 +90,7 @@
 					<span class="postal-code">Postal Code</span><br>
 					<span class="country-name">Great Britain</span>
 					</p>
-					<p class="tel">+44 (0)XXXX XXXXXX</p>
+					<p class="tel">+55 (0)XXXX XXXXXX</p>
 				</div>
 			</div>
 
