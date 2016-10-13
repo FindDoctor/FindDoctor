@@ -75,7 +75,7 @@
 				<ul class="md-list">
 					<li><img alt="Brand" class="icon-midia-social" alt="facebook" src="{{ url('/imgs/facebook-icon.png') }}"></li>
 					<li><img alt="Brand" class="icon-midia-social" alt="twitter" src="{{ url('/imgs/twitter-icon.png') }}"></li>
-					<li><img alt="Brand" class="icon-midia-social" alt="google plus" src="{{ url('/imgs/g+-icon.png') }}"></li>
+					<li><img alt="Brand" class="icon-midia-social" alt="google plus" src="{{ url('/imgs/g-icon.png') }}"></li>
 				</ul>
 
 
