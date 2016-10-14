@@ -23,6 +23,7 @@ class CreateMedicosTable extends Migration
             $table->string('telefone')->nullable();
 			$table->rememberToken()->nullable();
  -          $table->timestamps();
+            $table->string('foto')->nullable();
         });
     }
 
