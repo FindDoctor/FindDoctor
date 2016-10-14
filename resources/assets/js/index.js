@@ -8,7 +8,9 @@ $(document).ready(function () {
 		});
 	else
 		initMap(-15.7217509, -48.0082761);
+
 });
+
 
 function initMap(latitude, longitude) {
 	var uluru = {lat: latitude, lng: longitude};

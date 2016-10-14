@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+
 		    <div class="map" id="map"></div>
         <div id="filtros" class="filtros">
-                <form id="filtros-home" class="form-horizontal">
+                <form id="filtros-home" class="form-horizontal" method="post">
                     <fieldset>
                     <!-- Select Basic -->
                     <div class="form-group">
                      <div class="col-md-4">
-                      <label class="control-label" for="selectbasic">Especialidade</label>
-                        <select id="selectbasic" name="selectbasic" class="form-control">
+                      <label class="control-label" for="especialidade">Especialidade</label>
+                        <select id="especialidade" name="especialidade" class="form-control">
                           <option value="Todas">Todas</option>
                           <option value="Anatomia Patológica">Anatomia Patológica</option>
                           <option value="Anestesiologia">Anestesiologia</option>
@@ -85,18 +86,18 @@
             <div id="cards-medicos" class="cards cards-medicos">
                 <div class="row">
 
-                @for($x = 0; $x < 10; $x++)
+                @foreach ($medicos as $medico)
                     <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
                       <img src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg" alt="...">
                       <div class="caption">
-                        <h3>Nome do Medico</h3>
+                        <h3>{{$medico->nome }}</h3>
                         <p>Info do médico</p>
                         <p><a href="#" class="btn btn-primary" role="button">Ver Médico</a></p>
                       </div>
                     </div>
                     </div>
-				@endfor
+				        @endforeach
 
                 </div>
             </div>
