@@ -17,7 +17,7 @@ class IndexController extends Controller
     {
     	session_start();
 
-        $medicos = DB::table('medico')->get();
+        $medicos = DB::table('medicos')->get();
 
         return view('pages.inicio', ['medicos' => $medicos]);
     }
