@@ -9,6 +9,38 @@ $(document).ready(function () {
 	else
 		initMap(-15.7217509, -48.0082761);
 
+
+
+
+
+	$('#especialidade').change(function(){
+		console.log("testes");
+	});
+	
+	$('#localizacao').focusout(function(){
+		console.log("teste2");
+	});
+
+	$('#nome').focusout(function(){
+		$.ajax({
+			url: 'http://localhost:8080/FindDoctor/public/carregamedicos',
+			type: 'POST', 
+			data: $('#filtros-home').serialize(), 
+			dataType: 'json',
+			beforeSend: function() {
+				 
+			},
+			success: function(data) {
+				console.log(data);
+			},
+			error: function(e) {
+			},
+			complete: function(e) {
+			}
+		});
+	});
+
+
 });
 
 

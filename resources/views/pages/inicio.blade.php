@@ -4,7 +4,8 @@
 
 		    <div class="map" id="map"></div>
         <div id="filtros" class="filtros">
-                <form id="filtros-home" class="form-horizontal" method="post">
+                <form id="filtros-home" class="form-horizontal" action="" method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                     <!-- Select Basic -->
                     <div class="form-group">
@@ -84,7 +85,7 @@
 
 
             <div id="cards-medicos" class="cards cards-medicos">
-                <div class="row">
+                <div id="row-medico" class="row">
 
                 @foreach ($medicos as $medico)
                     <div class="col-sm-6 col-md-4">

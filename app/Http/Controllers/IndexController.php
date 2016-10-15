@@ -13,6 +13,7 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
     	session_start();
@@ -22,8 +23,23 @@ class IndexController extends Controller
         return view('pages.inicio', ['medicos' => $medicos]);
     }
 
-    // public function loadMedics(Request $request){ 
-    //     session_start();  
-    //     echo "";
-    // }
+    public function loadMedics(Request $request){ 
+
+        $medicos = DB::table('medicos');
+    
+        if(isset($_POST['nome']) && strlen($_POST['nome']) > 0){
+            $medicos->where('nome', 'like', $_POST['nome'] .'%');
+        }
+
+        $result = $medicos->get();
+
+        $result = json_encode($result);
+
+
+        echo $result;
+        exit();
+
+        //Incluir campos de WHERE
+
+    }
 }
