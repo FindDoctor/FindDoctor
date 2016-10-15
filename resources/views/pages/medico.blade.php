@@ -1,7 +1,50 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Medicos</h2>
+	<div class="container">
+		<div>
+			<div class="col-md-3">
+				<img src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg" width="150px">
+			</div>
+			<div id="info_medico" class="col-md-3">
+				<p>Nome:</p><h2></h2>
+				<p>Especialidade:</p><h2></h2>
+				<p>Formação:</p><h2></h2>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<p>Nota Média:</p>
+		</div>
+	</div>
+	<p>BLABLABLABLA</p>
+	<div class="container">
+		<form id="dados-consulta" actio="" method-"post">
+			<div class="col-md-3">
+				<p>Dados:</p>
+				<p>Nome <input id="nome" type="text" ></p>
+				<p>Idade <input id="idade" type="number" min="0"></p>
+				<p>Sexo
+					<select id="sexo">
+						<option value="Masculino"> Masculino </option>
+						<option value="Feminino"> Feminino </option>
+					</select>
+				</p>
+			</div>
+			<div>
+				<p>Motivo da Consulta <input id="nome" type="text" ></p>
+			</div>
+			<div>
+				<p>Consultorio
+					<select id="consultorio">
+						<option value="Rua Brasil"> Rua Brasil </option>
+					</select>
+				</p>
+				<p>Data da consulta <input id="data-consulta" type="date" ></p>
+				<input type="button" name="agendar" value="Agendar">
+		</form>
+		</div>
+
+	</div>
 
 @endsection
 
