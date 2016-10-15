@@ -23,10 +23,10 @@ class IndexController extends Controller
         return view('pages.inicio', ['medicos' => $medicos]);
     }
 
-    public function loadMedics(Request $request){ 
+    public function loadMedics(Request $request){
 
         $medicos = DB::table('medicos');
-    
+
         if(isset($_POST['nome']) && strlen($_POST['nome']) > 0){
             $medicos->where('nome', 'like', '%' . $_POST['nome'] .'%');
         }
