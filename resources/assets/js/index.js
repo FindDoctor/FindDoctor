@@ -32,6 +32,26 @@ $(document).ready(function () {
 			},
 			success: function(data) {
 				console.log(data);
+
+				$('#row-medico').fadeOut('slow',function(){
+						var string ="";
+
+						$.each(data, function( index, value ) {
+						  console.log( index + ": " + value );
+
+						   string += '<div class="col-sm-6 col-md-4"><div class="thumbnail">';
+		                   string += '<img src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg" alt="...">';
+		                   string += '<div class="caption"><h3>' + value.nome + '</h3><p>Info do médico</p><p><a href="#" class="btn btn-primary" role="button">Ver Médico</a></p></div></div></div>'
+		                   	   
+						});
+						$('#row-medico').html(string);
+				});
+
+
+
+
+
+				$('#row-medico').fadeIn('slow');
 			},
 			error: function(e) {
 			},

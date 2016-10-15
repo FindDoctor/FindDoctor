@@ -28,13 +28,12 @@ class IndexController extends Controller
         $medicos = DB::table('medicos');
     
         if(isset($_POST['nome']) && strlen($_POST['nome']) > 0){
-            $medicos->where('nome', 'like', $_POST['nome'] .'%');
+            $medicos->where('nome', 'like', '%' . $_POST['nome'] .'%');
         }
 
         $result = $medicos->get();
 
         $result = json_encode($result);
-
 
         echo $result;
         exit();
