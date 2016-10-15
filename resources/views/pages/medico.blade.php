@@ -20,14 +20,10 @@
 	<div class="section-2 container">
 
 		<div class="review-medico col-md-4">
-			
-			<?php 
 
-				for ($i=0; $i < 10 ; $i++) { 
-					echo '<div class="item"></div>';
-				}
-
-			?>
+			@for ($i=0; $i < 10 ; $i++)
+				<div class="item"></div>
+			@endfor
 
 		</div>
 
