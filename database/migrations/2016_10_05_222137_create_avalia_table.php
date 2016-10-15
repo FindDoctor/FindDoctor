@@ -15,13 +15,13 @@ class CreateAvaliaTable extends Migration
     {
         schema::create('avalia', function(Blueprint $table){
             $table->string('pacientecpf', 12);
-            $table->unsignedInteger('medico_id');
+            $table->string('crm');
             $table->string('comentarios', 255);
             $table->integer('nota');
             $table->primary('pacientecpf', 'medico_id');
         });
         schema::table('avalia', function($table){
-            $table->foreign('medico_id')->references('id')->on('medicos')->onDelete('cascade');
+            $table->foreign('crm')->references('crm')->on('medicos')->onDelete('cascade');
             $table->foreign('pacientecpf')->references('cpf')->on('pacientes')->onDelete('cascade');
         });
     }
