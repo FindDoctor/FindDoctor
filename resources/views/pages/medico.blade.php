@@ -1,14 +1,20 @@
 @extends('layouts.app')
 
+@foreach ($medico as $medico)
+@endforeach
+
+<?php var_dump($medico);?>
+
 @section('content')
 	<div class="container info-medico">
-		<div>
-			<div class="col-md-3">
+		<div class="col-md-9">
+			<div class="col-md-4">
 				<img class="img-medico" src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg">
 			</div>
-			<div id="info_medico" class="col-md-3">
-				<p>Nome:</p><h2></h2>
-				<p>Especialidade:</p><h2></h2>
+			<div id="info_medico" class="col-md-8">
+				<h2>{{$medico->nome }}</h2>
+				<h5><strong>Email: </strong>{{$medico->email}}</h5>
+				<h5><strong>Telefone: </strong>{{$medico->telefone}}</h5>
 				<p>Formação:</p><h2></h2>
 			</div>
 		</div>
@@ -27,10 +33,11 @@
 
 		</div>
 
+
 		<div id="marcar-consulta" class="marcar-consulta col-md-8">
-			<form id="dados-consulta" action="" method="post">
+			<h2>Marcar uma consulta</h2>
+			<form id="dados-consulta" class="dados-consulta" action="" method="post">
 				<div class="col-md-4">
-					<p>Dados:</p>
 					<p>Nome <input id="nome" type="text" ></p>
 					<p>Idade <input id="idade" type="number" min="0"></p>
 					<p>Sexo
@@ -41,7 +48,7 @@
 					</p>
 				</div>
 				<div class="col-md-4">
-					<p>Motivo da Consulta <input id="nome" type="text" ></p>
+					<p>Motivo da Consulta <textarea id="motivo_consulta" name="motivo_consulta" class="motivo_consulta"></textarea></p>
 				</div>
 				<div class="col-md-4">
 					<p>Consultorio

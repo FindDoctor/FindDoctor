@@ -29,18 +29,16 @@ $(document).ready(function () {
         })
 
 		$.ajax({
-			url: '/carregamedicos',
+			url: baseUrl + '/carregamedicos',
 			type: 'POST',
 			data: $('#filtros-home').serialize(),
 			dataType: 'json',
 			success: function(data) {
-				console.log(data);
 
 				$('#row-medico').fadeOut('slow',function(){
 						var string ="";
 
 						$.each(data, function( index, value ) {
-						  console.log( index + ": " + value );
 
 						   string += '<div class="col-sm-6 col-md-4"><div class="thumbnail">';
 		                   string += '<img src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg" alt="...">';
