@@ -5923,4 +5923,43 @@ html, body {
     color: white;
     background: black; }
 
+.section-2 {
+  margin: 0 auto;
+  padding: 0; }
+  .section-2 .review-medico {
+    overflow: scroll;
+    height: 308px;
+    float: left;
+    margin-top: 10px;
+    left: -15px; }
+    .section-2 .review-medico .item {
+      height: 50px;
+      width: 100%;
+      float: left;
+      border: 1px solid #D8CFBE;
+      background: #ece7df;
+      margin-top: 10px; }
+  .section-2 .marcar-consulta {
+    padding: 50px;
+    padding-left: 20px;
+    border: 1px solid #D8CFBE;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    background: #ece7df;
+    font-size: 16px;
+    font-family: "HelveticaNeue"; }
+
+.info-medico {
+  padding: 50px;
+  padding-left: 20px;
+  border: 1px solid #D8CFBE;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  background: #ece7df;
+  font-size: 16px;
+  font-family: "HelveticaNeue"; }
+  .info-medico .img-medico {
+    width: 100%;
+    border-radius: 50%; }
+
 /*# sourceMappingURL=app.css.map */
