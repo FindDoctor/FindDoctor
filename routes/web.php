@@ -31,4 +31,9 @@ Route::get('medico/password/reset/{token}', 'MedicoAuth\ResetPasswordController@
 Route::post('/carregamedicos', 'IndexController@loadMedics');
 
 //Pagina do médico
-Route::get('/medico', 'MedicoController@index');
+Route::get('/medico', function(){
+	return redirect('');
+});	
+
+Route::get('/medico/{medico}', ['uses' => 'MedicoController@index']);
+

@@ -8,13 +8,16 @@ use App\Http\Requests;
 
 class MedicoController extends Controller
 {
-    public function index()
+    public function index($medico)
     {
     	session_start();
-    	// $id = Request::query('id');
+        $medico_return = DB::table('medicos')->where('crm',$medico)->get();
 
-        // $medico = DB::table('medicos')->where('',10)->get();
+        if (!$medico_return->count()) {
+    		return redirect('/');
+		}
 
-        return view('pages.medico');
+
+        return view('pages.medico',['medico' => $medico_return]);
     }
 }

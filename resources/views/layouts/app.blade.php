@@ -111,6 +111,9 @@
 
     <!-- Scripts -->
 @section('js')
+	<script>
+		var baseUrl = "<?php echo URL::to('/') ?>";
+	</script>
     <script src="{{ URL::asset('js/app.js') }}"></script>
 @show
 </body>

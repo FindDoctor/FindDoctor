@@ -5940,18 +5940,22 @@ html, body {
       background: #ece7df;
       margin-top: 10px; }
   .section-2 .marcar-consulta {
-    padding: 50px;
-    padding-left: 20px;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
     border: 1px solid #D8CFBE;
     margin-top: 10px;
     margin-bottom: 50px;
+    float: left;
     background: #ece7df;
     font-size: 16px;
     font-family: "HelveticaNeue"; }
+    .section-2 .marcar-consulta .dados-consulta .motivo_consulta {
+      height: 157px; }
 
 .info-medico {
-  padding: 50px;
-  padding-left: 20px;
+  padding: 30px;
+  padding-left: 10px;
   border: 1px solid #D8CFBE;
   margin-top: 40px;
   margin-bottom: 50px;
