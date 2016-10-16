@@ -41,4 +41,10 @@ class IndexController extends Controller
         //Incluir campos de WHERE
 
     }
+    public function infomedico()
+    {
+    	session_start();
+
+        return view('pages.infomedico');
+    }
 }
