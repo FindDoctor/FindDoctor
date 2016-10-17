@@ -40,3 +40,7 @@ Route::get('/infomedico', 'IndexController@infomedico');
 
 
 Route::post('/marcar-consulta', 'MedicoController@marcarConsulta');
+
+//Social
+Route::get('/social/redirect', 'SocialAuthController@redirect');
+Route::get('/social/callback', 'SocialAuthController@callback');
