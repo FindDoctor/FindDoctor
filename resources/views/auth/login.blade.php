@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('css')
+	@parent
+	<link href="{{ URL::asset('css/bootstrap-social.min.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -49,10 +54,14 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
+                            <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Entrar
                                 </button>
+
+								<a href="{{ url('social/redirect') }}" class="btn btn-block btn-social btn-facebook">
+                                    <span class="fa fa-facebook"></span> Entrar com o Facebook
+                                </a>
 
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Esqueceu sua senha?
