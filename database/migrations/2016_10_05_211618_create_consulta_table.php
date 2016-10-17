@@ -14,16 +14,16 @@ class CreateConsultaTable extends Migration
     public function up()
     {
         schema::create('consulta', function(Blueprint $table){
-            $table->unsignedInteger('medico_id');
+            $table->unsignedInteger('medico_crm');
             $table->integer('consultorioid')->unsigned();
             $table->string('pacientecpf', 12);
             $table->time('hora');
             $table->date('data');
-            $table->primary(array('medico_id','pacientecpf','consultorioid'));
+            $table->primary(array('medico_crm','pacientecpf','consultorioid'));
         });
 
         schema::table('consulta', function($table){
-            $table->foreign('medico_id')->references('id')->on('medicos')->onDelete('cascade');
+            $table->foreign('medico_crm')->references('id')->on('medicos')->onDelete('cascade');
             $table->foreign('consultorioid')->references('id_consultorio')->on('consultorio')->onDelete('cascade');
             $table->foreign('pacientecpf')->references('cpf')->on('pacientes')->onDelete('cascade');
         });

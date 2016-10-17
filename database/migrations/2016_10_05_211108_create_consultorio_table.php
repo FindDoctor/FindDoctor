@@ -17,6 +17,11 @@ class CreateConsultorioTable extends Migration
             $table->increments('id_consultorio');
             $table->string('endereco', 100);
             $table->integer('telefone');
+            $table->unsignedInteger('medico_crm');
+        });
+
+        schema::table('consultorio', function($table){
+            $table->foreign('medico_crm')->references('id')->on('medicos');
         });
     }
 
