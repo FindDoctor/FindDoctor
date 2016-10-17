@@ -5923,6 +5923,44 @@ html, body {
     color: white;
     background: black; }
 
+.black-filter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: black;
+  z-index: 10;
+  opacity: 0.4;
+  display: none; }
+
+.avaliar-box {
+  display: none;
+  z-index: 11;
+  width: 600px;
+  height: 200px;
+  border-radius: 5px;
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 1px solid #D8CFBE;
+  background: #ece7df;
+  padding: 50px; }
+
+.btn {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  color: white;
+  font-family: "helveticabold";
+  font-size: 18px;
+  background: #D8CFBE;
+  text-decoration: none;
+  cursor: pointer; }
+
 .section-2 {
   margin: 0 auto;
   padding: 0; }
@@ -5965,5 +6003,19 @@ html, body {
   .info-medico .img-medico {
     width: 100%;
     border-radius: 50%; }
+  .info-medico .avaliar-btn {
+    float: left;
+    width: 100%; }
+    .info-medico .avaliar-btn a {
+      float: right;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid black;
+      color: white;
+      font-family: "helveticabold";
+      font-size: 18px;
+      background: #D8CFBE;
+      text-decoration: none;
+      cursor: pointer; }
 
 /*# sourceMappingURL=app.css.map */

@@ -21,6 +21,7 @@
 		<div class="col-md-3">
 			<p>Nota Média:</p>
 		</div>
+		<div class="container avaliar-btn"><a id="avaliar-btn">Avaliar este médico</a></div>
 	</div>
 
 	<div class="section-2 container">
@@ -36,35 +37,42 @@
 
 		<div id="marcar-consulta" class="marcar-consulta col-md-8">
 			<h2>Marcar uma consulta</h2>
-			<form id="dados-consulta" class="dados-consulta" action="" method="post">
-				<div class="col-md-4">
-					<p>Nome <input id="nome" type="text" ></p>
-					<p>Idade <input id="idade" type="number" min="0"></p>
-					<p>Sexo
-					<select id="sexo">
-						<option value="Masculino"> Masculino </option>
-						<option value="Feminino"> Feminino </option>
-					</select>
-					</p>
-				</div>
+			<form id="dados-consulta" class="dados-consulta" action="{{ URL::to('/') }}/marcar-consulta" method="post">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<input type="hidden" name="crm" value="{{$medico->crm}}">
 				<div class="col-md-4">
 					<p>Motivo da Consulta <textarea id="motivo_consulta" name="motivo_consulta" class="motivo_consulta"></textarea></p>
 				</div>
 				<div class="col-md-4">
 					<p>Consultorio
-						<select id="consultorio">
+						<select name="consultorio" id="consultorio">
 							<option value="Rua Brasil"> Rua Brasil </option>
 						</select>
 					</p>
-					<p>Data da consulta <input id="data-consulta" type="date" ></p>
-					<input type="button" name="agendar" value="Agendar">
+					<p>Data da consulta <input id="data-consulta" name="data-consulta" type="date" ></p>
+					<input type="submit" name="agendar" value="Agendar">
 				</div>
 			</form>
 		</div>
 
-
+	<!-- 			<div id="marcar-consulta" class="marcar-consulta col-md-8">
+			<div class="container"><span>Para agendar uma consulta é necessário estar logado como paciente.</span></div>
+		</div> -->
 	</div>
 
+	<div id="avaliar-box" class="avaliar-box">
+		<div>
+			<form id="avaliacao-medico">
+				<p class="col-md-4">Nota <input id="nota" name="nota" type="number" min="0" max="5" \></p>
+				<p class="col-md-8">Comentários sobre o médico <textarea id="comentarios_avaliacao" name="comentarios_avaliacao" class="comentarios-avaliacao"></textarea></p>
+
+			</form>
+		</div>
+		<div>
+			<a class="btn" id="avaliar-box-fechar-btn">Voltar</a>
+			<a class="btn" id="avaliar-box-enviar-btn">Enviar Avaliação</a>
+		</div>
+	</div>
 
 
 @endsection

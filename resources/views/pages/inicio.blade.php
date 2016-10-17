@@ -94,7 +94,7 @@
                       <div class="caption">
                         <h3>{{$medico->nome }}</h3>
                         <p>Info do médico</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Ver Médico</a></p>
+                        <p><a href="{{ URL::to('/') }}/medico/{{$medico->crm}}" class="btn btn-primary" role="button">Ver Médico</a></p>
                       </div>
                     </div>
                     </div>
@@ -103,6 +103,12 @@
                 </div>
             </div>
         </div>
+
+
+        <div id="hidden-box">
+
+        </div>
+
 @endsection
 
 @section('js')

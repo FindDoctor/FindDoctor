@@ -37,3 +37,6 @@ Route::get('/medico', function(){
 
 Route::get('/medico/{medico}', ['uses' => 'MedicoController@index']);
 Route::get('/infomedico', 'IndexController@infomedico');
+
+
+Route::post('/marcar-consulta', 'MedicoController@marcarConsulta');

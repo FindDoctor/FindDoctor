@@ -10,9 +10,6 @@ $(document).ready(function () {
 		initMap(-15.7217509, -48.0082761);
 
 
-
-
-
 	$('#especialidade').change(function(){
 		console.log("testes");
 	});
@@ -42,7 +39,7 @@ $(document).ready(function () {
 
 						   string += '<div class="col-sm-6 col-md-4"><div class="thumbnail">';
 		                   string += '<img src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg" alt="...">';
-		                   string += '<div class="caption"><h3>' + value.nome + '</h3><p>Info do médico</p><p><a href="#" class="btn btn-primary" role="button">Ver Médico</a></p></div></div></div>'
+		                   string += '<div class="caption"><h3>' + value.nome + '</h3><p>Info do médico</p><p><a href="' + baseUrl + '/medico/' + value.crm + '" class="btn btn-primary" role="button">Ver Médico</a></p></div></div></div>'
 
 						});
 						$('#row-medico').html(string);
@@ -55,6 +52,24 @@ $(document).ready(function () {
 			complete: function(e) {
 			}
 		});
+	});
+
+
+	$('#avaliar-btn').click(function(){
+		$('#black-filter').fadeIn('slow',function(){
+			$('#avaliar-box').fadeIn();
+		});
+	});
+	
+
+	$('#avaliar-box-fechar-btn').click(function(){
+		$('#avaliar-box').fadeOut('slow',function(){
+			$('#black-filter').fadeOut('slow');
+		});
+	});
+
+	$("#avaliar-box-enviar-btn").click(function(){
+		$('#avaliacao-medico').submit();
 	});
 
 

@@ -109,6 +109,8 @@
 
 	</div>
 
+	<div id="black-filter" class="black-filter"></div>
+
     <!-- Scripts -->
 @section('js')
 	<script>
