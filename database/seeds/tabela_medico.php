@@ -17,7 +17,7 @@ class tabela_medico extends Seeder
 
     	$faker = Faker::create();
     	$faker->addProvider(new \Faker\Provider\pt_BR\PhoneNumber($faker));
-    	foreach(range(1, 5) as $index){
+    	foreach(range(1, 10) as $index){
         	DB::table('medicos')->insert([
         		'crm' => $faker->numberBetween($min = 1000000, $max = 9999999),
         		'nome' => $faker->name,

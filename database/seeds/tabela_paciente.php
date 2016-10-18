@@ -17,7 +17,7 @@ class tabela_paciente extends Seeder
         $faker = Faker::create();
     	$faker->addProvider(new \Faker\Provider\pt_BR\PhoneNumber($faker));
     	$faker->addProvider(new \Faker\Provider\pt_BR\Person($faker));
-    	foreach(range(1, 5) as $index){
+    	foreach(range(1, 10) as $index){
         	DB::table('pacientes')->insert([
         		'cpf' => $faker->cpf(false),
         		'nome' => $faker->name,
