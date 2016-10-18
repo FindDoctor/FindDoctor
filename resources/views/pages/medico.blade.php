@@ -3,8 +3,6 @@
 @foreach ($medico as $medico)
 @endforeach
 
-<?php var_dump($medico);?>
-
 @section('content')
 	<div class="container info-medico">
 		<div class="col-md-9">
@@ -37,6 +35,8 @@
 
 		<div id="marcar-consulta" class="marcar-consulta col-md-8">
 			<h2>Marcar uma consulta</h2>
+
+			@if (Auth::guest())
 			<form id="dados-consulta" class="dados-consulta" action="{{ URL::to('/') }}/marcar-consulta" method="post">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="hidden" name="crm" value="{{$medico->crm}}">
@@ -50,9 +50,13 @@
 						</select>
 					</p>
 					<p>Data da consulta <input id="data-consulta" name="data-consulta" type="date" ></p>
-					<input type="submit" name="agendar" value="Agendar">
+					<input id="consulta-btn" type="submit" name="agendar" value="Agendar">
 				</div>
 			</form>
+			
+			@else
+				<h3>É preciso estar logado como paciente para realizar um pedido de consulta.</h3>
+			@endif
 		</div>
 
 	<!-- 			<div id="marcar-consulta" class="marcar-consulta col-md-8">

@@ -2,8 +2,23 @@
 
 
 @section('content')
-  <div class="container infomedico">
-    <p>Informações</p>
+
+  <div class="container info-medico">
+    <div class="col-md-9">
+      <div class="col-md-4">
+        <img class="img-medico" src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg">
+      </div>
+      <div id="info_medico" class="col-md-8">
+        <h2></h2>
+        <h5><strong>Email: </strong></h5>
+        <h5><strong>Telefone: </strong></h5>
+        <p>Formação:</p><h2></h2>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <p>Nota Média:</p>
+    </div>
+    <div class="container avaliar-btn"><a id="avaliar-btn">Avaliar este médico</a></div>
   </div>
 
   <div class="container avaliacoes-consultas">
