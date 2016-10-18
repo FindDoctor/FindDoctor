@@ -12,7 +12,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Entrar</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                    <form id="loginForm" class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -44,6 +44,17 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="tipo" class="col-md-4 control-label">Tipo de usuário</label>
+
+                            <div class="col-md-6">
+                                <select id="tipo" class="form-control" name="tipo" required>
+                                    <option value="0">Paciente</option>
+									<option value="1">Medico</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
@@ -58,10 +69,11 @@
                                 <button type="submit" class="btn btn-primary">
                                     Entrar
                                 </button>
-
+                                <!--
 								<a href="{{ url('social/redirect') }}" class="btn btn-block btn-social btn-facebook">
                                     <span class="fa fa-facebook"></span> Entrar com o Facebook
                                 </a>
+								-->
 
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Esqueceu sua senha?
@@ -74,4 +86,16 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+	@parent
+	<script>
+		$('#tipo').change(function () {
+			if ($("select option:selected").val() == 0)
+				$('#loginForm').attr('action', "{{ url('/login') }}");
+			else
+				$('#loginForm').attr('action', "{{ url('/medico/login') }}");
+		});
+	</script>
 @endsection

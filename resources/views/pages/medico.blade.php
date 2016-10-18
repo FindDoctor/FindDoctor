@@ -13,7 +13,7 @@
 				<h2>{{$medico->nome }}</h2>
 				<h5><strong>Email: </strong>{{$medico->email}}</h5>
 				<h5><strong>Telefone: </strong>{{$medico->telefone}}</h5>
-				<p>Formação:</p><h2></h2>
+				<h5><strong>Endereço: </strong>{{$medico->endereco}}</h5>
 			</div>
 		</div>
 		<div class="col-md-3">
@@ -53,7 +53,7 @@
 					<input id="consulta-btn" type="submit" name="agendar" value="Agendar">
 				</div>
 			</form>
-			
+
 			@else
 				<h3>É preciso estar logado como paciente para realizar um pedido de consulta.</h3>
 			@endif
