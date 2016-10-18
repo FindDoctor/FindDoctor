@@ -18,40 +18,41 @@ $(document).ready(function () {
 		console.log("teste2");
 	});
 
-	$('#nome').focusout(function(){
-		$.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        })
+	$('#nome').keypress(function(){
 
-		$.ajax({
-			url: baseUrl + '/carregamedicos',
-			type: 'POST',
-			data: $('#filtros-home').serialize(),
-			dataType: 'json',
-			success: function(data) {
+			$.ajaxSetup({
+	            headers: {
+	                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	            }
+	        })
 
-				$('#row-medico').fadeOut('slow',function(){
-						var string ="";
+			$.ajax({
+				url: baseUrl + '/carregamedicos',
+				type: 'POST',
+				data: $('#filtros-home').serialize(),
+				dataType: 'json',
+				success: function(data) {
 
-						$.each(data, function( index, value ) {
+					$('#row-medico').fadeOut('slow',function(){
+							var string ="";
 
-						   string += '<div class="col-sm-6 col-md-4"><div class="thumbnail">';
-		                   string += '<img src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg" alt="...">';
-		                   string += '<div class="caption"><h3>' + value.nome + '</h3><p>Info do médico</p><p><a href="' + baseUrl + '/medico/' + value.crm + '" class="btn btn-primary" role="button">Ver Médico</a></p></div></div></div>'
+							$.each(data, function( index, value ) {
 
-						});
-						$('#row-medico').html(string);
-				});
+							   string += '<div class="col-sm-6 col-md-4"><div class="thumbnail">';
+			                   string += '<img src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg" alt="...">';
+			                   string += '<div class="caption"><h3>' + value.nome + '</h3><p>Info do médico</p><p><a href="' + baseUrl + '/medico/' + value.crm + '" class="btn btn-primary" role="button">Ver Médico</a></p></div></div></div>'
 
-				$('#row-medico').fadeIn('slow');
-			},
-			error: function(e) {
-			},
-			complete: function(e) {
-			}
-		});
+							});
+							$('#row-medico').html(string);
+					});
+
+					$('#row-medico').fadeIn('slow');
+				},
+				error: function(e) {
+				},
+				complete: function(e) {
+				}
+			});
 	});
 
 
