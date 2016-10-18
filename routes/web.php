@@ -27,6 +27,10 @@ Route::post('medico/password/reset', 'MedicoAuth\ResetPasswordController@reset')
 Route::get('medico/password/reset', 'MedicoAuth\ForgotPasswordController@showLinkRequestForm');
 Route::get('medico/password/reset/{token}', 'MedicoAuth\ResetPasswordController@showResetForm');
 
+//Logins
+
+Route::get('/cadastroPaciente', 'LoginController@cadastrarPaciente');
+
 //load de medicos na home
 Route::post('/carregamedicos', 'IndexController@loadMedics');
 

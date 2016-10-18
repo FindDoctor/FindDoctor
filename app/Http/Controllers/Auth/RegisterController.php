@@ -89,14 +89,38 @@ class RegisterController extends Controller
 	        ]);
 		}
 		else {
-			return Medico::create([
-	            'nome' => $data['nome'],
-	            'crm' => $data['crm'],
-	            'telefone' => $data['telefone'],
-	            'email' => $data['email'],
-	            'endereco' => $data['endereco'],
-	            'password' => bcrypt($data['password']),
-	        ]);
+
+            $curl = curl_init();
+
+
+            // Validacao consulta crm
+            curl_setopt_array($curl, array(
+                CURLOPT_RETURNTRANSFER => 1,
+                CURLOPT_URL => 'http://www.consultacrm.com.br/api/index.php?tipo=crm&uf=&q=' . $data['crm'] . '&chave=2831097512&destino=json',
+                CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+            ));
+            // Send the request & save response to $resp
+            $resp = curl_exec($curl);
+            $result = json_decode($resp);
+            // Close request to clear up some resources
+            curl_close($curl);
+
+            if($result->total){
+
+    			return Medico::create([
+    	            'nome' => $data['nome'],
+    	            'crm' => $data['crm'],
+    	            'telefone' => $data['telefone'],
+    	            'email' => $data['email'],
+    	            'endereco' => $data['endereco'],
+    	            'password' => bcrypt($data['password']),
+    	        ]);
+
+            }else{
+
+                return 0;
+
+            }
 		}
     }
 }
