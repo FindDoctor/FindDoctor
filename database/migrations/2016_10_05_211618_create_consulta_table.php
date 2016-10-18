@@ -14,11 +14,12 @@ class CreateConsultaTable extends Migration
     public function up()
     {
         schema::create('consulta', function(Blueprint $table){
-            $table->string('medico_crm');
             $table->integer('consultorio_id')->unsigned();
+            $table->string('medico_crm');
             $table->string('paciente_cpf', 12);
             $table->time('hora');
             $table->date('data');
+            $table->boolean('status');          
             $table->primary(array('medico_crm','paciente_cpf','consultorio_id'));
         });
 
