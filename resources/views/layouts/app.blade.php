@@ -97,7 +97,7 @@
 					<span class="postal-code">18052-780</span><br>
 					<span class="country-name">Brasil</span>
 					</p>
-					<p class="tel">+55 (16)3351-6000</p>
+					<p class="tel">+55 (16) 3351-6000</p>
 				</div>
 			</div>
 
