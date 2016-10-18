@@ -37,9 +37,30 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapWebRoutes();
 
+        $this->mapMedicoRoutes();
+
         $this->mapApiRoutes();
 
         //
+    }
+
+    /**
+     * Define the "medico" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapMedicoRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'medico', 'auth:medico'],
+            'prefix' => 'medico',
+            'as' => 'medico.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/medico.php');
+        });
     }
 
     /**

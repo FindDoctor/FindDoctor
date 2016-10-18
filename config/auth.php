@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'pacientes',
     ],
 
     /*
@@ -36,14 +36,19 @@ return [
     */
 
     'guards' => [
+        'medico' => [
+            'driver' => 'session',
+            'provider' => 'medicos',
+        ],
+
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'pacientes',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'pacientes',
         ],
     ],
 
@@ -65,9 +70,14 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'pacientes' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Paciente::class,
+        ],
+
+        'medicos' => [
+            'driver' => 'eloquent',
+            'model' => App\Medico::class,
         ],
 
         // 'users' => [
@@ -96,8 +106,15 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'pacientes' => [
+            'provider' => 'pacientes',
+			'email' => 'auth.pacientes.emails.password',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'medicos' => [
+            'provider' => 'medicos',
+			'email' => 'auth.medicos.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
