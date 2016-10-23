@@ -16,9 +16,16 @@ class CreateConsultorioTable extends Migration
         schema::create('consultorio', function (Blueprint $table){
             $table->increments('id_consultorio');
             $table->string('medico_crm');
-            $table->string('endereco', 100);
             $table->integer('telefone');
             
+            $table->string('cep');
+            $table->string('endereco');
+            $table->string('numero');
+            $table->string('complemento');
+            $table->string('bairro');
+            $table->string('cidade');
+            $table->string('estado');
+
         });
 
         schema::table('consultorio', function($table){

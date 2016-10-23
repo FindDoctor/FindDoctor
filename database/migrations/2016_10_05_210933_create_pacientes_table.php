@@ -20,7 +20,14 @@ class CreatePacientesTable extends Migration
             $table->string('email',50)->unique();
             $table->string('password')->nullable();
             $table->string('telefone');
-            $table->string('endereco',100);
+
+            $table->string('cep');
+            $table->string('endereco');
+            $table->string('numero');
+            $table->string('complemento');
+            $table->string('bairro');
+            $table->string('cidade');
+            $table->string('estado');
 			$table->rememberToken()->nullable();
  -          $table->timestamps();
         });
