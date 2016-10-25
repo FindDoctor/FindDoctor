@@ -179,9 +179,3 @@
     </div>
 </div>
 @endsection
-
-@section('js')
-	@parent
-
-	<script src="{{ URL::asset('js/register.js') }}"></script>
-@endsection
