@@ -17,7 +17,7 @@ class CreateConsultorioTable extends Migration
             $table->increments('id_consultorio');
             $table->string('medico_crm');
             $table->integer('telefone');
-            
+
             $table->string('cep');
             $table->string('endereco');
             $table->string('numero');
@@ -25,6 +25,8 @@ class CreateConsultorioTable extends Migration
             $table->string('bairro');
             $table->string('cidade');
             $table->string('estado');
+            $table->string('latitude');
+            $table->string('longitude');
 
         });
 
