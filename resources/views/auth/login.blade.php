@@ -69,11 +69,10 @@
                                 <button type="submit" class="btn btn-primary">
                                     Entrar
                                 </button>
-                                <!--
+
 								<a href="{{ url('social/redirect') }}" class="btn btn-block btn-social btn-facebook">
                                     <span class="fa fa-facebook"></span> Entrar com o Facebook
                                 </a>
-								-->
 
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Esqueceu sua senha?
@@ -90,12 +89,5 @@
 
 @section('js')
 	@parent
-	<script>
-		$('#tipo').change(function () {
-			if ($("select option:selected").val() == 0)
-				$('#loginForm').attr('action', "{{ url('/login') }}");
-			else
-				$('#loginForm').attr('action', "{{ url('/medico/login') }}");
-		});
-	</script>
+	<script src="{{ URL::asset('js/login.js') }}"></script>
 @endsection
