@@ -28,8 +28,6 @@ class CreateMedicosTable extends Migration
             $table->string('bairro');
             $table->string('cidade');
             $table->string('estado');
-            $table->string('latitude');
-            $table->string('longitude');
 
 			$table->rememberToken()->nullable();
  -          $table->timestamps();
