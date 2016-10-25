@@ -48,27 +48,58 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-		if(array_key_exists("cpf", $data)) {
+		$socialAccount = session("socialAccount");
+		if(isset($socialAccount)){
 			return Validator::make($data, [
 	            'nome' => 'required|max:70|min:6',
 				'cpf' => 'required|max:11|min:10|unique:pacientes',
 				'telefone' => 'required|max:11|min:10',
 	            'email' => 'required|email|max:50|unique:pacientes|unique:medicos',
+				'cep' => 'required|max:9|min:9',
 				'endereco' => 'required|max:100|min:6',
-	            'password' => 'required|min:6|confirmed',
+				'numero' => 'required',
+				'complemento' => 'min:3',
+				'bairro' => 'required|min:6',
+				'cidade' => 'required|min:3',
+				'estado' => 'required|min:2',
 	        ]);
 		}
 		else {
-			return Validator::make($data, [
-	            'nome' => 'required|max:70|min:6',
-				//'crm' => 'required|unique:medicos|crm',
-				'crm' => 'required|unique:medicos',
-				'telefone' => 'required|max:11|min:10',
-	            'email' => 'required|email|max:50|unique:medicos|unique:pacientes',
-				'endereco' => 'required|max:100|min:6',
-	            'password' => 'required|min:6|confirmed',
-	        ]);
+			if(array_key_exists("cpf", $data)) {
+				return Validator::make($data, [
+		            'nome' => 'required|max:70|min:6',
+					'cpf' => 'required|max:11|min:10|unique:pacientes',
+					'telefone' => 'required|max:11|min:10',
+		            'email' => 'required|email|max:50|unique:pacientes|unique:medicos',
+					'cep' => 'required|max:9|min:9',
+					'endereco' => 'required|max:100|min:6',
+					'numero' => 'required',
+					'complemento' => 'min:3',
+					'bairro' => 'required|min:6',
+					'cidade' => 'required|min:3',
+					'estado' => 'required|min:2',
+		            'password' => 'required|min:6|confirmed',
+		        ]);
+			}
+			else {
+				return Validator::make($data, [
+		            'nome' => 'required|max:70|min:6',
+					//'crm' => 'required|unique:medicos|crm',
+					'crm' => 'required|unique:medicos',
+					'telefone' => 'required|max:11|min:10',
+		            'email' => 'required|email|max:50|unique:medicos|unique:pacientes',
+					'cep' => 'required|max:9|min:9',
+					'endereco' => 'required|max:100|min:6',
+					'numero' => 'required',
+					'complemento' => 'min:3',
+					'bairro' => 'required|min:6',
+					'cidade' => 'required|min:3',
+					'estado' => 'required|min:2',
+		            'password' => 'required|min:6|confirmed',
+		        ]);
+			}
 		}
+
     }
 
     /**
@@ -79,25 +110,71 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-		if(array_key_exists("cpf", $data)) {
-	        return Paciente::create([
-	            'nome' => $data['nome'],
-	            'cpf' => $data['cpf'],
-	            'telefone' => $data['telefone'],
-	            'email' => $data['email'],
-	            'endereco' => $data['endereco'],
-	            'password' => bcrypt($data['password']),
-	        ]);
+		$socialAccount = session("socialAccount");
+		if(isset($socialAccount)) {
+			$paciente = Paciente::create([
+				'nome' => $data['nome'],
+				'cpf' => $data['cpf'],
+				'telefone' => $data['telefone'],
+				'email' => $data['email'],
+				'cep' => $data['cep'],
+				'endereco' => $data['endereco'],
+				'numero' => $data['numero'],
+				'complemento' => $data['complemento'],
+				'bairro' => $data['bairro'],
+				'cidade' => $data['cidade'],
+				'estado' => $data['estado'],
+			]);
+
+			$account = session("socialAccount");
+			$account->user()->associate($paciente);
+			$account->save();
+			session('socialAccount')->forget();
+			session('data')->forget();
+
+			Auth::login($paciente, true);
+
+			return $paciente;
 		}
 		else {
-    		return Medico::create([
-    	        'nome' => $data['nome'],
-    	        'crm' => $data['crm'],
-    	        'telefone' => $data['telefone'],
-    	        'email' => $data['email'],
-    	        'endereco' => $data['endereco'],
-    	        'password' => bcrypt($data['password']),
-    	    ]);
+			if(array_key_exists("cpf", $data)) {
+		        $paciente = Paciente::create([
+		            'nome' => $data['nome'],
+		            'cpf' => $data['cpf'],
+		            'telefone' => $data['telefone'],
+		            'email' => $data['email'],
+					'cep' => $data['cep'],
+		            'endereco' => $data['endereco'],
+					'numero' => $data['numero'],
+					'complemento' => $data['complemento'],
+					'bairro' => $data['bairro'],
+					'cidade' => $data['cidade'],
+					'estado' => $data['estado'],
+		            'password' => bcrypt($data['password']),
+		        ]);
+				Auth::login($paciente, true);
+
+				return $paciente;
+			}
+			else {
+	    		$medico = Medico::create([
+	    	        'nome' => $data['nome'],
+	    	        'crm' => $data['crm'],
+	    	        'telefone' => $data['telefone'],
+	    	        'email' => $data['email'],
+					'cep' => $data['cep'],
+	    	        'endereco' => $data['endereco'],
+					'numero' => $data['numero'],
+					'complemento' => $data['complemento'],
+					'bairro' => $data['bairro'],
+					'cidade' => $data['cidade'],
+					'estado' => $data['estado'],
+	    	        'password' => bcrypt($data['password']),
+	    	    ]);
+				Auth::login($medico, true);
+
+				return $medico;
+			}
 		}
     }
 }
