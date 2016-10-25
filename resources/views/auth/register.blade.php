@@ -91,6 +91,23 @@
                             </div>
                         </div>
 
+
+
+
+                        <div class="form-group{{ $errors->has('cep') ? ' has-error' : '' }}">
+                            <label for="cep" class="col-md-4 control-label">CEP</label>
+
+                            <div class="col-md-6">
+                                <input id="cep" type="text" class="form-control" name="cep" value="{{ old('cep') }}" required autofocus>
+
+                                @if ($errors->has('cep'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cep') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('endereco') ? ' has-error' : '' }}">
                             <label for="endereco" class="col-md-4 control-label">Endereço</label>
 
@@ -104,6 +121,77 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group{{ $errors->has('numero') ? ' has-error' : '' }}">
+                            <label for="numero" class="col-md-4 control-label">N° </label>
+
+                            <div class="col-md-6">
+                                <input id="numero" type="text" class="form-control" name="numero" value="{{ old('numero') }}" required autofocus>
+
+                                @if ($errors->has('numero'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('numero') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('complemento') ? ' has-error' : '' }}">
+                            <label for="complemento" class="col-md-4 control-label">Complemento</label>
+
+                            <div class="col-md-6">
+                                <input id="complemento" type="text" class="form-control" name="complemento" value="{{ old('complemento') }}" required autofocus>
+
+                                @if ($errors->has('complemento'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('complemento') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('bairro') ? ' has-error' : '' }}">
+                            <label for="bairro" class="col-md-4 control-label">Bairro</label>
+
+                            <div class="col-md-6">
+                                <input id="bairro" type="text" class="form-control" name="bairro" value="{{ old('bairro') }}" required autofocus>
+
+                                @if ($errors->has('bairro'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('bairro') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('cidade') ? ' has-error' : '' }}">
+                            <label for="cidade" class="col-md-4 control-label">Cidade</label>
+
+                            <div class="col-md-6">
+                                <input id="cidade" type="text" class="form-control" name="cidade" value="{{ old('cidade') }}" required autofocus>
+
+                                @if ($errors->has('cidade'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cidade') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('estado') ? ' has-error' : '' }}">
+                            <label for="estado" class="col-md-4 control-label">Estado</label>
+
+                            <div class="col-md-6">
+                                <input id="estado" type="text" class="form-control" name="estado" value="{{ old('estado') }}" required autofocus>
+
+                                @if ($errors->has('estado'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('estado') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Senha</label>
