@@ -48,3 +48,4 @@ Route::post('/marcar-consulta', 'MedicoController@marcarConsulta');
 //Social
 Route::get('/social/redirect', 'SocialAuthController@redirect');
 Route::get('/social/callback', 'SocialAuthController@callback');
+Route::get('/social/register', 'SocialAuthController@registerForm')->name('socialRegister');

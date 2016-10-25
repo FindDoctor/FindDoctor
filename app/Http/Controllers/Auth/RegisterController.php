@@ -7,6 +7,7 @@ use App\Medico;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -129,8 +130,8 @@ class RegisterController extends Controller
 			$account = session("socialAccount");
 			$account->user()->associate($paciente);
 			$account->save();
-			session('socialAccount')->forget();
-			session('data')->forget();
+			session()->forget('socialAccount');
+			session()->forget('data');
 
 			Auth::login($paciente, true);
 

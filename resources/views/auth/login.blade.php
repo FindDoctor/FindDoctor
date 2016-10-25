@@ -1,3 +1,4 @@
+{!! session()->forget('socialAccount') !!}
 @extends('layouts.app')
 
 @section('css')
