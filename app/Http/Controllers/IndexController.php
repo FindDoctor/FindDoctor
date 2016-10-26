@@ -20,6 +20,8 @@ class IndexController extends Controller
 
         $medicos = DB::table('medicos')->get();
 
+		session()->forget('socialAccount');
+
         return view('pages.inicio', ['medicos' => $medicos]);
     }
 

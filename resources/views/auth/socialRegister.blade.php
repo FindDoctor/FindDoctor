@@ -1,4 +1,3 @@
-{!! session()->forget('socialAccount') !!}
 @extends('layouts.app')
 
 @section('content')
@@ -8,25 +7,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Cadastrar</div>
                 <div class="panel-body">
-					<div id="tipoCadastro" class="form-group">
-						<div id="tipoCadastro" class="col-md-6 col-md-offset-4">
-							<button class="btn btn-primary" id="tipoPaciente">
-								Sou paciente
-							</button>
-							<button class="btn btn-primary" id="tipoMedico">
-								Sou médico
-							</button>
-						</div>
-					</div>
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}" id="formCadastro" hidden>
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}" id="formCadastro">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
                             <label for="nome" class="col-md-4 control-label">Nome</label>
 
                             <div class="col-md-6">
-                                <input id="nome" type="text" class="form-control" name="nome" value="{{ old('nome') }}" required autofocus>
+                                <input id="nome" type="text" class="form-control" name="nome" value="{{ $nome ? $nome : old('nome') }}" readonly="readonly" required autofocus>
 
                                 @if ($errors->has('nome'))
                                     <span class="help-block">
@@ -50,20 +39,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('crm') ? ' has-error' : '' }}" id="crm">
-                            <label for="crm" class="col-md-4 control-label">CRM</label>
-
-                            <div class="col-md-6">
-                                <input id="crm" type="text" class="form-control" name="crm" value="{{ old('crm') }}" required autofocus>
-
-                                @if ($errors->has('crm'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('crm') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">
                             <label for="telefone" class="col-md-4 control-label">Telefone</label>
 
@@ -82,7 +57,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ $email ? $email : old('email') }}" readonly="readonly" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -92,10 +67,7 @@
                             </div>
                         </div>
 
-
-
-
-                        <div class="form-group{{ $errors->has('cep') ? ' has-error' : '' }}">
+						<div class="form-group{{ $errors->has('cep') ? ' has-error' : '' }}">
                             <label for="cep" class="col-md-4 control-label">CEP</label>
 
                             <div class="col-md-6">
@@ -193,35 +165,6 @@
                             </div>
                         </div>
 
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Senha</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirmar Senha</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -235,10 +178,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('js')
-	@parent
-
-	<script src="{{ URL::asset('js/register.js') }}"></script>
 @endsection

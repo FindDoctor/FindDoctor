@@ -19,8 +19,16 @@ class CreateMedicosTable extends Migration
             $table->string('nome');
             $table->string('email')->unique();
             $table->string('password')->nullable();
-            $table->string('endereco', 100)->nullable();
             $table->string('telefone')->nullable();
+
+            $table->string('cep');
+            $table->string('endereco');
+            $table->string('numero');
+            $table->string('complemento')->nullable();
+            $table->string('bairro');
+            $table->string('cidade');
+            $table->string('estado');
+
 			$table->rememberToken()->nullable();
  -          $table->timestamps();
             $table->string('foto')->nullable();
