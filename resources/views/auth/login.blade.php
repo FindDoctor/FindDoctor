@@ -4,6 +4,7 @@
 @section('css')
 	@parent
 	<link href="{{ URL::asset('css/bootstrap-social.min.css') }}" rel="stylesheet">
+	<link href="{{ URL::asset('css/font-awesome.min.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -76,7 +77,7 @@
                                 </a>
 
 								<a href="{{ url('social/google/redirect') }}" class="btn btn-block btn-social btn-google">
-                                    <span class="fa fa-facebook"></span> Entrar com o Google Plus
+                                    <span class="fa fa-google"></span> Entrar com o Google Plus
                                 </a>
 
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
