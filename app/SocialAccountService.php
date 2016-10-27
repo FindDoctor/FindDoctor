@@ -6,9 +6,9 @@ use Laravel\Socialite\Contracts\User as ProviderUser;
 
 class SocialAccountService
 {
-    public function createOrGetUser(ProviderUser $providerUser)
+    public function createOrGetUser(ProviderUser $providerUser, $prov)
     {
-		$account = SocialAccount::whereProvider('facebook')
+		$account = SocialAccount::whereProvider($prov)
             ->whereProviderUserId($providerUser->getId())
             ->first();
 
@@ -18,7 +18,7 @@ class SocialAccountService
 		else {
             $account = new SocialAccount([
                 'provider_user_id' => $providerUser->getId(),
-                'provider' => 'facebook'
+                'provider' => $prov
             ]);
 
             $user = Paciente::whereEmail($providerUser->getEmail())->first();
