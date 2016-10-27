@@ -10,6 +10,59 @@ $(document).ready(function () {
 		initMap(-15.7217509, -48.0082761);
 
 
+	var neighborhoods = [
+	  {lat: 52.511, lng: 13.447},
+	  {lat: 52.549, lng: 13.422},
+	  {lat: 52.497, lng: 13.396},
+	  {lat: 52.517, lng: 13.394}
+	];
+
+	var markers = [];
+	var map;
+
+	function initMap(latitude, longitude) {
+		var uluru = {lat: latitude, lng: longitude};
+
+		var mapOptions = {
+			center: uluru,
+			zoom: 14,
+		}
+
+		var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+		var markerOptions = {
+			position: uluru,
+			map: map,
+			title: "Sua localização"
+		}
+
+		var marker = new google.maps.Marker(markerOptions);
+	}
+
+	function drop() {
+	  clearMarkers();
+	  for (var i = 0; i < neighborhoods.length; i++) {
+	    addMarkerWithTimeout(neighborhoods[i], i * 200);
+	  }
+	}
+
+	function addMarkerWithTimeout(position, timeout) {
+	  window.setTimeout(function() {
+	    markers.push(new google.maps.Marker({
+	      position: position,
+	      map: map,
+	      animation: google.maps.Animation.DROP
+	    }));
+	  }, timeout);
+	}
+
+	function clearMarkers() {
+	  for (var i = 0; i < markers.length; i++) {
+	    markers[i].setMap(null);
+	  }
+	  markers = [];
+	}
+
 	$('#especialidade').change(function(){
 		console.log("testes");
 	});
@@ -73,24 +126,11 @@ $(document).ready(function () {
 		$('#avaliacao-medico').submit();
 	});
 
+	$("#drop").click(function(){
+		drop();
+	});
+
 });
 
 
-function initMap(latitude, longitude) {
-	var uluru = {lat: latitude, lng: longitude};
 
-	var mapOptions = {
-		center: uluru,
-		zoom: 14,
-	}
-
-	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-	var markerOptions = {
-		position: uluru,
-		map: map,
-		title: "Sua localização"
-	}
-
-	var marker = new google.maps.Marker(markerOptions);
-}

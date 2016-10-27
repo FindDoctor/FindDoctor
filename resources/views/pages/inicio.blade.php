@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+      <div id="floating-panel">
+        <button id="drop">Drop Markers</button>
+       </div>
 		    <div class="map" id="map"></div>
         <div id="filtros" class="filtros">
                 <form id="filtros-home" class="form-horizontal" action="" method="post">
