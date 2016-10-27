@@ -12,14 +12,14 @@ use Socialite;
 
 class SocialAuthController extends Controller
 {
-	public function redirect()
+	public function redirect($prov)
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver($prov)->redirect();
     }
 
-    public function callback(SocialAccountService $service)
+    public function callback($prov, SocialAccountService $service)
     {
-		$user = $service->createOrGetUser(Socialite::driver('facebook')->stateless()->user());
+		$user = $service->createOrGetUser(Socialite::driver($prov)->stateless()->user());
 
 		if($user instanceof \Illuminate\Http\RedirectResponse) {
 			return $user;

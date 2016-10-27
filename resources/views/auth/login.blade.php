@@ -71,8 +71,12 @@
                                     Entrar
                                 </button>
 
-								<a href="{{ url('social/redirect') }}" class="btn btn-block btn-social btn-facebook">
+								<a href="{{ url('social/facebook/redirect') }}" class="btn btn-block btn-social btn-facebook">
                                     <span class="fa fa-facebook"></span> Entrar com o Facebook
+                                </a>
+
+								<a href="{{ url('social/google/redirect') }}" class="btn btn-block btn-social btn-google">
+                                    <span class="fa fa-facebook"></span> Entrar com o Google Plus
                                 </a>
 
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
