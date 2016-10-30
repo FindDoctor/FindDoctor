@@ -71,7 +71,22 @@ $(document).ready(function () {
 		console.log("teste2");
 	});
 
-	$('#nome').keypress(function(){
+	var typingTimer; // Identificador do timer
+	var doneTypingInterval = 500;  // Tempo sem digitação para ativar a busca
+
+	// Ativa o timer
+	$('#nome').on('keyup', function () {
+		clearTimeout(typingTimer);
+		typingTimer = setTimeout(buscarMedico, doneTypingInterval);
+	});
+
+	// Re-seta o timer
+	$('#nome').on('keydown', function () {
+		clearTimeout(typingTimer);
+	});
+
+	// Faz a busca
+	function buscarMedico(){
 
 			$.ajaxSetup({
 	            headers: {
@@ -106,7 +121,7 @@ $(document).ready(function () {
 				complete: function(e) {
 				}
 			});
-	});
+	}
 
 
 	$('#avaliar-btn').click(function(){
@@ -114,7 +129,7 @@ $(document).ready(function () {
 			$('#avaliar-box').fadeIn();
 		});
 	});
-	
+
 
 	$('#avaliar-box-fechar-btn').click(function(){
 		$('#avaliar-box').fadeOut('slow',function(){
@@ -131,6 +146,3 @@ $(document).ready(function () {
 	});
 
 });
-
-
-
