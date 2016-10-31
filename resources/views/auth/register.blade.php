@@ -8,6 +8,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Cadastrar</div>
                 <div class="panel-body">
+				@if ( !$errors->any() )
 					<div id="tipoCadastro" class="form-group">
 						<div id="tipoCadastro" class="col-md-6 col-md-offset-4">
 							<button class="btn btn-primary" id="tipoPaciente">
@@ -18,8 +19,9 @@
 							</button>
 						</div>
 					</div>
+				@endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}" id="formCadastro" hidden>
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}" id="formCadastro" {{ !$errors->any() ? 'hidden' : '' }}>
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
@@ -36,6 +38,7 @@
                             </div>
                         </div>
 
+					@if (!$errors->any() || old('cpf') || $errors->has('cpf'))
                         <div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}" id="cpf">
                             <label for="cpf" class="col-md-4 control-label">CPF</label>
 
@@ -49,7 +52,9 @@
                                 @endif
                             </div>
                         </div>
+					@endif
 
+					@if (!$errors->any() || old('crm') || $errors->has('crm'))
                         <div class="form-group{{ $errors->has('crm') ? ' has-error' : '' }}" id="crm">
                             <label for="crm" class="col-md-4 control-label">CRM</label>
 
@@ -63,6 +68,7 @@
                                 @endif
                             </div>
                         </div>
+					@endif
 
                         <div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">
                             <label for="telefone" class="col-md-4 control-label">Telefone</label>
