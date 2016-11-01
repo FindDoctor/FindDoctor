@@ -10,7 +10,9 @@
         "laravelcollective/html": "5.3.*",
         "hesto/multi-auth": "^1.0",
         "fzaninotto/faker": "^1.6",
-        "laravel/socialite": "^2.0"
+        "laravel/socialite": "^2.0",
+        "laravel-doctrine/orm": "1.2.*",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
