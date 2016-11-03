@@ -100,11 +100,33 @@ $(document).ready(function () {
 				data: $('#filtros-home').serialize(),
 				dataType: 'json',
 				success: function(data) {
+					geocoder = new google.maps.Geocoder();
+
+					var uluru = {lat: 0, lng: 0};
 
 					$('#row-medico').fadeOut('slow',function(){
-							var string ="";
+						var mapOptions = {
+							center: uluru,
+							zoom: 14,
+						}
 
-							$.each(data, function( index, value ) {
+						var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+						var string ="";
+
+						$.each(data, function( index, value ) {
+							var address = value.endereco + ", " + value.numero + ", " + value.cidade;
+							geocoder.geocode({'address': address}, function(results, status) {
+    							if (status === google.maps.GeocoderStatus.OK) {
+      								map.setCenter(results[0].geometry.location);
+      								var marker = new google.maps.Marker({
+        								map: map,
+        								position: results[0].geometry.location
+      								});
+    						} else {
+      							console.log('Geocode was not successful for the following reason: ' + status);
+    						}
+  						});
 
 							   string += '<div class="col-sm-6 col-md-4"><div class="thumbnail">';
 			                   string += '<img src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg" alt="...">';
