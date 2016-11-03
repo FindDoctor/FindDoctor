@@ -49,30 +49,42 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+		$messages = [
+            'required' => 'O campo :attribute é obrigatório.',
+			'size'    => ':attribute deve ter exatamente :size caracteres.',
+			'between' => ':attribute deve ter tamanho entre :min e :max.',
+			'cpf' => 'CPF inválido',
+			'crm' => 'Não foi possível validar o CRM',
+			'email' => 'Formato de e-mail inválido',
+			'min' => 'O campo deve ser preenchido com pelo menos :min caracteres',
+			'confirmed' => 'As senhas não são iguais',
+			'max'  => 'O campo deve ser preenchido com no maximo :max caracteres'
+        ];
+
 		$socialAccount = session("socialAccount");
 		if(isset($socialAccount)){
 			return Validator::make($data, [
 	            'nome' => 'required|max:70|min:6',
-				'cpf' => 'required|max:11|min:10|unique:pacientes',
+				'cpf' => 'required|size:11|unique:pacientes|cpf',
 				'telefone' => 'required|max:11|min:10',
 	            'email' => 'required|email|max:50|unique:pacientes|unique:medicos',
-				'cep' => 'required|max:9|min:9',
+				'cep' => 'required|size:9',
 				'endereco' => 'required|max:100|min:6',
 				'numero' => 'required',
 				'complemento' => 'min:3',
 				'bairro' => 'required|min:6',
 				'cidade' => 'required|min:3',
 				'estado' => 'required|min:2',
-	        ]);
+	        ], $messages);
 		}
 		else {
 			if(array_key_exists("cpf", $data)) {
 				return Validator::make($data, [
 		            'nome' => 'required|max:70|min:6',
-					'cpf' => 'required|max:11|min:10|unique:pacientes',
+					'cpf' => 'required|size:11|unique:pacientes|cpf',
 					'telefone' => 'required|max:11|min:10',
 		            'email' => 'required|email|max:50|unique:pacientes|unique:medicos',
-					'cep' => 'required|max:9|min:9',
+					'cep' => 'required|size:9',
 					'endereco' => 'required|max:100|min:6',
 					'numero' => 'required',
 					'complemento' => 'min:3',
@@ -80,7 +92,7 @@ class RegisterController extends Controller
 					'cidade' => 'required|min:3',
 					'estado' => 'required|min:2',
 		            'password' => 'required|min:6|confirmed',
-		        ]);
+		        ], $messages);
 			}
 			else {
 				return Validator::make($data, [
@@ -97,7 +109,7 @@ class RegisterController extends Controller
 					'cidade' => 'required|min:3',
 					'estado' => 'required|min:2',
 		            'password' => 'required|min:6|confirmed',
-		        ]);
+		        ], $messages);
 			}
 		}
 
