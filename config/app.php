@@ -185,6 +185,7 @@ return [
 
 		// Other service providers...
     	Laravel\Socialite\SocialiteServiceProvider::class,
+        'Orangehill\Iseed\IseedServiceProvider',
 
     ],
 

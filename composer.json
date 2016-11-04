@@ -12,7 +12,8 @@
         "fzaninotto/faker": "^1.6",
         "laravel/socialite": "^2.0",
         "laravel-doctrine/orm": "1.2.*",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "orangehill/iseed": "dev-master"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
