@@ -29,6 +29,9 @@ class CreateMedicosTable extends Migration
             $table->string('cidade');
             $table->string('estado');
 
+            $table->integer('n_avaliacoes');
+            $table->float('nota');
+
 			$table->rememberToken()->nullable();
  -          $table->timestamps();
             $table->string('foto')->nullable();

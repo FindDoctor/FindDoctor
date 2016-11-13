@@ -15,7 +15,7 @@ class CreateConsultorioTable extends Migration
     {
         schema::create('consultorio', function (Blueprint $table){
             $table->increments('id_consultorio');
-            $table->string('medico_crm');
+            $table->integer('medico_id')->unsigned();
             $table->string('telefone');
 
             $table->string('cep');
@@ -31,7 +31,7 @@ class CreateConsultorioTable extends Migration
         });
 
         schema::table('consultorio', function($table){
-            $table->foreign('medico_crm')->references('crm')->on('medicos');
+            $table->foreign('medico_id')->references('id')->on('medicos');
         });
     }
 
