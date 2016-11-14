@@ -10,12 +10,7 @@ $(document).ready(function () {
 		initMap(-15.7217509, -48.0082761);
 
 
-	var neighborhoods = [
-	  {lat: 52.511, lng: 13.447},
-	  {lat: 52.549, lng: 13.422},
-	  {lat: 52.497, lng: 13.396},
-	  {lat: 52.517, lng: 13.394}
-	];
+	var neighborhoods = [];
 
 	var markers = [];
 	var map;

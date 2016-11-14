@@ -40,18 +40,34 @@
 			<form id="dados-consulta" class="dados-consulta" action="{{ URL::to('/') }}/marcar-consulta" method="post">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="hidden" name="crm" value="{{$medico->crm}}">
-				<div class="col-md-4">
-					<p>Motivo da Consulta <textarea id="motivo_consulta" name="motivo_consulta" class="motivo_consulta"></textarea></p>
-				</div>
-				<div class="col-md-4">
-					<p>Consultorio
-						<select name="consultorio" id="consultorio">
-							<option value="Rua Brasil"> Rua Brasil </option>
-						</select>
-					</p>
-					<p>Data da consulta <input id="data-consulta" name="data-consulta" type="date" ></p>
-					<input id="consulta-btn" type="submit" name="agendar" value="Agendar">
-				</div>
+				
+				<table class="agendar-consulta">
+					<tbody>
+						<tr>
+							<td>Motivo da Consulta</td>
+							<td><textarea id="motivo_consulta" name="motivo_consulta" class="motivo_consulta"></textarea></td>
+						</tr>
+						<tr>
+							<td>Consultorio</td>
+							<td>
+								<select name="consultorio" id="consultorio">
+								@foreach ($consultorios as $consultorio)
+									<option value="{{$consultorio->id_consultorio}}">{{$consultorio->endereco}}, {{$consultorio->numero}}</option>
+								@endforeach
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Data da Consulta</td>
+							<td>
+								<input id="data-consulta" name="data-consulta" type="date" >
+							</td>
+						</tr>
+						<tr>
+							<td><input id="consulta-btn" type="submit" name="agendar" value="Agendar"></td>
+						</tr>
+					</tbody>
+				</table>
 			</form>
 
 			@else
@@ -67,8 +83,8 @@
 	<div id="avaliar-box" class="avaliar-box">
 		<div>
 			<form id="avaliacao-medico">
-				<p class="col-md-4">Nota <input id="nota" name="nota" type="number" min="0" max="5" \></p>
-				<p class="col-md-8">Comentários sobre o médico <textarea id="comentarios_avaliacao" name="comentarios_avaliacao" class="comentarios-avaliacao"></textarea></p>
+				<p class="col-md-4"><label>Nota</label><input id="nota" name="nota" type="number" min="0" max="5" \></p>
+				<p class="col-md-8"><label>Comentários sobre o médico</label><textarea id="comentarios_avaliacao" name="comentarios_avaliacao" class="comentarios-avaliacao"></textarea></p>
 
 			</form>
 		</div>

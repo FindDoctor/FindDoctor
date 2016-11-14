@@ -224,8 +224,7 @@ html, body {
 .avaliar-box{
   display: none;
   z-index: 11;
-  width: 600px;
-  height: 200px;
+  width: 520px;
   border-radius: 5px;
   position: absolute;
   position: absolute;
@@ -235,6 +234,28 @@ html, body {
   border:1px solid #D8CFBE;
   background: #ece7df;
   padding: 50px;
+  font-family:"helveticabold";
+  font-size: 16px;
+
+
+  p:nth-child(2){
+    padding: 0;
+    label{
+      width: 100%;
+    }
+
+    textarea{
+      width: 100%;
+    }
+  }
+
+  p:nth-child(1){
+    padding:0;
+    label{
+      padding-right: 10px;
+    }
+  }
+
 }
 
 .btn{
@@ -261,6 +282,7 @@ html, body {
     float: left;
     margin-top: 10px;
     left: -15px;
+    width: 40%;
 
     .item{
       height: 50px;
@@ -283,6 +305,7 @@ html, body {
     background: #ece7df;
     font-size: 16px;
     font-family:"HelveticaNeue";
+    width: 60%;
 
     .dados-consulta{
       .motivo_consulta{
@@ -290,6 +313,26 @@ html, body {
       }
     }
   } 
+}
+
+.agendar-consulta{
+  width: 100%;
+  margin-top: 10px;
+
+  tr{
+    margin-bottom: 10px;
+
+    td{
+
+      padding: 20px 0;
+
+      &:nth-child(1){
+        vertical-align: top;
+      }
+
+    }
+  }
+
 }
 
 

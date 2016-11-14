@@ -5937,8 +5937,7 @@ html, body {
 .avaliar-box {
   display: none;
   z-index: 11;
-  width: 600px;
-  height: 200px;
+  width: 520px;
   border-radius: 5px;
   position: absolute;
   position: absolute;
@@ -5948,7 +5947,19 @@ html, body {
   transform: translate(-50%, -50%);
   border: 1px solid #D8CFBE;
   background: #ece7df;
-  padding: 50px; }
+  padding: 50px;
+  font-family: "helveticabold";
+  font-size: 16px; }
+  .avaliar-box p:nth-child(2) {
+    padding: 0; }
+    .avaliar-box p:nth-child(2) label {
+      width: 100%; }
+    .avaliar-box p:nth-child(2) textarea {
+      width: 100%; }
+  .avaliar-box p:nth-child(1) {
+    padding: 0; }
+    .avaliar-box p:nth-child(1) label {
+      padding-right: 10px; }
 
 .btn {
   padding: 5px;
@@ -5969,7 +5980,8 @@ html, body {
     height: 308px;
     float: left;
     margin-top: 10px;
-    left: -15px; }
+    left: -15px;
+    width: 40%; }
     .section-2 .review-medico .item {
       height: 50px;
       width: 100%;
@@ -5987,9 +5999,20 @@ html, body {
     float: left;
     background: #ece7df;
     font-size: 16px;
-    font-family: "HelveticaNeue"; }
+    font-family: "HelveticaNeue";
+    width: 60%; }
     .section-2 .marcar-consulta .dados-consulta .motivo_consulta {
       height: 157px; }
+
+.agendar-consulta {
+  width: 100%;
+  margin-top: 10px; }
+  .agendar-consulta tr {
+    margin-bottom: 10px; }
+    .agendar-consulta tr td {
+      padding: 20px 0; }
+      .agendar-consulta tr td:nth-child(1) {
+        vertical-align: top; }
 
 .info-medico {
   padding: 30px;

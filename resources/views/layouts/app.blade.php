@@ -36,6 +36,7 @@
 				@if (!Auth::guest() || Auth::guard("medico")->user())
 					@if (Auth::guard("medico")->user())
 						Bem vindo, {{ Auth::guard("medico")->user()->nome }}
+						<a href="{{ url('/dados') }}">Dados</a>
 						<a href="{{ url('/medico/logout') }}">Sair</a>
 					@else
 						Bem vindo, {{ Auth::user()->nome }}

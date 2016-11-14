@@ -18,6 +18,7 @@ class IndexController extends Controller
     {
     	session_start();
 
+    
         $medicos = DB::table('medicos')->get();
 
 		session()->forget('socialAccount');
