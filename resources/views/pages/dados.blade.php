@@ -1,16 +1,27 @@
 @extends('layouts.app')
 
+
+<!-- Dados para login de teste: 
+
+drluizmarcel@gmail.com
+JohnDoe
+ -->
+
+
 @section('content')
 
 @if (Auth::guard("medico")->user())
 	<!--  MEDICO -->
 <div class="content">
 	<div class="dados" id="dados">
-	<form>
+
+	<form id="formulario_dados" method="POST" action="{{ url('/atualiza') }}">
+	
 	<table>
 		<tbody>
 			<tr>
 				<td>Nome:</td>
+				<input type="hidden" name="id" value='{{ Auth::guard("medico")->user()->id }}'>
 				<td><input type="text" disabled name="nome" value='{{ Auth::guard("medico")->user()->nome }}'></td>
 			</tr>
 			<tr>
@@ -72,7 +83,8 @@
 
 			</tr>
 			<tr>
-				<td><input id="alterarDados" type="submit" name="submit" value="Alterar dados" style="display: none;"></td>
+				<td><input id="alterarDados" type="submit" name="submit" value="Alterar dados" class="btn" style="display: none;"></td>
+				<td><span id="voltar_btn" class="btn" style="display: none;">Voltar</span></td>
 			</tr>
 
 		</tbody>
@@ -81,12 +93,33 @@
 	
 	</form>
 		
-
+	<span id="alterar_dados_btn" class="btn">Alterar Dados</span>
 
 	</div>
 
 	<div class="consultorios" id="consultorios">
-		
+		<span id="consultorios-btn" class="btn">+ Consultorio</span>
+		<ul id="consultorios-list">
+			<li>
+				<div>
+					<div class=" container panel panel-default">
+					  <div class="panel-heading">
+						  <p>CONSULTORIO N
+						  	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">V</button>
+						  </p>
+					  </div>
+
+					  <div id="demo" class="collapse panel-body">
+					    <form id="consultorios-form">
+							<input id="nome_consultorio" type="text" name="consultorio">
+							<input id="salvarConsultorio" type="submit" name="Salvarsubmit" value="Salvar Consultorio" class="btn" >
+							<input id="removerConsultorio" type="submit" name="Removersubmit" value="Remover Consultorio" class="btn" >
+						</form>
+					  </div>
+					</div>
+				</div>
+			</li>
+		</ul>	
 
 	</div>
 
@@ -94,6 +127,7 @@
 	
 @else
 	<!-- USUARIO COMUM -->
+
 
 	<div class="content">
 	<div class="dados" id="dados">
@@ -146,7 +180,8 @@
 			</tr>
 
 			<tr>
-				<td><input id="alterarDados" type="submit" name="submit" value="Alterar dados"></td>
+				<td><input id="alterarDados" type="submit" name="submit" value="Alterar dados" class="btn" style="display: none;"></td>
+				<td><span id="voltar_btn" class="btn" style="display: none;">Voltar</span></td>
 			</tr>
 
 		</tbody>
@@ -154,7 +189,9 @@
 	</table>
 	
 	</form>
-		
+
+
+	<span id="alterar_dados_btn" class="btn">Alterar Dados</span>
 
 
 	</div>
@@ -174,7 +211,7 @@
 		@parent
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAguzcFY7o2fh08MZKHlIisrTvxrHBE1Z4"></script>
-		<script src="{{ URL::asset('js/index.js') }}"></script>
+		<script src="{{ URL::asset('js/register.js') }}"></script>
 @endsection
     </body>
 </html>
