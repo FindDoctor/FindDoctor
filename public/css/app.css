@@ -6014,6 +6014,29 @@ html, body {
       .agendar-consulta tr td:nth-child(1) {
         vertical-align: top; }
 
+.dados {
+  padding: 30px;
+  padding-left: 10px;
+  border: 1px solid #D8CFBE;
+  margin-bottom: 50px;
+  background: #ece7df;
+  font-size: 16px;
+  font-family: "HelveticaNeue"; }
+  .dados .formulario_dados table {
+    margin: 0 auto;
+    width: 80%; }
+    .dados .formulario_dados table td {
+      padding: 10px; }
+
+.consultorios ul {
+  padding: 0; }
+  .consultorios ul li {
+    text-decoration: none;
+    list-style: none; }
+    .consultorios ul li .panel-default {
+      width: 100%;
+      margin: 15px 0; }
+
 .info-medico {
   padding: 30px;
   padding-left: 10px;

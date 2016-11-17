@@ -13,9 +13,11 @@ JohnDoe
 @if (Auth::guard("medico")->user())
 	<!--  MEDICO -->
 <div class="content">
-	<div class="dados" id="dados">
+	<div class="dados container" id="dados">
 
-	<form id="formulario_dados" method="POST" action="{{ url('/atualiza') }}">
+	<form id="formulario_dados" class="formulario_dados" method="POST"  action="{{ url('/atualiza') }}" accept-charset="UTF-8" enctype="multipart/form-data">
+
+	<input name="_token" type="hidden" value="0rr2YVuOHIG9CPW9UFqnrJWB7TkkyOXTTLIW4586">
 	
 	<table>
 		<tbody>
@@ -65,7 +67,7 @@ JohnDoe
 				<td><input type="text" disabled name="estado" value='{{ Auth::guard("medico")->user()->estado }}'></td>
 			</tr>
 
-			<tr id="tr-foto" style="display: none;">
+			<tr id="tr-foto">
 				<td>Foto</td>
 				<td>
 		        	{!! Form::open(array('url'=>'apply/upload','method'=>'POST', 'files'=>true)) !!}
@@ -90,37 +92,20 @@ JohnDoe
 		</tbody>
 
 	</table>
-	
+	   
+    {!! Form::close() !!}
 	</form>
 		
 	<span id="alterar_dados_btn" class="btn">Alterar Dados</span>
 
 	</div>
 
-	<div class="consultorios" id="consultorios">
-		<span id="consultorios-btn" class="btn">+ Consultorio</span>
+	<div class="consultorios container" id="consultorios">
+		<h3>Consultorios:</h3>
 		<ul id="consultorios-list">
-			<li>
-				<div>
-					<div class=" container panel panel-default">
-					  <div class="panel-heading">
-						  <p>CONSULTORIO N
-						  	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">V</button>
-						  </p>
-					  </div>
+		</ul>
 
-					  <div id="demo" class="collapse panel-body">
-					    <form id="consultorios-form">
-							<input id="nome_consultorio" type="text" name="consultorio">
-							<input id="salvarConsultorio" type="submit" name="Salvarsubmit" value="Salvar Consultorio" class="btn" >
-							<input id="removerConsultorio" type="submit" name="Removersubmit" value="Remover Consultorio" class="btn" >
-						</form>
-					  </div>
-					</div>
-				</div>
-			</li>
-		</ul>	
-
+		<span id="consultorios-btn" class="btn">+ Adicionar</span>	
 	</div>
 
 </div>

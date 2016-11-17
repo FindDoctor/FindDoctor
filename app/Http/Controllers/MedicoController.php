@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Input;
 
 class MedicoController extends Controller
 {
@@ -47,6 +48,7 @@ class MedicoController extends Controller
 
 
     public function atualiza(){
+
         DB::table('medicos')
             ->where('id', $_POST['id'])
             ->update(['nome' => $_POST['nome'],'email' => $_POST['email'],'telefone' => $_POST['telefone'],'cep' => $_POST['cep'],'endereco' => $_POST['endereco'],'numero' => $_POST['numero'],'complemento' => $_POST['complemento'],'bairro' => $_POST['bairro'],'cidade' => $_POST['cidade'],'estado' => $_POST['estado']]);

@@ -32,9 +32,8 @@ $("#consultorios-btn").click(
 					+ "<div>"
 					+'<div class=" container panel panel-default">'
 					  + '<div class="panel-heading">'
-						  + '<p>CONSULTORIO N'
-						  	+ '<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo' + count + '">V</button>'
-						  + '</p>'
+						  + '<h3 class="panel-title" style="float:left;line-height:34px;">Novo Consultorio</h3>'
+						  	+ '<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo' + count + '"><span class="glyphicon glyphicon-triangle-bottom" style="float:right"></span></button>'
 					  + '</div>'
 
 					  + '<div id="demo' + count + '" class="collapse panel-body">'
