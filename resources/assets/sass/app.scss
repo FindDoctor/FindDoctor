@@ -363,9 +363,24 @@ html, body {
       text-decoration: none;
       list-style: none;
 
+      .btns-header{
+        float: right;
+        z-index: 10;
+        
+        span{
+          cursor: pointer;
+        }
+
+
+      }
+
       .panel-default{
         width: 100%;
         margin: 15px 0;
+
+        .panel-heading{
+          height: 50px;
+        }
       }
     }
   }

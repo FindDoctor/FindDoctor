@@ -16,8 +16,8 @@ JohnDoe
 	<div class="dados container" id="dados">
 
 	<form id="formulario_dados" class="formulario_dados" method="POST"  action="{{ url('/atualiza') }}" accept-charset="UTF-8" enctype="multipart/form-data">
-
-	<input name="_token" type="hidden" value="0rr2YVuOHIG9CPW9UFqnrJWB7TkkyOXTTLIW4586">
+	
+	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 	
 	<table>
 		<tbody>
@@ -103,6 +103,123 @@ JohnDoe
 	<div class="consultorios container" id="consultorios">
 		<h3>Consultorios:</h3>
 		<ul id="consultorios-list">
+			@foreach ($consultorios as $consultorio)
+
+			<li>
+				<div>
+					<div class="container panel panel-default" data-toggle="collapse" data-target="#{{$consultorio->id_consultorio }}">
+						
+						<div class="panel-heading">
+							<h3 class="panel-title" style="float:left;line-height:34px;">{{$consultorio->endereco}}, {{$consultorio->numero}}</h3>
+
+							<div class="btns-header">
+								<span id="alterarConsultorio">alterar</span>
+								<span id="deletarConsultorio">deletar</span>
+							</div>
+
+						</div>
+				
+						<div id="{{$consultorio->id_consultorio }}" class="collapse panel-body">
+							<form id="consultorios-form" action="{{ url('/atualizaConsultorio') }}" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
+								<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />	
+								<input id="nome_consultorio" type="hidden" name="consultorio" value="{{$consultorio->id_consultorio }}"
+								" >
+								<table>
+									<tbody>
+										<tr>
+											<td>
+												Telefone:
+											</td>
+
+											<td>
+												<input type="text" name="telefone" disabled value="{{$consultorio->telefone }}">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												CEP:
+											</td>
+
+											<td>
+												<input type="text" name="cep" disabled value="{{$consultorio->cep }}">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Endereço:
+											</td>
+
+											<td>
+												<input type="text" name="endereco" disabled value="{{$consultorio->endereco }}">
+											</td>
+										</tr>									
+
+										<tr>
+											<td>
+												Número:
+											</td>
+
+											<td>
+												<input type="text" name="numero" disabled value="{{$consultorio->numero }}">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Complemento:
+											</td>
+
+											<td>
+												<input type="text" name="telefone" disabled value="{{$consultorio->complemento }}">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Bairro:
+											</td>
+
+											<td>
+												<input type="text" name="bairro" disabled value="{{$consultorio->bairro }}">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Cidade:
+											</td>
+
+											<td>
+												<input type="text" name="cidade" disabled value="{{$consultorio->cidade }}">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Estado:
+											</td>
+
+											<td>
+												<input type="text" name="estado" disabled value="{{$consultorio->estado }}">
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+								<br>
+
+								<input id="salvarConsultorio" type="submit" name="Salvarsubmit" value="Salvar Consultorio" class="btn" >
+								<input id="removerConsultorio" type="submit" name="Removersubmit" value="Remover Consultorio" class="btn" >
+							</form>
+						</div>
+					</div>
+				</div>
+			</li>
+
+
+			@endforeach
 		</ul>
 
 		<span id="consultorios-btn" class="btn">+ Adicionar</span>	

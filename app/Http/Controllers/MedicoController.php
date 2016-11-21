@@ -41,9 +41,11 @@ class MedicoController extends Controller
     public function atualizaCadastro(){
         $this->middleware('auth');
 
-        var_dump(Auth::id());
+        $crm_medico = Auth::guard("medico")->user()['crm'];
 
-        return view('pages.dados');
+        $consultorios = DB::table('consultorio')->where('medico_crm','=',$crm_medico)->get();
+
+        return view('pages.dados',['consultorios' => $consultorios]);
     }
 
 
@@ -54,6 +56,12 @@ class MedicoController extends Controller
             ->update(['nome' => $_POST['nome'],'email' => $_POST['email'],'telefone' => $_POST['telefone'],'cep' => $_POST['cep'],'endereco' => $_POST['endereco'],'numero' => $_POST['numero'],'complemento' => $_POST['complemento'],'bairro' => $_POST['bairro'],'cidade' => $_POST['cidade'],'estado' => $_POST['estado']]);
 
         return redirect('/dados');
+    }
+
+    public function atualizaConsultorio(){
+
+        var_dump($_POST);
+        exit();
     }
 
 }

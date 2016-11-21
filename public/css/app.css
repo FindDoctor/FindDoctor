@@ -6033,9 +6033,16 @@ html, body {
   .consultorios ul li {
     text-decoration: none;
     list-style: none; }
+    .consultorios ul li .btns-header {
+      float: right;
+      z-index: 10; }
+      .consultorios ul li .btns-header span {
+        cursor: pointer; }
     .consultorios ul li .panel-default {
       width: 100%;
       margin: 15px 0; }
+      .consultorios ul li .panel-default .panel-heading {
+        height: 50px; }
 
 .info-medico {
   padding: 30px;

@@ -25,6 +25,7 @@ Route::get('medico/logout', 'MedicoAuth\LoginController@logout');
 //atualizacao de dados
 Route::get('dados', 'MedicoController@atualizaCadastro');
 Route::post('atualiza', 'MedicoController@atualiza');
+Route::post('atualizaConsultorio', 'MedicoController@atualizaConsultorio');
 
 //Medico Passwords
 Route::post('medico/password/email', 'MedicoAuth\ForgotPasswordController@sendResetLinkEmail');
