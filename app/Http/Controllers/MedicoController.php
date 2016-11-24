@@ -64,4 +64,9 @@ class MedicoController extends Controller
         exit();
     }
 
+    public function removerConsultorio(){
+        DB::table('consultorio')->where('id_consultorio', '=', $_POST['consultorio'])->delete();
+        return redirect('/dados');
+    }
+
 }

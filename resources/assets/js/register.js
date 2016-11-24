@@ -24,9 +24,17 @@ $('#voltar_btn').click(function () {
 	$('#alterar_dados_btn').show();
 });
 
+
+
 var count = 0;
 
+if($("#consultorios-list").children().length >= 5){
+	$("#consultorios-btn").hide();
+}
+
+
 $("#consultorios-btn").click(
+
   function () {
      var someText = "<li>"
 					+ "<div>"
@@ -49,5 +57,12 @@ $("#consultorios-btn").click(
      var newDiv = $("<div>").append(someText).click(function () {});
      $('#consultorios-list').append(newDiv);
      count++;
+
+
+	if($("#consultorios-list").children().length >= 5){
+		$("#consultorios-btn").hide();
+	}
+
+
   }
 )

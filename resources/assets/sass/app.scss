@@ -17,6 +17,11 @@ html, body {
   margin: 0;
 }
 
+.clear{
+  width: 100%;
+  display: block;
+}
+
 .full-height {
   height: 100vh;
 }
@@ -342,6 +347,12 @@ html, body {
   background: #ece7df;
   font-size: 16px;
   font-family: "HelveticaNeue";
+  width: 50%;
+  float: left;
+
+  h3{
+    margin-top: 0;
+  }
 
   .formulario_dados{
     table{
@@ -356,6 +367,13 @@ html, body {
 
 .consultorios{
   
+  width: 50%;
+  float: left;
+
+  h3{
+    margin-top: 0;
+  }
+
   ul{  
     padding: 0;
 
@@ -366,7 +384,7 @@ html, body {
       .btns-header{
         float: right;
         z-index: 10;
-        
+
         span{
           cursor: pointer;
         }
@@ -380,6 +398,16 @@ html, body {
 
         .panel-heading{
           height: 50px;
+        }
+
+        .consultorio-btn{
+          width: 45%;
+          float: left;
+          margin-right: 5%;
+
+          &.right{
+            margin-right: 0;
+          }
         }
       }
     }
