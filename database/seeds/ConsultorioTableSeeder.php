@@ -12,15 +12,15 @@ class ConsultorioTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('consultorio')->delete();
-        
+
         \DB::table('consultorio')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id_consultorio' => 1,
-                'medico_crm' => '73413',
+                'medico_id' => 1,
                 'telefone' => '1145864444',
                 'cep' => '13208056',
                 'endereco' => 'Av Nove de Julho',
@@ -32,10 +32,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            1 => 
+            1 =>
             array (
                 'id_consultorio' => 2,
-                'medico_crm' => '26195',
+                'medico_id' => 2,
                 'telefone' => '1145834776',
                 'cep' => '13209000',
                 'endereco' => 'Rua do Retiro',
@@ -47,10 +47,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            2 => 
+            2 =>
             array (
                 'id_consultorio' => 3,
-                'medico_crm' => '96233',
+                'medico_id' => 3,
                 'telefone' => '1144970651',
                 'cep' => '13201843',
                 'endereco' => 'Av Antonio Segre',
@@ -62,10 +62,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            3 => 
+            3 =>
             array (
                 'id_consultorio' => 4,
-                'medico_crm' => '83762',
+                'medico_id' => 4,
                 'telefone' => '1198367886',
                 'cep' => '13208761',
                 'endereco' => 'Rua Barão de Teffé',
@@ -77,10 +77,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            4 => 
+            4 =>
             array (
                 'id_consultorio' => 5,
-                'medico_crm' => '88579',
+                'medico_id' => 5,
                 'telefone' => '1145869288',
                 'cep' => '13207130',
                 'endereco' => 'Rua Atilio Vianelo',
@@ -92,10 +92,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            5 => 
+            5 =>
             array (
                 'id_consultorio' => 6,
-                'medico_crm' => '63151',
+                'medico_id' => 6,
                 'telefone' => '1145227237',
                 'cep' => '13208140',
                 'endereco' => 'Rua Abilio Figueiredo',
@@ -107,10 +107,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            6 => 
+            6 =>
             array (
                 'id_consultorio' => 7,
-                'medico_crm' => '113297',
+                'medico_id' => 7,
                 'telefone' => '1145213155',
                 'cep' => '13209000',
                 'endereco' => 'Rua do Retiro',
@@ -122,10 +122,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            7 => 
+            7 =>
             array (
                 'id_consultorio' => 8,
-                'medico_crm' => '67787',
+                'medico_id' => 8,
                 'telefone' => '1145230595',
                 'cep' => '13201098',
                 'endereco' => 'Rua Vasco da Gama',
@@ -137,10 +137,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            8 => 
+            8 =>
             array (
                 'id_consultorio' => 9,
-                'medico_crm' => '137141',
+                'medico_id' => 9,
                 'telefone' => '1148071024',
                 'cep' => '13201838',
                 'endereco' => 'Rua Sócrates Fernandes de Oliveira',
@@ -152,10 +152,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            9 => 
+            9 =>
             array (
                 'id_consultorio' => 10,
-                'medico_crm' => '115386',
+                'medico_id' => 10,
                 'telefone' => '1145213155',
                 'cep' => '13208761',
                 'endereco' => 'Rua Barão de Teffé',
@@ -167,10 +167,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            10 => 
+            10 =>
             array (
                 'id_consultorio' => 11,
-                'medico_crm' => '98709',
+                'medico_id' => 11,
                 'telefone' => '1145834776',
                 'cep' => '13209000',
                 'endereco' => 'Rua do Retiro',
@@ -182,10 +182,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            11 => 
+            11 =>
             array (
                 'id_consultorio' => 12,
-                'medico_crm' => '102002',
+                'medico_id' => 12,
                 'telefone' => '1148071024',
                 'cep' => '13200000',
                 'endereco' => 'Rua Socrates Fernandes de Oliveira',
@@ -197,10 +197,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            12 => 
+            12 =>
             array (
                 'id_consultorio' => 13,
-                'medico_crm' => '66463',
+                'medico_id' => 13,
                 'telefone' => '1145217121',
                 'cep' => '13208760',
                 'endereco' => 'Rua Barão de Teffe',
@@ -212,10 +212,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            13 => 
+            13 =>
             array (
                 'id_consultorio' => 14,
-                'medico_crm' => '104139',
+                'medico_id' => 14,
                 'telefone' => '1148072240',
                 'cep' => '13208060',
                 'endereco' => 'Av Amadeu Ribeiro',
@@ -227,10 +227,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            14 => 
+            14 =>
             array (
                 'id_consultorio' => 15,
-                'medico_crm' => '124262',
+                'medico_id' => 15,
                 'telefone' => '11984974855',
                 'cep' => '13201796',
                 'endereco' => 'Rua Ademar Pereira de Barros',
@@ -242,10 +242,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            15 => 
+            15 =>
             array (
                 'id_consultorio' => 16,
-                'medico_crm' => '129483',
+                'medico_id' => 16,
                 'telefone' => '1148072240',
                 'cep' => '13208060',
                 'endereco' => 'Av Amadeu Ribeiro',
@@ -257,10 +257,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            16 => 
+            16 =>
             array (
                 'id_consultorio' => 17,
-                'medico_crm' => '79998',
+                'medico_id' => 17,
                 'telefone' => '1148052700',
                 'cep' => '13201043',
                 'endereco' => 'Rua Conrado Augusto Offa',
@@ -272,10 +272,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            17 => 
+            17 =>
             array (
                 'id_consultorio' => 18,
-                'medico_crm' => '108576',
+                'medico_id' => 18,
                 'telefone' => '11944450022',
                 'cep' => '13208056',
                 'endereco' => 'Av 9 de julho',
@@ -287,10 +287,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            18 => 
+            18 =>
             array (
                 'id_consultorio' => 19,
-                'medico_crm' => '26252',
+                'medico_id' => 19,
                 'telefone' => '1145211697',
                 'cep' => '13209000',
                 'endereco' => 'Rua do Retiro',
@@ -302,10 +302,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            19 => 
+            19 =>
             array (
                 'id_consultorio' => 20,
-                'medico_crm' => '114657',
+                'medico_id' => 20,
                 'telefone' => '1145261837',
                 'cep' => '13206810',
                 'endereco' => 'Rua Portugal',
@@ -317,10 +317,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            20 => 
+            20 =>
             array (
                 'id_consultorio' => 21,
-                'medico_crm' => '108742',
+                'medico_id' => 21,
                 'telefone' => '1128162705',
                 'cep' => '13207270',
                 'endereco' => 'Rua Bom Jesus de Pirapora',
@@ -332,10 +332,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            21 => 
+            21 =>
             array (
                 'id_consultorio' => 22,
-                'medico_crm' => '139810',
+                'medico_id' => 22,
                 'telefone' => '1148072240',
                 'cep' => '13208060',
                 'endereco' => 'Rua Amadeu Ribeiro',
@@ -347,10 +347,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            22 => 
+            22 =>
             array (
                 'id_consultorio' => 23,
-                'medico_crm' => '147503',
+                'medico_id' => 23,
                 'telefone' => '1144970033',
                 'cep' => '13201796',
                 'endereco' => 'Av 9 de julho',
@@ -362,10 +362,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            23 => 
+            23 =>
             array (
                 'id_consultorio' => 24,
-                'medico_crm' => '116494',
+                'medico_id' => 24,
                 'telefone' => '1145214798',
                 'cep' => '13209090',
                 'endereco' => 'Rua Eduardo Tomanik',
@@ -377,10 +377,10 @@ class ConsultorioTableSeeder extends Seeder
                 'latitude' => '1',
                 'longitude' => '1',
             ),
-            24 => 
+            24 =>
             array (
                 'id_consultorio' => 25,
-                'medico_crm' => '140984',
+                'medico_id' => 25,
                 'telefone' => '11940130333',
                 'cep' => '13207060',
                 'endereco' => 'Rua Conde de Monsanto',
@@ -393,7 +393,7 @@ class ConsultorioTableSeeder extends Seeder
                 'longitude' => '1',
             ),
         ));
-        
-        
+
+
     }
 }

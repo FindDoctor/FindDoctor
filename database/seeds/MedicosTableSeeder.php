@@ -12,11 +12,10 @@ class MedicosTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
         DB::table('medicos')->insert(array (
-            0 => 
+            0 =>
             array (
-                'id' => 1,
                 'crm' => '73413',
                 'nome' => 'Luiz Marcelo Aiello Viarengo',
                 'email' => 'drluizmarcel@gmail.com',
@@ -34,9 +33,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            1 => 
+            1 =>
             array (
-                'id' => 2,
                 'crm' => '26195',
                 'nome' => 'Marco Antonio Herculano',
                 'email' => 'drmarcoantonio@gmail.com',
@@ -54,9 +52,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            2 => 
+            2 =>
             array (
-                'id' => 3,
                 'crm' => '96233',
                 'nome' => 'Fábio Luis Fujita',
                 'email' => 'drfabioluis@gmail.com',
@@ -74,9 +71,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            3 => 
+            3 =>
             array (
-                'id' => 4,
                 'crm' => '83762',
                 'nome' => 'Elizeu de Sousa Santos',
                 'email' => 'drelizeu@gmail.com',
@@ -94,9 +90,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            4 => 
+            4 =>
             array (
-                'id' => 5,
                 'crm' => '88579',
                 'nome' => 'João Carlos Gonzalez Gonzalez',
                 'email' => 'drjoao@gmail.com',
@@ -114,9 +109,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            5 => 
+            5 =>
             array (
-                'id' => 6,
                 'crm' => '63151',
                 'nome' => 'João Augusto Fernandes Gonçalves',
                 'email' => 'drjoaoaugusto@gmail.com',
@@ -134,9 +128,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            6 => 
+            6 =>
             array (
-                'id' => 7,
                 'crm' => '113297',
                 'nome' => 'Pedro Guilherme Meinberg',
                 'email' => 'drpedro@gmail.com',
@@ -154,9 +147,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            7 => 
+            7 =>
             array (
-                'id' => 8,
                 'crm' => '67787',
                 'nome' => 'Wilson Scappini Junior',
                 'email' => 'drwilson@gmail.com',
@@ -174,9 +166,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            8 => 
+            8 =>
             array (
-                'id' => 9,
                 'crm' => '137141',
                 'nome' => 'Eder Deivis Fistarol',
                 'email' => 'dreder@gmail.com',
@@ -194,9 +185,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            9 => 
+            9 =>
             array (
-                'id' => 10,
                 'crm' => '115386',
                 'nome' => 'Luciano Takenori Nishimaru',
                 'email' => 'drluciano@gmail.com',
@@ -214,9 +204,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            10 => 
+            10 =>
             array (
-                'id' => 11,
                 'crm' => '98709',
                 'nome' => 'José Antônio Ustra Zaquia Alam',
                 'email' => 'drjose@gmail.com',
@@ -234,9 +223,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            11 => 
+            11 =>
             array (
-                'id' => 12,
                 'crm' => '102002',
                 'nome' => 'Alessandro Nakanishi Bastos',
                 'email' => 'dralessandro@gmail.com',
@@ -254,9 +242,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            12 => 
+            12 =>
             array (
-                'id' => 13,
                 'crm' => '66463',
                 'nome' => 'Maurício Baldissin',
                 'email' => 'drmauricio@gmail.com',
@@ -274,9 +261,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            13 => 
+            13 =>
             array (
-                'id' => 14,
                 'crm' => '104139',
                 'nome' => 'Patricia Ferreira de Carvalho',
                 'email' => 'drapatricia@gmail.com',
@@ -294,9 +280,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            14 => 
+            14 =>
             array (
-                'id' => 15,
                 'crm' => '124262',
                 'nome' => 'Erika Vick Fernandes Gomes',
                 'email' => 'draerika@gmail.com',
@@ -314,9 +299,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            15 => 
+            15 =>
             array (
-                'id' => 16,
                 'crm' => '129483',
                 'nome' => 'Camila de Melo Campos',
                 'email' => 'dracamila@gmail.com',
@@ -334,9 +318,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            16 => 
+            16 =>
             array (
-                'id' => 17,
                 'crm' => '79998',
                 'nome' => 'Marcelo Brancalhao Tojar',
                 'email' => 'drmarcelo@gmail.com',
@@ -354,9 +337,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            17 => 
+            17 =>
             array (
-                'id' => 18,
                 'crm' => '108576',
                 'nome' => 'Lauro Schledorn de Camargo',
                 'email' => 'drlauro@gmail.com',
@@ -374,9 +356,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            18 => 
+            18 =>
             array (
-                'id' => 19,
                 'crm' => '26252',
                 'nome' => 'Edmir Américo Lourenço',
                 'email' => 'dredmir@gmail.com',
@@ -394,9 +375,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            19 => 
+            19 =>
             array (
-                'id' => 20,
                 'crm' => '114657',
                 'nome' => 'Alexandre Cabral Zilli',
                 'email' => 'dralexandre@gmail.com',
@@ -414,9 +394,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            20 => 
+            20 =>
             array (
-                'id' => 21,
                 'crm' => '108742',
                 'nome' => 'Maurilio Jorge Cruz Junior',
                 'email' => 'drmaurilio@gmail.com',
@@ -434,9 +413,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            21 => 
+            21 =>
             array (
-                'id' => 22,
                 'crm' => '139810',
                 'nome' => 'Roberto Giordano',
                 'email' => 'drroberto@gmail.com',
@@ -454,9 +432,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            22 => 
+            22 =>
             array (
-                'id' => 23,
                 'crm' => '147503',
                 'nome' => 'Marcella Ledo Martins Costa',
                 'email' => 'dramarcela@gmail.com',
@@ -474,9 +451,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            23 => 
+            23 =>
             array (
-                'id' => 24,
                 'crm' => '116494',
                 'nome' => 'Bianca Zanchetta Buani Miguel',
                 'email' => 'drabianca@gmail.com',
@@ -494,9 +470,8 @@ class MedicosTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'foto' => NULL,
             ),
-            24 => 
+            24 =>
             array (
-                'id' => 25,
                 'crm' => '140984',
                 'nome' => 'Elias Flato',
                 'email' => 'drelias@gmail.com',
@@ -515,7 +490,7 @@ class MedicosTableSeeder extends Seeder
                 'foto' => NULL,
             ),
         ));
-        
-        
+
+
     }
 }
