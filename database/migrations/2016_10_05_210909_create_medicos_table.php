@@ -30,7 +30,7 @@ class CreateMedicosTable extends Migration
             $table->string('estado');
 
             $table->integer('n_avaliacoes')->default(0);
-            $table->float('nota');
+            $table->float('nota')->default(-1);
 
 			$table->rememberToken()->nullable();
  -          $table->timestamps();
