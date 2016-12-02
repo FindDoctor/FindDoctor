@@ -27,6 +27,7 @@ Route::get('dados', 'MedicoController@atualizaCadastro');
 Route::post('atualiza', 'MedicoController@atualiza');
 Route::post('atualizaConsultorio', 'MedicoController@atualizaConsultorio');
 Route::post('removerConsultorio', 'MedicoController@removerConsultorio');
+Route::post('adicionarConsultorio', 'MedicoController@adicionarConsultorio');
 
 //Medico Passwords
 Route::post('medico/password/email', 'MedicoAuth\ForgotPasswordController@sendResetLinkEmail');

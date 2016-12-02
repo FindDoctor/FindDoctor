@@ -214,11 +214,118 @@ JohnDoe
 				</div>
 			</li>
 
-
 			@endforeach
+			<li>
+				<div>
+					<div class="container panel panel-default" data-toggle="collapse" data-target="#novoConsultorio">
+						
+						<div class="panel-heading">
+							<h3 class="panel-title" style="float:left;line-height:34px;">Novo consultorio</h3>
+						</div>
+				
+						<div id="novoConsultorio" class="collapse panel-body">
+							<form id="consultorios-form" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
+								<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+								<input type="hidden" name="crm" value='{{ Auth::guard("medico")->user()->crm }}'>	
+								<input id="nome_consultorio" type="hidden" name="consultorio" value=""
+								" >
+								<table>
+									<tbody>
+										<tr>
+											<td>
+												Telefone:
+											</td>
+
+											<td>
+												<input type="text" name="telefone">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												CEP:
+											</td>
+
+											<td>
+												<input type="text" name="cep">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Endereço:
+											</td>
+
+											<td>
+												<input type="text" name="endereco">
+											</td>
+										</tr>									
+
+										<tr>
+											<td>
+												Número:
+											</td>
+
+											<td>
+												<input type="text" name="numero">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Complemento:
+											</td>
+
+											<td>
+												<input type="text" name="telefone" >
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Bairro:
+											</td>
+
+											<td>
+												<input type="text" name="bairro">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Cidade:
+											</td>
+
+											<td>
+												<input type="text" name="cidade">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Estado:
+											</td>
+
+											<td>
+												<input type="text" name="estado">
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+								<br>
+
+								<input id="salvarConsultorio" formaction="{{ url('/adicionarConsultorio') }}" type="submit" name="Salvarsubmit" value="Salvar" class="btn consultorio-btn" >
+							</form>
+						</div>
+					</div>
+				</div>
+			</li>
+
+
+
 		</ul>
 
-		<span id="consultorios-btn" class="btn">+ Adicionar</span>	
 	</div>
 
 </div>
@@ -308,7 +415,11 @@ JohnDoe
 
 @section('js')
 		@parent
+		<script type="text/javascript">
+			var base_url =  '{{url('/')}}';
 
+			var token = '{{{ csrf_token() }}}';
+		</script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAguzcFY7o2fh08MZKHlIisrTvxrHBE1Z4"></script>
 		<script src="{{ URL::asset('js/register.js') }}"></script>
 @endsection
