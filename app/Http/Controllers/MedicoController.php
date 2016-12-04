@@ -64,4 +64,40 @@ class MedicoController extends Controller
         exit();
     }
 
+    public function adicionarConsultorio(){
+
+        $insert = $_POST;
+
+        unset($insert['Salvarsubmit']);
+        unset($insert['_token']);
+        unset($insert['consultorio']);
+        $insert['medico_crm'] = $insert['crm'];
+        unset($insert['crm']);
+
+        $address = $insert['endereco'] . ' ' . $insert['numero'];
+
+        $address = str_replace(" ", "+", $address); // replace all the white space with "+" sign to match with google search pattern
+ 
+        $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address=$address";
+         
+        $response = file_get_contents($url);
+         
+        $json = json_decode($response,TRUE); //generate array object from the response from the web
+         
+        $insert['latitude'] = $json['results'][0]['geometry']['location']['lat'];
+
+        $insert['longitude'] = $json['results'][0]['geometry']['location']['lng'];
+
+
+        DB::table('consultorio')->insert($insert);
+
+        return redirect('/dados/');
+        
+    }
+
+    public function removerConsultorio(){
+        DB::table('consultorio')->where('id_consultorio', '=', $_POST['consultorio'])->delete();
+        return redirect('/dados');
+    }
+
 }

@@ -12,8 +12,10 @@ JohnDoe
 
 @if (Auth::guard("medico")->user())
 	<!--  MEDICO -->
-<div class="content">
+<div class="content container">
 	<div class="dados container" id="dados">
+
+	<h3>Dados do médico</h3>
 
 	<form id="formulario_dados" class="formulario_dados" method="POST"  action="{{ url('/atualiza') }}" accept-charset="UTF-8" enctype="multipart/form-data">
 	
@@ -111,16 +113,10 @@ JohnDoe
 						
 						<div class="panel-heading">
 							<h3 class="panel-title" style="float:left;line-height:34px;">{{$consultorio->endereco}}, {{$consultorio->numero}}</h3>
-
-							<div class="btns-header">
-								<span id="alterarConsultorio">alterar</span>
-								<span id="deletarConsultorio">deletar</span>
-							</div>
-
 						</div>
 				
 						<div id="{{$consultorio->id_consultorio }}" class="collapse panel-body">
-							<form id="consultorios-form" action="{{ url('/atualizaConsultorio') }}" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
+							<form id="consultorios-form" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
 								<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />	
 								<input id="nome_consultorio" type="hidden" name="consultorio" value="{{$consultorio->id_consultorio }}"
 								" >
@@ -132,7 +128,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="telefone" disabled value="{{$consultorio->telefone }}">
+												<input type="text" name="telefone" value="{{$consultorio->telefone }}">
 											</td>
 										</tr>
 
@@ -142,7 +138,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="cep" disabled value="{{$consultorio->cep }}">
+												<input type="text" name="cep" value="{{$consultorio->cep }}">
 											</td>
 										</tr>
 
@@ -152,7 +148,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="endereco" disabled value="{{$consultorio->endereco }}">
+												<input type="text" name="endereco" value="{{$consultorio->endereco }}">
 											</td>
 										</tr>									
 
@@ -162,7 +158,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="numero" disabled value="{{$consultorio->numero }}">
+												<input type="text" name="numero" value="{{$consultorio->numero }}">
 											</td>
 										</tr>
 
@@ -172,7 +168,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="telefone" disabled value="{{$consultorio->complemento }}">
+												<input type="text" name="telefone" value="{{$consultorio->complemento }}">
 											</td>
 										</tr>
 
@@ -182,7 +178,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="bairro" disabled value="{{$consultorio->bairro }}">
+												<input type="text" name="bairro" value="{{$consultorio->bairro }}">
 											</td>
 										</tr>
 
@@ -192,7 +188,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="cidade" disabled value="{{$consultorio->cidade }}">
+												<input type="text" name="cidade" value="{{$consultorio->cidade }}">
 											</td>
 										</tr>
 
@@ -202,7 +198,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="estado" disabled value="{{$consultorio->estado }}">
+												<input type="text" name="estado" value="{{$consultorio->estado }}">
 											</td>
 										</tr>
 
@@ -210,8 +206,116 @@ JohnDoe
 								</table>
 								<br>
 
-								<input id="salvarConsultorio" type="submit" name="Salvarsubmit" value="Salvar Consultorio" class="btn" >
-								<input id="removerConsultorio" type="submit" name="Removersubmit" value="Remover Consultorio" class="btn" >
+								<input id="salvarConsultorio" formaction="{{ url('/atualizaConsultorio') }}" type="submit" name="Salvarsubmit" value="Salvar" class="btn consultorio-btn" >
+								<input id="removerConsultorio" formaction="{{ url('/removerConsultorio') }}" type="submit" name="Removersubmit" value="Remover" class="btn consultorio-btn right" >
+							</form>
+						</div>
+					</div>
+				</div>
+			</li>
+
+			@endforeach
+			<li>
+				<div>
+					<div class="container panel panel-default" data-toggle="collapse" data-target="#novoConsultorio">
+						
+						<div class="panel-heading">
+							<h3 class="panel-title" style="float:left;line-height:34px;">Novo consultorio</h3>
+						</div>
+				
+						<div id="novoConsultorio" class="collapse panel-body">
+							<form id="consultorios-form" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
+								<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+								<input type="hidden" name="crm" value='{{ Auth::guard("medico")->user()->crm }}'>	
+								<input id="nome_consultorio" type="hidden" name="consultorio" value=""
+								" >
+								<table>
+									<tbody>
+										<tr>
+											<td>
+												Telefone:
+											</td>
+
+											<td>
+												<input type="text" name="telefone">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												CEP:
+											</td>
+
+											<td>
+												<input type="text" name="cep">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Endereço:
+											</td>
+
+											<td>
+												<input type="text" name="endereco">
+											</td>
+										</tr>									
+
+										<tr>
+											<td>
+												Número:
+											</td>
+
+											<td>
+												<input type="text" name="numero">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Complemento:
+											</td>
+
+											<td>
+												<input type="text" name="telefone" >
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Bairro:
+											</td>
+
+											<td>
+												<input type="text" name="bairro">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Cidade:
+											</td>
+
+											<td>
+												<input type="text" name="cidade">
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												Estado:
+											</td>
+
+											<td>
+												<input type="text" name="estado">
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+								<br>
+
+								<input id="salvarConsultorio" formaction="{{ url('/adicionarConsultorio') }}" type="submit" name="Salvarsubmit" value="Salvar" class="btn consultorio-btn" >
 							</form>
 						</div>
 					</div>
@@ -219,10 +323,9 @@ JohnDoe
 			</li>
 
 
-			@endforeach
+
 		</ul>
 
-		<span id="consultorios-btn" class="btn">+ Adicionar</span>	
 	</div>
 
 </div>
@@ -306,12 +409,17 @@ JohnDoe
 </div>
 @endif
 
+ <div class="clear"></div>
 
 @endsection
 
 @section('js')
 		@parent
+		<script type="text/javascript">
+			var base_url =  '{{url('/')}}';
 
+			var token = '{{{ csrf_token() }}}';
+		</script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAguzcFY7o2fh08MZKHlIisrTvxrHBE1Z4"></script>
 		<script src="{{ URL::asset('js/register.js') }}"></script>
 @endsection
