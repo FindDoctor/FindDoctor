@@ -15,8 +15,8 @@ class MedicoController extends Controller
     	session_start();
         $medico_return = DB::table('medicos')->where('id',$medico)->get();
 
-        
-        $consultorios = DB::table('consultorio')->where('medico_crm',$medico_return[0]->crm)->get();
+
+        $consultorios = DB::table('consultorio')->where('medico_id',$medico_return[0]->crm)->get();
 
 
         if (!$medico_return->count()) {
