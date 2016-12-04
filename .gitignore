@@ -10,6 +10,4 @@ npm-debug.log
 # Arquivos gerados pelo gulp
 public/css/app.css
 public/css/app.css.map
-public/js/index.js
-public/js/register.js
-public/js/login.js
+public/js/*
