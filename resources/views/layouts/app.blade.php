@@ -63,7 +63,7 @@
 				<h4>Saiba Mais</h4>
 				<ul>
 					<li>
-						Quem somos nós?
+						 <a href="{{ url('/quemsomos') }}">Quem somos nós?</a>
 					</li>
 					<li>
 						Como funciona?

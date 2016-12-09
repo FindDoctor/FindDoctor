@@ -59,6 +59,6 @@ Route::get('/social/{prov}/callback', 'SocialAuthController@callback');
 Route::get('/social/register', 'SocialAuthController@registerForm')->name('socialRegister');
 
 
-Route::any('/quemsomos', function() {
+Route::get('/quemsomos', function() {
 	return view('pages.quemsomos');
 });
