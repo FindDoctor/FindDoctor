@@ -62,3 +62,6 @@ Route::get('/social/register', 'SocialAuthController@registerForm')->name('socia
 Route::get('/quemsomos', function() {
 	return view('pages.quemsomos');
 });
+Route::get('/contato', function() {
+	return view('pages.contato');
+});

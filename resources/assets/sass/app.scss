@@ -202,7 +202,7 @@ html, body {
         height: 32px;
         float: left;
         margin-right: 10px;
-      }    
+      }
 
     }
   }
@@ -317,7 +317,7 @@ html, body {
         height: 157px;
       }
     }
-  } 
+  }
 }
 
 .agendar-consulta{
@@ -366,7 +366,7 @@ html, body {
 }
 
 .consultorios{
-  
+
   width: 50%;
   float: left;
 
@@ -374,7 +374,7 @@ html, body {
     margin-top: 0;
   }
 
-  ul{  
+  ul{
     padding: 0;
 
     li{
@@ -449,3 +449,63 @@ html, body {
 
 }
 
+.quemsomos{
+  padding: 30px;
+  padding-left: 10px;
+  border:1px solid #D8CFBE;
+  margin-bottom: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 50px;
+  background: #ece7df;
+  font-family:"HelveticaNeue";
+
+
+  .titulo{
+    align-self: center;
+    font-size: 32px;
+    font-style: bold;
+  }
+
+  .quemsomos1{
+    margin: 0 auto;
+    font-size: 16px;
+    .img-bertz{
+      width: 50%;
+      border-radius: 50%;
+    }
+    .img-math{
+      width: 50%;
+      border-radius: 50%;
+    }
+  }
+
+  .quemsomos2{
+    margin: 0 auto;
+    font-size: 16px;
+    .img-luis{
+      width: 50%;
+      border-radius: 50%;
+    }
+    .img-vini{
+      width: 50%;
+      border-radius: 50%;
+    }
+  }
+}
+
+.contato{
+  padding: 30px;
+  padding-left: 10px;
+  border:1px solid #D8CFBE;
+  margin-bottom: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 50px;
+  background: #ece7df;
+  font-family:"HelveticaNeue";
+  .titulo{
+    font-size: 32px;
+    font-style: bold;
+  }
+}
