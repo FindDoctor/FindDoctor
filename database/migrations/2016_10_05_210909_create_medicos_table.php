@@ -28,7 +28,7 @@ class CreateMedicosTable extends Migration
             $table->string('bairro');
             $table->string('cidade');
             $table->string('estado');
-
+            $table->integer('premium')->default(0);
             $table->integer('n_avaliacoes')->default(0);
             $table->float('nota')->default(-1);
 
