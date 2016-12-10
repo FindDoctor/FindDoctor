@@ -25,8 +25,6 @@ $('#voltar_btn').click(function () {
 });
 
 
-
-
 if($("#consultorios-list").children().length >= 5){
 	$("#consultorios-btn").hide();
 }

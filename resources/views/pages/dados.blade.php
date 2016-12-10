@@ -229,7 +229,7 @@ JohnDoe
 						<div id="novoConsultorio" class="collapse panel-body">
 							<form id="consultorios-form" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
 								<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-								<input type="hidden" name="crm" value='{{ Auth::guard("medico")->user()->crm }}'>	
+								<input type="hidden" name="id" value='{{ Auth::guard("medico")->user()->id }}'>	
 								<input id="nome_consultorio" type="hidden" name="consultorio" value=""
 								" >
 								<table>
@@ -344,47 +344,47 @@ JohnDoe
 		<tbody>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" disabled name="nome" value='{{ Auth::guard("medico")->user()->nome }}'></td>
+				<td><input type="text" disabled name="nome" value='{{ Auth::user()->nome }}'></td>
 			</tr>
 			<tr>
 				<td>CPF</td>
-				<td><input type="text" disabled name="crm" value='{{ Auth::guard("medico")->user()->cpf }}'></td>
+				<td><input type="text" disabled name="crm" value='{{ Auth::user()->cpf }}'></td>
 			</tr>
 			<tr>
 				<td>Email</td>
-				<td><input type="email" disabled name="email" value='{{ Auth::guard("medico")->user()->email }}'></td>
+				<td><input type="email" disabled name="email" value='{{ Auth::user()->email }}'></td>
 			</tr>
 			<tr>
 				<td>Telefone</td>
-				<td><input type="text" disabled name="telefone" value='{{ Auth::guard("medico")->user()->telefone }}'></td>
+				<td><input type="text" disabled name="telefone" value='{{ Auth::user()->telefone }}'></td>
 			</tr>
 			<tr>
 				<td>CEP</td>
-				<td><input type="text" disabled name="cep" value='{{ Auth::guard("medico")->user()->cep }}'></td>
+				<td><input type="text" disabled name="cep" value='{{ Auth::user()->cep }}'></td>
 			</tr>
 			<tr>
 				<td>Endereço</td>
-				<td><input type="tex" disabled name="endereco" value='{{ Auth::guard("medico")->user()->endereco }}'></td>
+				<td><input type="tex" disabled name="endereco" value='{{ Auth::user()->endereco }}'></td>
 			</tr>
 			<tr>
 				<td>Número</td>
-				<td><input type="text" disabled name="numero" value='{{ Auth::guard("medico")->user()->numero }}'></td>
+				<td><input type="text" disabled name="numero" value='{{ Auth::user()->numero }}'></td>
 			</tr>
 			<tr>
 				<td>Complemento</td>
-				<td><input type="text" disabled name="complemento" value='{{ Auth::guard("medico")->user()->complemento }}'></td>
+				<td><input type="text" disabled name="complemento" value='{{ Auth::user()->complemento }}'></td>
 			</tr>
 			<tr>
 				<td>Bairro</td> 
-				<td><input type="text" disabled name="bairro" value='{{ Auth::guard("medico")->user()->bairro }}'></td>
+				<td><input type="text" disabled name="bairro" value='{{ Auth::user()->bairro }}'></td>
 			</tr>
 			<tr>
 				<td>Cidade</td>
-				<td><input type="text" disabled name="cidade" value='{{ Auth::guard("medico")->user()->cidade }}'></td>
+				<td><input type="text" disabled name="cidade" value='{{ Auth::user()->cidade }}'></td>
 			</tr>
 			<tr>
 				<td>Estado</td>
-				<td><input type="text" disabled name="estado" value='{{ Auth::guard("medico")->user()->estado }}'></td>
+				<td><input type="text" disabled name="estado" value='{{ Auth::user()->estado }}'></td>
 			</tr>
 
 			<tr>

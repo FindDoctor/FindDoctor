@@ -99,6 +99,7 @@ html, body {
         background:#D8CFBE;
         color:white;
         float:left;
+        min-height: 160px;
 
         img{
           float:left;
@@ -112,6 +113,8 @@ html, body {
           h3{
             margin-top:0;
             font-size:16px;
+            height: 33px;
+            overflow: hidden;
           }
           a{
             width:100%;
@@ -290,12 +293,16 @@ html, body {
     width: 40%;
 
     .item{
-      height: 50px;
+      padding:20px;
       width: 100%;
       float: left;
       border:1px solid #D8CFBE;
       background: #ece7df;
       margin-top:10px;
+
+      span{
+        font-weight:bold;
+      }
     }
   }
 
@@ -455,7 +462,6 @@ html, body {
 
 .quemsomos{
   padding: 30px;
-  padding-left: 10px;
   border:1px solid #D8CFBE;
   margin-bottom: 50px;
   margin-left: 200px;
@@ -472,30 +478,51 @@ html, body {
   }
 
   .quemsomos1{
-    margin: 0 auto;
+    margin: 20px auto;
     font-size: 16px;
+    width:100%;
+
+
     .img-bertz{
-      width: 50%;
+      height:120px;
+      width: 120px;
+      margin:0 auto;
+      display:block;
       border-radius: 50%;
     }
     .img-math{
-      width: 50%;
+      height:120px;
+      width: 120px;
+      margin:0 auto;
+      display:block;
       border-radius: 50%;
     }
-  }
-
-  .quemsomos2{
-    margin: 0 auto;
-    font-size: 16px;
     .img-luis{
-      width: 50%;
+      padding-top:10px;
+      height:120px;
+      width: 120px;
+      margin:0 auto;
+      display:block;
       border-radius: 50%;
     }
     .img-vini{
-      width: 50%;
+      padding-top:10px;
+      height:120px;
+      width: 120px;
+      margin:0 auto;
+      display:block;
       border-radius: 50%;
     }
+
+    span{
+      display: block;
+      margin: 10px 0;
+      font-size: 17px;
+      font-weight: bold;
+      text-align: center;
+    }
   }
+
 }
 
 .contato{

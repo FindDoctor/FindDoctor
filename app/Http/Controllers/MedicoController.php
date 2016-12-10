@@ -13,39 +13,49 @@ class MedicoController extends Controller
     public function index($medico)
     {
     	session_start();
+
         $medico_return = DB::table('medicos')->where('id',$medico)->get();
 
+        $consultorios = DB::table('consultorio')->where('medico_id',$medico)->get();
 
-        $consultorios = DB::table('consultorio')->where('medico_id',$medico_return[0]->crm)->get();
-
+        $comentarios = DB::table('avalia')->where('medico_id',$medico)->get();
 
         if (!$medico_return->count()) {
     		return redirect('/');
 		}
 
-
-
-        return view('pages.medico',['medico' => $medico_return,'consultorios' => $consultorios]);
+        return view('pages.medico',['medico' => $medico_return,'consultorios' => $consultorios, 'comentarios' => $comentarios]);
     }
 
     public function marcarConsulta(){
 
-    	DB::table('consulta')->insert(
-		    ['medico_crm' => $_POST['crm'], 'consultorio_id' => $_POST['consultorio'], 'paciente_cpf' => '40701186836','hora' => '16:19:25', 'data'=> $_POST['data-consulta'], 'status'=>'0']
-		);
+        $this->middleware('auth');
 
-        if (!$medico_return->count()) {
-            return redirect('/medico/'.$_POST['crm']);
+        if(Auth::user() != null){
+            $cpf = "40701186836";
+        }else if(Auth::guard("medico")->user() != null){
+            $cpf = "40701186836";
+            //$cpf = Auth::guard("medico")->user()['crm'];
+        }else{
+            return redirect('/medico/'.$_POST['id']);
         }
 
+    	DB::table('consulta')->insert(
+		    ['medico_id' => $_POST['id'], 'consultorio_id' => $_POST['consultorio'], 'paciente_cpf' => $cpf,'hora' => '16:19:25', 'data'=> $_POST['data-consulta'], 'status'=>'0']
+		);
+
+        return redirect('/medico/'.$_POST['id']);
     }
 
     public function atualizaCadastro(){
         $this->middleware('auth');
 
-        $crm_medico = Auth::guard("medico")->user()['crm'];
+        $consultorios = null;
 
-        $consultorios = DB::table('consultorio')->where('medico_crm','=',$crm_medico)->get();
+        if(Auth::guard("medico")->user()['crm'] != null){
+            $id_medico = Auth::guard("medico")->user()['id'];
+            $consultorios = DB::table('consultorio')->where('medico_id','=',$id_medico)->get();
+        }
 
         return view('pages.dados',['consultorios' => $consultorios]);
     }
@@ -96,11 +106,14 @@ class MedicoController extends Controller
 
         $insert = $_POST;
 
+
+        var_dump($insert);
+
         unset($insert['Salvarsubmit']);
         unset($insert['_token']);
         unset($insert['consultorio']);
-        $insert['medico_crm'] = $insert['crm'];
-        unset($insert['crm']);
+        $insert['medico_id'] = $insert['id'];
+        unset($insert['id']);
 
         $address = $insert['endereco'] . ' ' . $insert['numero'];
 
@@ -111,8 +124,6 @@ class MedicoController extends Controller
         $response = file_get_contents($url);
          
         $json = json_decode($response,TRUE); //generate array object from the response from the web
-
-        print_r($json);
          
         if(empty($json['results']))
             return redirect('/dados/');
@@ -121,7 +132,6 @@ class MedicoController extends Controller
         $insert['latitude'] = $json['results'][0]['geometry']['location']['lat'];
 
         $insert['longitude'] = $json['results'][0]['geometry']['location']['lng'];
-
 
         DB::table('consultorio')->insert($insert);
 
@@ -132,6 +142,40 @@ class MedicoController extends Controller
     public function removerConsultorio(){
         DB::table('consultorio')->where('id_consultorio', '=', $_POST['consultorio'])->delete();
         return redirect('/dados');
+    }
+
+    public function avaliaMedico(){
+
+        $id = $_POST['id'];
+
+        $medico_return = DB::table('medicos')->where('id',$id)->get();
+
+        $notaFinal = ($medico_return[0]->n_avaliacoes * $medico_return[0]->nota + $_POST['nota']) / ($medico_return[0]->n_avaliacoes + 1);
+
+        DB::table('medicos')
+            ->where('id', $id)
+            ->update(['nota' => $notaFinal, 'n_avaliacoes' => ($medico_return[0]->n_avaliacoes + 1)]);
+
+        $insert['nota'] = $_POST['nota'];
+        $insert['comentarios'] = $_POST['comentarios_avaliacao'];
+        $insert['medico_id'] = $id;
+
+
+        if(Auth::user() != null){
+            $cpf = "40701186836";
+        }else if(Auth::guard("medico")->user() != null){
+            $cpf = "40701186836";
+            //$cpf = Auth::guard("medico")->user()['crm'];
+        }else{
+            return redirect('/');
+        }
+
+        $insert['paciente_cpf'] = $cpf;
+
+        DB::table('avalia')->insert($insert);
+
+        return redirect('/');
+
     }
 
 }

@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<div class="col-md-3">
-			<p>Nota Média:</p>
+			<p>Nota Média: <?php echo $medico->nota == -1 ? 'Médico não avaliado' : $medico->nota ?></p>
 		</div>
 		<div class="container avaliar-btn"><a id="avaliar-btn">Avaliar este médico</a></div>
 	</div>
@@ -26,9 +26,12 @@
 
 		<div class="review-medico col-md-4">
 
-			@for ($i=0; $i < 10 ; $i++)
-				<div class="item"></div>
-			@endfor
+			@foreach ($comentarios as $comentario)
+				<div class="item">
+					<p><span>Nota:</span> {{ $comentario->nota}}</p>
+					<p><span>Comentário:</span> {{$comentario->comentarios}}</p>
+				</div>
+			@endforeach
 
 		</div>
 
@@ -39,7 +42,7 @@
 			@if (Auth::guest())
 			<form id="dados-consulta" class="dados-consulta" action="{{ URL::to('/') }}/marcar-consulta" method="post">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<input type="hidden" name="crm" value="{{$medico->crm}}">
+				<input type="hidden" name="id" value="{{$medico->id}}">
 				
 				<table class="agendar-consulta">
 					<tbody>
@@ -82,10 +85,11 @@
 
 	<div id="avaliar-box" class="avaliar-box">
 		<div>
-			<form id="avaliacao-medico">
-				<p class="col-md-4"><label>Nota</label><input id="nota" name="nota" type="number" min="0" max="5" \></p>
-				<p class="col-md-8"><label>Comentários sobre o médico</label><textarea id="comentarios_avaliacao" name="comentarios_avaliacao" class="comentarios-avaliacao"></textarea></p>
-
+			<form id="avaliacao-medico" action="{{ URL::to('/') }}/avalia-medico" method="post">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<input type="hidden" name="id" value="{{$medico->id}}">
+				<label>Nota</label><input id="nota" name="nota" type="number" min="0" max="5" \>
+				<label>Comentários sobre o médico</label><textarea id="comentarios_avaliacao" name="comentarios_avaliacao" class="comentarios-avaliacao"></textarea>
 			</form>
 		</div>
 		<div>

@@ -5,30 +5,30 @@
 	<div class="quemsomos">
 		<div class="titulo">Quem somos</div>
 		<div class="container quemsomos1">
-				<div class="col-md-3">
+				<div class="col-md-6">
 					<img class="img-bertz" src="http://localhost:8000/imgs/bertz.jpg">
-					<br>Lucas Bertone
-					<br>Aluno de ciência da computação na Universidade Federal de São Carlos - Campus Sorocaba.
+					<span>Lucas Bertone</span>
+					Aluno de ciência da computação na Universidade Federal de São Carlos - Campus Sorocaba.
 					Responsável pelo back-end do site.
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-6">
 					<img class="img-math" src="http://localhost:8000/imgs/math.jpg">
-					<br>Matheus Pinheiro
-					<br>Aluno de ciência da computação na Universidade Federal de São Carlos - Campus Sorocaba.
+					<span>Matheus Pinheiro</span>
+					Aluno de ciência da computação na Universidade Federal de São Carlos - Campus Sorocaba.
 					Responsável pelo back-end do site.
 				</div>
 			</div>
-			<div class="container quemsomos2">
-				<div class="col-md-3">
+			<div class="container quemsomos1">
+				<div class="col-md-6">
 					<img class="img-luis" src="http://localhost:8000/imgs/luis.jpg">
-					<br>Luis Barbosa
-					<br>Aluno de ciência da computação na Universidade Federal de São Carlos - Campus Sorocaba.
+					<span>Luis Barbosa</span>
+					Aluno de ciência da computação na Universidade Federal de São Carlos - Campus Sorocaba.
 					Responsável pelo front-end do site.
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-6">
 					<img class="img-vini" src="http://localhost:8000/imgs/vini.jpg">
-					<br>Vinicius Yamamoto
-					<br>Aluno de ciência da computação na Universidade Federal de São Carlos - Campus Sorocaba.
+					<span>Vinicius Yamamoto</span>
+					Aluno de ciência da computação na Universidade Federal de São Carlos - Campus Sorocaba.
 					Responsável pelo front-end do site.
 				</div>
 			</div>

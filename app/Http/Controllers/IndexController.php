@@ -28,6 +28,8 @@ class IndexController extends Controller
 
     public function loadMedics(Request $request){
 
+        session_start();
+
         $medicos = DB::table('medicos');
 
         if(isset($_POST['nome']) && strlen($_POST['nome']) > 0){

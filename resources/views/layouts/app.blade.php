@@ -40,6 +40,7 @@
 						<a href="{{ url('/medico/logout') }}">Sair</a>
 					@else
 						Bem vindo, {{ Auth::user()->nome }}
+						<a href="{{ url('/dados') }}">Dados</a>
 						<a href="{{ Auth::logout() }}">Sair</a>
 					@endif
 				@else
