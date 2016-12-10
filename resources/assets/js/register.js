@@ -32,3 +32,8 @@ if($("#consultorios-list").children().length >= 5){
 }
 
 
+$('#btn-add').click(function(){
+	$('#li_novo_consultorio').show();
+	$(this).hide();
+});
+

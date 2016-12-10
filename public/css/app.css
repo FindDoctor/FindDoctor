@@ -6041,6 +6041,8 @@ html, body {
   float: left; }
   .consultorios h3 {
     margin-top: 0; }
+  .consultorios .novo_consultorio {
+    display: none; }
   .consultorios ul {
     padding: 0; }
     .consultorios ul li {

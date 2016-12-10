@@ -47,7 +47,6 @@ class IndexController extends Controller
     public function infomedico()
     {
     	session_start();
-
         return view('pages.infomedico');
     }
 }

@@ -215,7 +215,10 @@ JohnDoe
 			</li>
 
 			@endforeach
-			<li>
+
+			<li><span id="btn-add" class="btn"> + Adicionar consultório</span></li>
+
+			<li id="li_novo_consultorio" class="novo_consultorio">
 				<div>
 					<div class="container panel panel-default" data-toggle="collapse" data-target="#novoConsultorio">
 						

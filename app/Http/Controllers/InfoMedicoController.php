@@ -12,7 +12,6 @@ class InfoMedicoController extends Controller
     public function index()
     {
     	session_start();
-
         return view('pages.infomedico');
     }
 }

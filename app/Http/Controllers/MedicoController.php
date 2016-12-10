@@ -23,6 +23,8 @@ class MedicoController extends Controller
     		return redirect('/');
 		}
 
+
+
         return view('pages.medico',['medico' => $medico_return,'consultorios' => $consultorios]);
     }
 
@@ -60,8 +62,34 @@ class MedicoController extends Controller
 
     public function atualizaConsultorio(){
 
-        var_dump($_POST);
-        exit();
+        $insert = $_POST;
+
+        unset($insert['Salvarsubmit']);
+        unset($insert['_token']);
+        unset($insert['consultorio']);
+        unset($insert['crm']);
+
+        // $address = $insert['endereco'] . ' ' . $insert['numero'];
+
+        // $address = str_replace(" ", "+", $address); // replace all the white space with "+" sign to match with google search pattern
+ 
+
+        $address  = $insert['cep'];
+        $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address=$address";
+         
+        $response = file_get_contents($url);
+         
+        $json = json_decode($response,TRUE); //generate array object from the response from the web
+         
+        $insert['latitude'] = $json['results'][0]['geometry']['location']['lat'];
+
+        $insert['longitude'] = $json['results'][0]['geometry']['location']['lng'];
+
+        DB::table('consultorio')
+            ->where('id_consultorio', $_POST['consultorio'])
+            ->update($insert);
+
+        return redirect('/dados/');
     }
 
     public function adicionarConsultorio(){
@@ -77,13 +105,19 @@ class MedicoController extends Controller
         $address = $insert['endereco'] . ' ' . $insert['numero'];
 
         $address = str_replace(" ", "+", $address); // replace all the white space with "+" sign to match with google search pattern
- 
+        $address  = $insert['cep'];
         $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address=$address";
          
         $response = file_get_contents($url);
          
         $json = json_decode($response,TRUE); //generate array object from the response from the web
+
+        print_r($json);
          
+        if(empty($json['results']))
+            return redirect('/dados/');
+
+
         $insert['latitude'] = $json['results'][0]['geometry']['location']['lat'];
 
         $insert['longitude'] = $json['results'][0]['geometry']['location']['lng'];
