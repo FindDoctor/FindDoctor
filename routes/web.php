@@ -16,6 +16,9 @@ Route::get('/home', 'IndexController@index');
 Route::get('/login', function () {
 	return View('auth.login');
 });
+Route::get('/register', function () {
+	return View('auth.register');
+});
 
 Route::group(['prefix' => 'paciente'], function () {
 	//Paciente Login
