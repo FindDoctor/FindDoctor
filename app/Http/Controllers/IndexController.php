@@ -18,7 +18,7 @@ class IndexController extends Controller
     {
     	session_start();
 
-    
+
         $medicos = DB::table('medicos')->get();
 
 		session()->forget('socialAccount');
@@ -35,6 +35,8 @@ class IndexController extends Controller
         if(isset($_POST['nome']) && strlen($_POST['nome']) > 0){
             $medicos->where('nome', 'like', '%' . $_POST['nome'] .'%');
         }
+
+        $medicos->orderBy('nota', 'desc');
 
         $result = $medicos->get();
 
