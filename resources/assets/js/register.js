@@ -1,13 +1,13 @@
 $('#tipoPaciente').click(function () {
 	$('#tipoCadastro').hide();
 	$('#crm').remove();
-	$('#formCadastro').show();
+	$('#formCadastro').attr('action', '/paciente/register').show();
 });
 
 $('#tipoMedico').click(function () {
 	$('#tipoCadastro').hide();
 	$('#cpf').remove();
-	$('#formCadastro').show();
+	$('#formCadastro').attr('action', '/medico/register').show();
 });
 
 $('#alterar_dados_btn').click(function () {
@@ -34,4 +34,3 @@ $('#btn-add').click(function(){
 	$('#li_novo_consultorio').show();
 	$(this).hide();
 });
-

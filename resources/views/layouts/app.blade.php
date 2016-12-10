@@ -31,24 +31,22 @@
 		  </a>
 		</div>
 	  </div>
-		@if (Route::has('login'))
 			<div class="top-right links">
-				@if (!Auth::guest() || Auth::guard("medico")->user())
+				@if (Auth::guard('paciente')->user() || Auth::guard("medico")->user())
 					@if (Auth::guard("medico")->user())
 						Bem vindo, {{ Auth::guard("medico")->user()->nome }}
 						<a href="{{ url('/dados') }}">Dados</a>
 						<a href="{{ url('/medico/logout') }}">Sair</a>
 					@else
-						Bem vindo, {{ Auth::user()->nome }}
+						Bem vindo, {{ Auth::guard("paciente")->user()->nome }}
 						<a href="{{ url('/dados') }}">Dados</a>
-						<a href="{{ Auth::logout() }}">Sair</a>
+						<a href="{{ url('/paciente/logout') }}">Sair</a>
 					@endif
 				@else
 					<a href="{{ url('/login') }}">Entrar</a>
 					<a href="{{ url('/register') }}">Cadastrar</a>
 				@endif
 			</div>
-		@endif
 	</nav>
 
     @yield('content')

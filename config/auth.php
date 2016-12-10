@@ -36,6 +36,11 @@ return [
     */
 
     'guards' => [
+        'paciente' => [
+            'driver' => 'session',
+            'provider' => 'pacientes',
+        ],
+
         'medico' => [
             'driver' => 'session',
             'provider' => 'medicos',
@@ -79,11 +84,6 @@ return [
             'driver' => 'eloquent',
             'model' => App\Medico::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*

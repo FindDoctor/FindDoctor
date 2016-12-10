@@ -14,7 +14,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Entrar</div>
                 <div class="panel-body">
-                    <form id="loginForm" class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                    <form id="loginForm" class="form-horizontal" role="form" method="POST" action="{{ url('/paciente/login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

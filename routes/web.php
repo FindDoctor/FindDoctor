@@ -10,17 +10,42 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
-Auth::routes();
-
 Route::get('/', 'IndexController@index');
 Route::get('/home', 'IndexController@index');
 
-//Medico Login
-Route::get('medico/login', 'MedicoAuth\LoginController@showLoginForm');
-Route::post('medico/login', 'MedicoAuth\LoginController@login');
-Route::get('medico/logout', 'MedicoAuth\LoginController@logout');
+Route::get('/login', function () {
+	return View('auth.login');
+});
 
+Route::group(['prefix' => 'paciente'], function () {
+	//Paciente Login
+	Route::post('login', 'PacienteAuth\LoginController@login');
+	Route::get('logout', 'PacienteAuth\LoginController@logout');
+
+	//Paciente Register
+	Route::post('register', 'PacienteAuth\RegisterController@register');
+
+	//Paciente Passwords
+	Route::post('password/email', 'PacienteAuth\ForgotPasswordController@sendResetLinkEmail');
+	Route::post('password/reset', 'PacienteAuth\ResetPasswordController@reset');
+	Route::get('password/reset', 'PacienteAuth\ForgotPasswordController@showLinkRequestForm');
+	Route::get('password/reset/{token}', 'PacienteAuth\ResetPasswordController@showResetForm');
+});
+
+Route::group(['prefix' => 'medico'], function () {
+	//Medico Login
+	Route::post('login', 'MedicoAuth\LoginController@login');
+	Route::get('logout', 'MedicoAuth\LoginController@logout');
+
+	//Medico Register
+	Route::post('register', 'MedicoAuth\RegisterController@register');
+
+	//Medico Passwords
+	Route::post('password/email', 'MedicoAuth\ForgotPasswordController@sendResetLinkEmail');
+	Route::post('password/reset', 'MedicoAuth\ResetPasswordController@reset');
+	Route::get('password/reset', 'MedicoAuth\ForgotPasswordController@showLinkRequestForm');
+	Route::get('password/reset/{token}', 'MedicoAuth\ResetPasswordController@showResetForm');
+});
 
 //atualizacao de dados
 Route::get('dados', 'MedicoController@atualizaCadastro');
@@ -30,11 +55,6 @@ Route::post('removerConsultorio', 'MedicoController@removerConsultorio');
 Route::post('adicionarConsultorio', 'MedicoController@adicionarConsultorio');
 Route::post('avalia-medico', 'MedicoController@avaliaMedico');
 
-//Medico Passwords
-Route::post('medico/password/email', 'MedicoAuth\ForgotPasswordController@sendResetLinkEmail');
-Route::post('medico/password/reset', 'MedicoAuth\ResetPasswordController@reset');
-Route::get('medico/password/reset', 'MedicoAuth\ForgotPasswordController@showLinkRequestForm');
-Route::get('medico/password/reset/{token}', 'MedicoAuth\ResetPasswordController@showResetForm');
 
 //Logins
 

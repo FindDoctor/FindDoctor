@@ -25,7 +25,7 @@ class SocialAuthController extends Controller
 			return $user;
 		}
 		else {
-			Auth::login($user, true);
+			Auth::guard('paciente')->login($user, true);
 			return redirect()->to('/');
 		}
     }

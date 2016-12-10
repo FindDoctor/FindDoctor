@@ -8,7 +8,7 @@
                 <div class="panel-heading">Cadastrar</div>
                 <div class="panel-body">
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}" id="formCadastro">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/paciente/register') }}" id="formCadastro">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">

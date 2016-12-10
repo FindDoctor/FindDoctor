@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-<!-- Dados para login de teste: 
+<!-- Dados para login de teste:
 
 drluizmarcel@gmail.com
 JohnDoe
@@ -18,9 +18,9 @@ JohnDoe
 	<h3>Dados do médico</h3>
 
 	<form id="formulario_dados" class="formulario_dados" method="POST"  action="{{ url('/atualiza') }}" accept-charset="UTF-8" enctype="multipart/form-data">
-	
+
 	<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-	
+
 	<table>
 		<tbody>
 			<tr>
@@ -57,7 +57,7 @@ JohnDoe
 				<td><input type="text" disabled name="complemento" value='{{ Auth::guard("medico")->user()->complemento }}'></td>
 			</tr>
 			<tr>
-				<td>Bairro</td> 
+				<td>Bairro</td>
 				<td><input type="text" disabled name="bairro" value='{{ Auth::guard("medico")->user()->bairro }}'></td>
 			</tr>
 			<tr>
@@ -94,10 +94,10 @@ JohnDoe
 		</tbody>
 
 	</table>
-	   
+
     {!! Form::close() !!}
 	</form>
-		
+
 	<span id="alterar_dados_btn" class="btn">Alterar Dados</span>
 
 	</div>
@@ -110,14 +110,14 @@ JohnDoe
 			<li>
 				<div>
 					<div class="container panel panel-default" data-toggle="collapse" data-target="#{{$consultorio->id_consultorio }}">
-						
+
 						<div class="panel-heading">
 							<h3 class="panel-title" style="float:left;line-height:34px;">{{$consultorio->endereco}}, {{$consultorio->numero}}</h3>
 						</div>
-				
+
 						<div id="{{$consultorio->id_consultorio }}" class="collapse panel-body">
 							<form id="consultorios-form" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
-								<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />	
+								<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 								<input id="nome_consultorio" type="hidden" name="consultorio" value="{{$consultorio->id_consultorio }}"
 								" >
 								<table>
@@ -150,7 +150,7 @@ JohnDoe
 											<td>
 												<input type="text" name="endereco" value="{{$consultorio->endereco }}">
 											</td>
-										</tr>									
+										</tr>
 
 										<tr>
 											<td>
@@ -221,15 +221,15 @@ JohnDoe
 			<li id="li_novo_consultorio" class="novo_consultorio">
 				<div>
 					<div class="container panel panel-default" data-toggle="collapse" data-target="#novoConsultorio">
-						
+
 						<div class="panel-heading">
 							<h3 class="panel-title" style="float:left;line-height:34px;">Novo consultorio</h3>
 						</div>
-				
+
 						<div id="novoConsultorio" class="collapse panel-body">
 							<form id="consultorios-form" accept-charset="UTF-8" enctype="multipart/form-data" method="POST">
 								<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-								<input type="hidden" name="id" value='{{ Auth::guard("medico")->user()->id }}'>	
+								<input type="hidden" name="id" value='{{ Auth::guard("medico")->user()->id }}'>
 								<input id="nome_consultorio" type="hidden" name="consultorio" value=""
 								" >
 								<table>
@@ -262,7 +262,7 @@ JohnDoe
 											<td>
 												<input type="text" name="endereco">
 											</td>
-										</tr>									
+										</tr>
 
 										<tr>
 											<td>
@@ -332,7 +332,7 @@ JohnDoe
 	</div>
 
 </div>
-	
+
 @else
 	<!-- USUARIO COMUM -->
 
@@ -344,47 +344,47 @@ JohnDoe
 		<tbody>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" disabled name="nome" value='{{ Auth::user()->nome }}'></td>
+				<td><input type="text" disabled name="nome" value='{{ Auth::guard("paciente")->user()->nome }}'></td>
 			</tr>
 			<tr>
 				<td>CPF</td>
-				<td><input type="text" disabled name="crm" value='{{ Auth::user()->cpf }}'></td>
+				<td><input type="text" disabled name="crm" value='{{ Auth::guard("paciente")->user()->cpf }}'></td>
 			</tr>
 			<tr>
 				<td>Email</td>
-				<td><input type="email" disabled name="email" value='{{ Auth::user()->email }}'></td>
+				<td><input type="email" disabled name="email" value='{{ Auth::guard("paciente")->user()->email }}'></td>
 			</tr>
 			<tr>
 				<td>Telefone</td>
-				<td><input type="text" disabled name="telefone" value='{{ Auth::user()->telefone }}'></td>
+				<td><input type="text" disabled name="telefone" value='{{ Auth::guard("paciente")->user()->telefone }}'></td>
 			</tr>
 			<tr>
 				<td>CEP</td>
-				<td><input type="text" disabled name="cep" value='{{ Auth::user()->cep }}'></td>
+				<td><input type="text" disabled name="cep" value='{{ Auth::guard("paciente")->user()->cep }}'></td>
 			</tr>
 			<tr>
 				<td>Endereço</td>
-				<td><input type="tex" disabled name="endereco" value='{{ Auth::user()->endereco }}'></td>
+				<td><input type="tex" disabled name="endereco" value='{{ Auth::guard("paciente")->user()->endereco }}'></td>
 			</tr>
 			<tr>
 				<td>Número</td>
-				<td><input type="text" disabled name="numero" value='{{ Auth::user()->numero }}'></td>
+				<td><input type="text" disabled name="numero" value='{{ Auth::guard("paciente")->user()->numero }}'></td>
 			</tr>
 			<tr>
 				<td>Complemento</td>
-				<td><input type="text" disabled name="complemento" value='{{ Auth::user()->complemento }}'></td>
+				<td><input type="text" disabled name="complemento" value='{{ Auth::guard("paciente")->user()->complemento }}'></td>
 			</tr>
 			<tr>
-				<td>Bairro</td> 
-				<td><input type="text" disabled name="bairro" value='{{ Auth::user()->bairro }}'></td>
+				<td>Bairro</td>
+				<td><input type="text" disabled name="bairro" value='{{ Auth::guard("paciente")->user()->bairro }}'></td>
 			</tr>
 			<tr>
 				<td>Cidade</td>
-				<td><input type="text" disabled name="cidade" value='{{ Auth::user()->cidade }}'></td>
+				<td><input type="text" disabled name="cidade" value='{{ Auth::guard("paciente")->user()->cidade }}'></td>
 			</tr>
 			<tr>
 				<td>Estado</td>
-				<td><input type="text" disabled name="estado" value='{{ Auth::user()->estado }}'></td>
+				<td><input type="text" disabled name="estado" value='{{ Auth::guard("paciente")->user()->estado }}'></td>
 			</tr>
 
 			<tr>
@@ -395,7 +395,7 @@ JohnDoe
 		</tbody>
 
 	</table>
-	
+
 	</form>
 
 
@@ -405,7 +405,7 @@ JohnDoe
 	</div>
 
 	<div class="consultorios" id="consultorios">
-		
+
 
 	</div>
 
