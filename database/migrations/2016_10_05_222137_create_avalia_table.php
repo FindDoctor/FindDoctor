@@ -14,11 +14,11 @@ class CreateAvaliaTable extends Migration
     public function up()
     {
         schema::create('avalia', function(Blueprint $table){
+            $table->increments('id');
             $table->string('paciente_cpf', 12);
             $table->integer('medico_id')->unsigned();
             $table->string('comentarios', 255);
             $table->integer('nota');
-            $table->primary('paciente_cpf', 'medico_id');
         });
         schema::table('avalia', function($table){
             $table->foreign('medico_id')->references('id')->on('medicos')->onDelete('cascade');
