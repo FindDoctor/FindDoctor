@@ -77,11 +77,6 @@ class RegisterController extends Controller
 			'password' => 'required|min:6|confirmed',
 			'foto' => 'image|mimes:jpeg,png,jpg|max:2048',
 		], $messages);
-
-		/*if(!$val->fails()) {
-
-		}
-		return $val;*/
     }
 
     /**
