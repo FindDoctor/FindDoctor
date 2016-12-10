@@ -6,3 +6,8 @@ Homestead.json
 Homestead.yaml
 .env
 npm-debug.log
+
+# Arquivos gerados pelo gulp
+public/css/app.css
+public/css/app.css.map
+public/js/*
