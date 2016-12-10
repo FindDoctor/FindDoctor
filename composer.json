@@ -13,7 +13,9 @@
         "laravel/socialite": "^2.0",
         "laravel-doctrine/orm": "1.2.*",
         "doctrine/dbal": "^2.5",
-        "orangehill/iseed": "dev-master"
+        "orangehill/iseed": "dev-master",
+        "intervention/image": "^2.3",
+        "intervention/imagecache": "^2.3"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
