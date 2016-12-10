@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\MedicoAuth;
 
+use File;
 use App\Medico;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class RegisterController extends Controller
 {
@@ -73,7 +75,13 @@ class RegisterController extends Controller
 			'cidade' => 'required|min:3',
 			'estado' => 'required|min:2',
 			'password' => 'required|min:6|confirmed',
+			'foto' => 'image|mimes:jpeg,png,jpg|max:2048',
 		], $messages);
+
+		/*if(!$val->fails()) {
+
+		}
+		return $val;*/
     }
 
     /**
@@ -84,6 +92,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+		//dd($data);
+		$image = $data['foto'];
+		$imagename = time().'.'.$image->getClientOriginalExtension();
+
+		$destinationPath = public_path('/imgs/medicos/');
+
+		if(!File::exists($destinationPath)) {
+		    File::makeDirectory($destinationPath, 0775);
+		}
+
+		$img = Image::make($image->getRealPath());
+		$img->resize(400, 400, function ($cons) {
+			$cons->aspectRatio();
+		})->save($destinationPath.$imagename);
+
         return Medico::create([
 			'nome' => $data['nome'],
 			'crm' => $data['crm'],
@@ -97,6 +120,7 @@ class RegisterController extends Controller
 			'cidade' => $data['cidade'],
 			'estado' => $data['estado'],
 			'password' => bcrypt($data['password']),
+			'foto' => $imagename,
 		]);
     }
 

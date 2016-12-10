@@ -21,7 +21,7 @@
 					</div>
 				@endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ (old('cpf') || $errors->has('cpf')) ? url('/paciente/register') : url('/medico/register') }}" id="formCadastro" {{ !$errors->any() ? 'hidden' : '' }}>
+                    <form class="form-horizontal" role="form" method="POST" action="{{ (old('cpf') || $errors->has('cpf')) ? url('/paciente/register') : url('/medico/register') }}" id="formCadastro" {{ !$errors->any() ? 'hidden' : '' }} enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
@@ -221,6 +221,20 @@
                                 @if ($errors->has('estado'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('estado') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('foto') ? ' has-error' : '' }}" id="foto">
+                            <label for="foto" class="col-md-4 control-label">Foto</label>
+
+                            <div class="col-md-6">
+                                <input id="foto" type="file" name="foto" accept="image/*" value="{{ old('foto') }}" autofocus>
+
+                                @if ($errors->has('foto'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('foto') }}</strong>
                                     </span>
                                 @endif
                             </div>

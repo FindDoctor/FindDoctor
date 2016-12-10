@@ -1,6 +1,7 @@
 $('#tipoPaciente').click(function () {
 	$('#tipoCadastro').hide();
 	$('#crm').remove();
+	$('#foto').remove();
 	$('#formCadastro').attr('action', '/paciente/register').show();
 });
 
