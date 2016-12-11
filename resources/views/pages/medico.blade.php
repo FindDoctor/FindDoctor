@@ -39,11 +39,11 @@
 		<div id="marcar-consulta" class="marcar-consulta col-md-8">
 			<h2>Marcar uma consulta</h2>
 
-			@if (Auth::guest())
+			@if (Auth::guard('paciente')->user())
 			<form id="dados-consulta" class="dados-consulta" action="{{ URL::to('/') }}/marcar-consulta" method="post">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="hidden" name="id" value="{{$medico->id}}">
-				
+
 				<table class="agendar-consulta">
 					<tbody>
 						<tr>
