@@ -95,34 +95,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('numero') ? ' has-error' : '' }}">
-                            <label for="numero" class="col-md-4 control-label">N° </label>
-
-                            <div class="col-md-6">
-                                <input id="numero" type="text" class="form-control" name="numero" value="{{ old('numero') }}" required autofocus>
-
-                                @if ($errors->has('numero'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('numero') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('complemento') ? ' has-error' : '' }}">
-                            <label for="complemento" class="col-md-4 control-label">Complemento</label>
-
-                            <div class="col-md-6">
-                                <input id="complemento" type="text" class="form-control" name="complemento" value="{{ old('complemento') }}" autofocus>
-
-                                @if ($errors->has('complemento'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('complemento') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('bairro') ? ' has-error' : '' }}">
                             <label for="bairro" class="col-md-4 control-label">Bairro</label>
 
@@ -165,6 +137,34 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('numero') ? ' has-error' : '' }}">
+                            <label for="numero" class="col-md-4 control-label">N° </label>
+
+                            <div class="col-md-6">
+                                <input id="numero" type="text" class="form-control" name="numero" value="{{ old('numero') }}" required autofocus>
+
+                                @if ($errors->has('numero'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('numero') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('complemento') ? ' has-error' : '' }}">
+                            <label for="complemento" class="col-md-4 control-label">Complemento</label>
+
+                            <div class="col-md-6">
+                                <input id="complemento" type="text" class="form-control" name="complemento" value="{{ old('complemento') }}" autofocus>
+
+                                @if ($errors->has('complemento'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('complemento') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -182,6 +182,25 @@
 
 @section('js')
 	@parent
+	<script type="text/javascript">
+		function cep_callback(conteudo) {
+			if (!("erro" in conteudo)) {
+				//Atualiza os campos com os valores.
+				$('#endereco').val(conteudo.logradouro);
+				$('#bairro').val(conteudo.bairro);
+				$('#cidade').val(conteudo.localidade);
+				$('#estado').val(conteudo.uf);
+			} //end if.
+			else {
+				//CEP não Encontrado.
+				$('#endereco').val("");
+				$('#bairro').val("");
+				$('#cidade').val("");
+				$('#estado').val("");
+				alert("CEP não encontrado.");
+			}
+		}
+	</script>
 	<script src="{{ URL::asset('js/vendor/jquery.mask.min.js') }}"></script>
 	<script src="{{ URL::asset('js/register.js') }}"></script>
 @endsection
