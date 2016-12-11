@@ -7,7 +7,7 @@
 	<div class="container info-medico">
 		<div class="col-md-9">
 			<div class="col-md-4">
-				<img class="img-medico" src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg">
+				<img class="img-medico" src="{{ $medico->foto != '' ? '/imgs/medicos/'.$medico->foto : '/imgs/base_medico.jpg' }}" alt="{{ $medico->nome }}">
 			</div>
 			<div id="info_medico" class="col-md-8">
 				<h2>{{$medico->nome }}</h2>

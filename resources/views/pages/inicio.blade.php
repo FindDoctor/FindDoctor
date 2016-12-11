@@ -89,9 +89,9 @@
                 @foreach ($medicos as $medico)
                     <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                      <img src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg" alt="...">
+                      <img src="{{ $medico->foto != '' ? '/imgs/medicos/'.$medico->foto : '/imgs/base_medico.jpg' }}" alt="{{ $medico->nome }}">
                       <div class="caption">
-                        <h3>{{$medico->nome }}</h3>
+                        <h3>{{ $medico->nome }}</h3>
                         <p>Info do médico</p>
                         <p><a href="{{ URL::to('/') }}/medico/{{$medico->id}}" class="btn btn-primary" role="button">Ver Médico</a></p>
                       </div>
