@@ -43,7 +43,7 @@
 			<form id="dados-consulta" class="dados-consulta" action="{{ URL::to('/') }}/marcar-consulta" method="post">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="hidden" name="id" value="{{$medico->id}}">
-				
+
 				<table class="agendar-consulta">
 					<tbody>
 						<tr>
@@ -63,7 +63,7 @@
 						<tr>
 							<td>Data da Consulta</td>
 							<td>
-								<input id="data-consulta" name="data-consulta" type="date" >
+								<input id="data-consulta" name="data_consulta" type="date" >
 							</td>
 						</tr>
 						<tr>
