@@ -226,6 +226,7 @@
                             </div>
                         </div>
 
+						@if (!$errors->any() || old('crm') || $errors->has('crm'))
                         <div class="form-group{{ $errors->has('foto') ? ' has-error' : '' }}" id="foto">
                             <label for="foto" class="col-md-4 control-label">Foto</label>
 
@@ -239,6 +240,7 @@
                                 @endif
                             </div>
                         </div>
+						@endif
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

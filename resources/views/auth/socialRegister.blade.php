@@ -179,3 +179,9 @@
     </div>
 </div>
 @endsection
+
+@section('js')
+	@parent
+	<script src="{{ URL::asset('js/vendor/jquery.mask.min.js') }}"></script>
+	<script src="{{ URL::asset('js/register.js') }}"></script>
+@endsection

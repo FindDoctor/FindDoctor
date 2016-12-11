@@ -63,7 +63,7 @@ class RegisterController extends Controller
 		if(isset($socialAccount)){
 			return Validator::make($data, [
 				'nome' => 'required|max:70|min:6',
-				'cpf' => 'required|size:11|unique:pacientes|cpf',
+				'cpf' => 'required|size:14|unique:pacientes|cpf',
 				'telefone' => 'required|max:11|min:10',
 				'email' => 'required|email|max:50|unique:pacientes|unique:medicos',
 				'cep' => 'required|size:9',
@@ -78,7 +78,7 @@ class RegisterController extends Controller
 		else {
 			return Validator::make($data, [
 				'nome' => 'required|max:70|min:6',
-				'cpf' => 'required|size:11|unique:pacientes|cpf',
+				'cpf' => 'required|size:14|unique:pacientes|cpf',
 				'telefone' => 'required|max:11|min:10',
 				'email' => 'required|email|max:50|unique:pacientes|unique:medicos',
 				'cep' => 'required|size:9',

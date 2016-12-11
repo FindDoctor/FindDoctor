@@ -36,12 +36,13 @@ class AppServiceProvider extends ServiceProvider
         });
 
 		Validator::extend('cpf', function($attribute, $value, $parameters, $validator) {
-			// Elimina mascara
-            $cpf = preg_replace('[^0-9]', '', $value);
-            $cpf = str_pad($cpf, 11, '0', STR_PAD_LEFT);
+			$cpf = preg_replace('/[^0-9]/', '', (string) $value);
 
-			$cpfsProibidos = [
-				'00000000000',
+			// Valida tamanho
+			if (strlen($cpf) != 11)
+				return false;
+
+			$invalidos = array('00000000000',
 				'11111111111',
 				'22222222222',
 				'33333333333',
@@ -51,31 +52,26 @@ class AppServiceProvider extends ServiceProvider
 				'77777777777',
 				'88888888888',
 				'99999999999'
-			];
+			);
 
-			// Verifica se o numero de digitos informados é igual a 11
-            if (strlen($cpf) != 11) return false;
+			if (in_array($cpf, $invalidos)) return false;
 
-			// Verifica se nenhuma das sequências invalidas abaixo
-			// foi digitada. Caso afirmativo, retorna falso
-            else if (in_array($cpf, $cpfsProibidos))
-                return false;
+			// Calcula e confere primeiro dígito verificador
+			for ($i = 0, $j = 10, $soma = 0; $i < 9; $i++, $j--)
+				$soma += $cpf{$i} * $j;
 
-			// Calcula os digitos verificadores para verificar se o
-			// CPF é válido
-			else {
-			    for ($t = 9; $t < 11; $t++) {
-			        for ($d = 0, $c = 0; $c < $t; $c++)
-			            $d += $cpf{$c} * (($t + 1) - $c);
+			$resto = $soma % 11;
 
-			        $d = ((10 * $d) % 11) % 10;
+			if ($cpf{9} != ($resto < 2 ? 0 : 11 - $resto))
+				return false;
 
-			        if ($cpf{$c} != $d)
-						return false;
-			    }
+			// Calcula e confere segundo dígito verificador
+			for ($i = 0, $j = 11, $soma = 0; $i < 10; $i++, $j--)
+				$soma += $cpf{$i} * $j;
 
-			    return true;
-			}
+			$resto = $soma % 11;
+
+			return $cpf{10} == ($resto < 2 ? 0 : 11 - $resto);
         });
     }
 
