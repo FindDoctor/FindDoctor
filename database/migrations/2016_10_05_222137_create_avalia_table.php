@@ -15,7 +15,7 @@ class CreateAvaliaTable extends Migration
     {
         schema::create('avalia', function(Blueprint $table){
             $table->increments('id');
-            $table->string('paciente_cpf', 12);
+            $table->string('paciente_cpf', 14);
             $table->integer('medico_id')->unsigned();
             $table->string('comentarios', 255);
             $table->integer('nota');
