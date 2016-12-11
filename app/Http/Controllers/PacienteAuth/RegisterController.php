@@ -64,7 +64,7 @@ class RegisterController extends Controller
 			return Validator::make($data, [
 				'nome' => 'required|max:70|min:6',
 				'cpf' => 'required|size:14|unique:pacientes|cpf',
-				'telefone' => 'required|max:11|min:10',
+				'telefone' => 'required|max:15|min:14',
 				'email' => 'required|email|max:50|unique:pacientes|unique:medicos',
 				'cep' => 'required|size:9',
 				'endereco' => 'required|max:100|min:6',
@@ -79,7 +79,7 @@ class RegisterController extends Controller
 			return Validator::make($data, [
 				'nome' => 'required|max:70|min:6',
 				'cpf' => 'required|size:14|unique:pacientes|cpf',
-				'telefone' => 'required|max:11|min:10',
+				'telefone' => 'required|max:15|min:14',
 				'email' => 'required|email|max:50|unique:pacientes|unique:medicos',
 				'cep' => 'required|size:9',
 				'endereco' => 'required|max:100|min:6',

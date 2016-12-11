@@ -65,7 +65,7 @@ class RegisterController extends Controller
 			'nome' => 'required|max:70|min:6',
 			//'crm' => 'required|unique:medicos|crm',
 			'crm' => 'required|unique:medicos',
-			'telefone' => 'required|max:11|min:10',
+			'telefone' => 'required|max:15|min:14',
 			'email' => 'required|email|max:50|unique:medicos|unique:pacientes',
 			'cep' => 'required|max:9|min:9',
 			'endereco' => 'required|max:100|min:6',
