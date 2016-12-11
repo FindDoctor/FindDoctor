@@ -35,3 +35,5 @@ $('#btn-add').click(function(){
 	$('#li_novo_consultorio').show();
 	$(this).hide();
 });
+
+

@@ -76,9 +76,9 @@
                                     <span class="fa fa-facebook"></span> Entrar com o Facebook
                                 </a>
 
-								<a href="{{ url('social/google/redirect') }}" class="btn btn-social btn-google">
+<!-- 								<a href="{{ url('social/google/redirect') }}" class="btn btn-social btn-google">
                                     <span class="fa fa-google"></span> Entrar com o Google Plus
-                                </a>
+                                </a> -->
 
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Esqueceu sua senha?
