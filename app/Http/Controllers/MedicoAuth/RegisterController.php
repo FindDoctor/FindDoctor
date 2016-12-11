@@ -100,9 +100,7 @@ class RegisterController extends Controller
 			}
 
 			$img = Image::make($image->getRealPath());
-			$img->resize(400, 400, function ($cons) {
-				$cons->aspectRatio();
-			})->save($destinationPath.$imagename);
+			$img->resize(400, 400)->save($destinationPath.$imagename);
 		}
 
         return Medico::create([
