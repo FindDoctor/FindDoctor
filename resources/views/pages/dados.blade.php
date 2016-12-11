@@ -38,11 +38,11 @@ JohnDoe
 			</tr>
 			<tr>
 				<td>Telefone</td>
-				<td><input type="text" disabled name="telefone" value='{{ Auth::guard("medico")->user()->telefone }}'></td>
+				<td><input type="text" disabled name="telefone" class="telefone" value='{{ Auth::guard("medico")->user()->telefone }}'></td>
 			</tr>
 			<tr>
 				<td>CEP</td>
-				<td><input type="text" disabled name="cep" value='{{ Auth::guard("medico")->user()->cep }}'></td>
+				<td><input type="text" class="cep" disabled name="cep" value='{{ Auth::guard("medico")->user()->cep }}'></td>
 			</tr>
 			<tr>
 				<td>Endereço</td>
@@ -128,7 +128,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="telefone" value="{{$consultorio->telefone }}">
+												<input type="text" name="telefone" class="telefone" value="{{$consultorio->telefone }}">
 											</td>
 										</tr>
 
@@ -138,7 +138,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="cep" value="{{$consultorio->cep }}">
+												<input type="text" name="cep" class="cep" value="{{$consultorio->cep }}">
 											</td>
 										</tr>
 
@@ -168,7 +168,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="telefone" value="{{$consultorio->complemento }}">
+												<input type="text" name="telefone" class="telefone" value="{{$consultorio->complemento }}">
 											</td>
 										</tr>
 
@@ -240,7 +240,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="telefone">
+												<input type="text" name="telefone" class="telefone">
 											</td>
 										</tr>
 
@@ -250,7 +250,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="cep">
+												<input type="text" name="cep" class="cep">
 											</td>
 										</tr>
 
@@ -280,7 +280,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="telefone" >
+												<input type="text" name="telefone" class="telefone" >
 											</td>
 										</tr>
 
@@ -370,23 +370,15 @@ JohnDoe
 			</tr>
 			<tr>
 				<td>Telefone</td>
-				<td><input type="text" disabled name="telefone" value='{{ Auth::guard("paciente")->user()->telefone }}'></td>
+				<td><input type="text" disabled name="telefone" class="telefone" value='{{ Auth::guard("paciente")->user()->telefone }}'></td>
 			</tr>
 			<tr>
 				<td>CEP</td>
-				<td><input type="text" disabled name="cep" value='{{ Auth::guard("paciente")->user()->cep }}'></td>
+				<td><input type="text" disabled name="cep" class="cep" value='{{ Auth::guard("paciente")->user()->cep }}'></td>
 			</tr>
 			<tr>
 				<td>Endereço</td>
 				<td><input type="tex" disabled name="endereco" value='{{ Auth::guard("paciente")->user()->endereco }}'></td>
-			</tr>
-			<tr>
-				<td>Número</td>
-				<td><input type="text" disabled name="numero" value='{{ Auth::guard("paciente")->user()->numero }}'></td>
-			</tr>
-			<tr>
-				<td>Complemento</td>
-				<td><input type="text" disabled name="complemento" value='{{ Auth::guard("paciente")->user()->complemento }}'></td>
 			</tr>
 			<tr>
 				<td>Bairro</td>
@@ -399,6 +391,14 @@ JohnDoe
 			<tr>
 				<td>Estado</td>
 				<td><input type="text" disabled name="estado" value='{{ Auth::guard("paciente")->user()->estado }}'></td>
+			</tr>
+			<tr>
+				<td>Número</td>
+				<td><input type="text" disabled name="numero" value='{{ Auth::guard("paciente")->user()->numero }}'></td>
+			</tr>
+			<tr>
+				<td>Complemento</td>
+				<td><input type="text" disabled name="complemento" value='{{ Auth::guard("paciente")->user()->complemento }}'></td>
 			</tr>
 
 			<tr>
@@ -437,7 +437,8 @@ JohnDoe
 
 			var token = '{{{ csrf_token() }}}';
 		</script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAguzcFY7o2fh08MZKHlIisrTvxrHBE1Z4"></script>
+		<script src="{{ URL::asset('js/vendor/jquery.mask.min.js') }}"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH5v1u6W0SOo4tR9lsz-itwbyGRxydtoQ"></script>
 		<script src="{{ URL::asset('js/register.js') }}"></script>
 @endsection
     </body>

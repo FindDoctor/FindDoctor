@@ -190,6 +190,7 @@
 				$('#bairro').val(conteudo.bairro);
 				$('#cidade').val(conteudo.localidade);
 				$('#estado').val(conteudo.uf);
+				$('#numero').focus();
 			} //end if.
 			else {
 				//CEP não Encontrado.

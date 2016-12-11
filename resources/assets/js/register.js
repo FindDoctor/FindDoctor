@@ -86,9 +86,10 @@ $('#btn-add').click(function(){
 	$(this).hide();
 });
 
-$(document).ready(function(){
+function apply_masks() {
 	$('#cpf_input').mask('000.000.000-00', {reverse: true});
 	$('#cep').mask('00000-000');
+	$('.cep').mask('00000-000');
 
 	var SPMaskBehavior = function (val) {
 		return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
@@ -100,4 +101,9 @@ $(document).ready(function(){
 	};
 
 	$('#telefone').mask(SPMaskBehavior, spOptions);
+	$('.telefone').mask(SPMaskBehavior, spOptions);
+}
+
+$(document).ready(function(){
+	apply_masks();
 });
