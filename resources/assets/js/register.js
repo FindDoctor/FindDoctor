@@ -36,4 +36,6 @@ $('#btn-add').click(function(){
 	$(this).hide();
 });
 
-
+$(document).ready(function(){
+   // $('#cpf').mask('000.000.000-00', {reverse: true});     
+});

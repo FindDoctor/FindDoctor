@@ -112,13 +112,10 @@
 	<script type="text/javascript">
 		var baseUrl = "{{ URL::to('/') }}";
 	</script>
-	<script src="{{ URL::asset('js/jquery-3.1.1.min.js') }}"></script>
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/qunit/qunit-1.11.0.js"></script>
 	<script src="{{ URL::asset('js/jquery.mask.js') }}"></script>
     <script src="{{ URL::asset('js/app.js') }}"></script>
-    <script type="text/javascript">
-    	
-$('.cpf').mask('000.000.000-00', {reverse: true});
-    </script>
 
 @show
 </body>
