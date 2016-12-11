@@ -88,19 +88,22 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 		//dd($data);
-		$image = $data['foto'];
-		$imagename = time().'.'.$image->getClientOriginalExtension();
+		@$image = $data['foto'];
+		$imagename = '';
+		if($image) {
+			$imagename = time().'.'.$image->getClientOriginalExtension();
 
-		$destinationPath = public_path('/imgs/medicos/');
+			$destinationPath = public_path('/imgs/medicos/');
 
-		if(!File::exists($destinationPath)) {
-		    File::makeDirectory($destinationPath, 0775);
+			if(!File::exists($destinationPath)) {
+			    File::makeDirectory($destinationPath, 0775);
+			}
+
+			$img = Image::make($image->getRealPath());
+			$img->resize(400, 400, function ($cons) {
+				$cons->aspectRatio();
+			})->save($destinationPath.$imagename);
 		}
-
-		$img = Image::make($image->getRealPath());
-		$img->resize(400, 400, function ($cons) {
-			$cons->aspectRatio();
-		})->save($destinationPath.$imagename);
 
         return Medico::create([
 			'nome' => $data['nome'],
@@ -115,7 +118,7 @@ class RegisterController extends Controller
 			'cidade' => $data['cidade'],
 			'estado' => $data['estado'],
 			'password' => bcrypt($data['password']),
-			'foto' => $imagename,
+			'foto' => $imagename ? $imagename : '',
 		]);
     }
 
