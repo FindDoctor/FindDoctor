@@ -37,5 +37,5 @@ $('#btn-add').click(function(){
 });
 
 $(document).ready(function(){
-   // $('#cpf').mask('000.000.000-00', {reverse: true});     
+   $('#cpf_input').mask('000.000.000-00', {reverse: true});     
 });
