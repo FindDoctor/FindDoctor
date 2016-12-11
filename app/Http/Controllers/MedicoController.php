@@ -31,8 +31,8 @@ class MedicoController extends Controller
 
         $this->middleware('auth');
 
-        if(Auth::user() != null){
-            $cpf = "40701186836";
+        if(Auth::guard("paciente")->user() != null){
+          $cpf = Auth::guard("paciente")->user()->cpf;
         }else if(Auth::guard("medico")->user() != null){
             $cpf = "40701186836";
             //$cpf = Auth::guard("medico")->user()['crm'];
@@ -41,7 +41,7 @@ class MedicoController extends Controller
         }
 
     	DB::table('consulta')->insert(
-		    ['medico_id' => $_POST['id'], 'consultorio_id' => $_POST['consultorio'], 'paciente_cpf' => $cpf,'hora' => '16:19:25', 'data'=> $_POST['data-consulta'], 'status'=>'0']
+		    ['medico_id' => $_POST['id'], 'consultorio_id' => $_POST['consultorio'], 'paciente_cpf' => $cpf,'data'=> $_POST['data_consulta'], 'motivo'=>$_POST['motivo_consulta'] ,'status'=>'0']
 		);
 
         return redirect('/medico/'.$_POST['id']);
@@ -57,7 +57,12 @@ class MedicoController extends Controller
             $consultorios = DB::table('consultorio')->where('medico_id','=',$id_medico)->get();
         }
 
-        return view('pages.dados',['consultorios' => $consultorios]);
+        $consultas = DB::table('consulta')
+                      ->select('consultorio_id','medico_id', 'paciente_cpf', 'data', 'motivo')
+                      ->where('medico_id', '=', Auth::guard("medico")->user()['id'])
+                      ->get();
+
+        return view('pages.dados',['consultorios' => $consultorios,'consultas' => $consultas ]);
     }
 
 
@@ -82,15 +87,15 @@ class MedicoController extends Controller
         // $address = $insert['endereco'] . ' ' . $insert['numero'];
 
         // $address = str_replace(" ", "+", $address); // replace all the white space with "+" sign to match with google search pattern
- 
+
 
         $address  = $insert['cep'];
         $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address=$address";
-         
+
         $response = file_get_contents($url);
-         
+
         $json = json_decode($response,TRUE); //generate array object from the response from the web
-         
+
         $insert['latitude'] = $json['results'][0]['geometry']['location']['lat'];
 
         $insert['longitude'] = $json['results'][0]['geometry']['location']['lng'];
@@ -120,11 +125,11 @@ class MedicoController extends Controller
         $address = str_replace(" ", "+", $address); // replace all the white space with "+" sign to match with google search pattern
         $address  = $insert['cep'];
         $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address=$address";
-         
+
         $response = file_get_contents($url);
-         
+
         $json = json_decode($response,TRUE); //generate array object from the response from the web
-         
+
         if(empty($json['results']))
             return redirect('/dados/');
 
@@ -136,7 +141,7 @@ class MedicoController extends Controller
         DB::table('consultorio')->insert($insert);
 
         return redirect('/dados/');
-        
+
     }
 
     public function removerConsultorio(){

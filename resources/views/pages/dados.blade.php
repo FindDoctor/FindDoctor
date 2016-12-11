@@ -333,6 +333,20 @@ JohnDoe
 
 </div>
 
+<div class="container consultasSolicitadas">
+	<span>Consultas: </span>
+	<div class="consultas-medico col-md-4">
+		@foreach ($consultas as $consulta)
+			<div class="item">
+				<p><span>Paciente:</span> {{ $consulta->paciente_cpf}}</p>
+				<p><span>Data:</span> {{$consulta->data}}</p>
+				<p><span>Consultorio:</span> {{ $consulta->consultorio_id}}</p>
+				<p><span>Motivo:</span> {{ $consulta->motivo}}</p>
+
+			</div>
+		@endforeach
+	</div>
+</div>
 @else
 	<!-- USUARIO COMUM -->
 

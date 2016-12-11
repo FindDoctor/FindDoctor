@@ -18,8 +18,8 @@ class CreateConsultaTable extends Migration
             $table->integer('consultorio_id')->unsigned();
             $table->integer('medico_id')->unsigned();
             $table->string('paciente_cpf', 12);
-            $table->time('hora');
-            $table->date('data');
+            $table->string('data');
+            $table->text('motivo');
             $table->boolean('status');
         });
 
