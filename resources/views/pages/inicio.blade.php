@@ -114,7 +114,7 @@
 @section('js')
 		@parent
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAguzcFY7o2fh08MZKHlIisrTvxrHBE1Z4"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH5v1u6W0SOo4tR9lsz-itwbyGRxydtoQ"></script>
 		<script src="{{ URL::asset('js/index.js') }}"></script>
 @endsection
     </body>
