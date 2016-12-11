@@ -15,7 +15,7 @@ class CreatePacientesTable extends Migration
     {
         Schema::create('pacientes', function(Blueprint $table){
 			$table->increments('id');
-            $table->string('cpf', 12)->unique();
+            $table->string('cpf', 14)->unique();
             $table->string('nome',70);
             $table->string('email',50)->unique();
             $table->string('password')->nullable();
