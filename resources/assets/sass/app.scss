@@ -385,7 +385,7 @@ html, body {
     display:none;
   }
 
-  ul{  
+  ul{
     padding: 0;
 
     li{
@@ -538,5 +538,40 @@ html, body {
   .titulo{
     font-size: 32px;
     font-style: bold;
+  }
+}
+
+.consultasSolicitadas{
+  .titulo{
+    display: block;
+    margin: 10px 0;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  .consultas-medico{
+    padding: 30px;
+    padding-left: 10px;
+    border:1px solid #D8CFBE;
+    margin-top:10px;
+    margin-bottom: 50px;
+    background: #ece7df;
+    font-size: 16px;
+    font-family:"HelveticaNeue";
+    .item{
+      padding: 10px;
+      padding-left: 5px;
+      border:1px solid #D8CFBE;
+      margin-top:5px;
+      margin-bottom: 5px;
+      background: #FFFFFF;
+      font-size: 16px;
+      font-family:"HelveticaNeue";
+    }
+    span{
+      display: block;
+      margin: 10px 0;
+      font-size: 17px;
+      font-weight: bold;
+    }
   }
 }

@@ -334,7 +334,7 @@ JohnDoe
 </div>
 
 <div class="container consultasSolicitadas">
-	<span>Consultas: </span>
+	<div class="titulo">Consultas: </div>
 	<div class="consultas-medico col-md-4">
 		@foreach ($consultas as $consulta)
 			<div class="item">
@@ -342,7 +342,6 @@ JohnDoe
 				<p><span>Data:</span> {{$consulta->data}}</p>
 				<p><span>Consultorio:</span> {{ $consulta->consultorio_id}}</p>
 				<p><span>Motivo:</span> {{ $consulta->motivo}}</p>
-
 			</div>
 		@endforeach
 	</div>
