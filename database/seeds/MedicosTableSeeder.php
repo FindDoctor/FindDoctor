@@ -1,10 +1,7 @@
 <?php
-
 use Illuminate\Database\Seeder;
-
 class MedicosTableSeeder extends Seeder
 {
-
     /**
      * Auto generated seed file
      *
@@ -12,7 +9,6 @@ class MedicosTableSeeder extends Seeder
      */
     public function run()
     {
-
         DB::table('medicos')->insert(array (
             0 =>
             array (
