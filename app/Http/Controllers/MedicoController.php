@@ -42,9 +42,14 @@ class MedicoController extends Controller
 
     	DB::table('consulta')->insert(
 		    ['medico_id' => $_POST['id'], 'consultorio_id' => $_POST['consultorio'], 'paciente_cpf' => $cpf,'data'=> $_POST['data_consulta'], 'motivo'=>$_POST['motivo_consulta'] ,'status'=>'0']
-		);
+		  );
 
-        return redirect('/medico/'.$_POST['id']);
+      $comentarios = DB::table('avalia')
+                      ->select('nota', 'comentarios')
+                      ->where('medico_id', '=', $_POST['id']);
+
+      return view ('pages.medico', ['comentarios' => $comentarios]);
+        //return redirect('/medico/'.$_POST['id']);
     }
 
     public function atualizaCadastro(){
