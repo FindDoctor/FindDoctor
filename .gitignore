@@ -11,5 +11,5 @@ npm-debug.log
 public/css/app.css
 public/css/app.css.map
 public/js/*
-!public/js/vendor/*
+!public/js/vendor/
 public/imgs/medicos
