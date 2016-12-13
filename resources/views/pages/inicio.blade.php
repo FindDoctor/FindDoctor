@@ -62,15 +62,16 @@
                         </select>
                       </div>
 
-                      <div class="col-md-4">
-                        <label class="control-label" for="localizacao">Localização</label>
-                        <input id="localizacao" name="localizacao" type="text" placeholder="Ex.:São Paulo" class="form-control input-md">
-                      </div>
-
                     <!-- Text input-->
                       <div class="col-md-4">
                         <label class="control-label" for="nome">Nome do médico</label>
                         <input id="nome" name="nome" type="text" placeholder="Ex.Antonio" class="form-control input-md">
+                      </div>
+
+                    <!-- Text input-->
+                      <div class="col-md-4">
+                        <label class="control-label" for="distancia">Distancia (em km)</label>
+                        <input id="distancia" name="distancia" type="number" min="0" max="100" placeholder="0" class="form-control input-md">
                       </div>
 
                     </div>

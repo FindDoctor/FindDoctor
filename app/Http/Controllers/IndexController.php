@@ -32,9 +32,13 @@ class IndexController extends Controller
 
         $medicos = DB::table('medicos');
 
-        if(isset($_POST['nome']) && strlen($_POST['nome']) > 0){
+        if(isset($_POST['nome']) && strlen($_POST['nome']) > 0) {
             $medicos->where('nome', 'like', '%' . $_POST['nome'] .'%');
         }
+
+		if($_POST['especialidade'] != 'Todas') {
+			$medicos->where('especialidade', '=', $_POST['especialidade']);
+		}
 
         $medicos->orderBy('premium', 'desc');
         $medicos->orderBy('nota', 'desc');
