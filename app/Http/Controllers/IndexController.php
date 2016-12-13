@@ -19,7 +19,7 @@ class IndexController extends Controller
     	session_start();
 
 
-        $medicos = DB::table('medicos')->orderBy('nota', 'desc')->get();
+        $medicos = DB::table('medicos')->orderBy('premium', 'desc')->orderBy('nota', 'desc')->get();
 
 		session()->forget('socialAccount');
 
@@ -36,6 +36,7 @@ class IndexController extends Controller
             $medicos->where('nome', 'like', '%' . $_POST['nome'] .'%');
         }
 
+        $medicos->orderBy('premium', 'desc');
         $medicos->orderBy('nota', 'desc');
 
         $result = $medicos->get();
