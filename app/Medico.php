@@ -15,7 +15,7 @@ class Medico extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nome', 'crm', 'telefone', 'cep', 'email', 'endereco', 'numero', 'complemento', 'bairro', 'cidade', 'estado', 'password', 'foto'
+        'nome', 'crm', 'especialidade', 'telefone', 'cep', 'email', 'endereco', 'numero', 'complemento', 'bairro', 'cidade', 'estado', 'password', 'foto'
     ];
 
     /**

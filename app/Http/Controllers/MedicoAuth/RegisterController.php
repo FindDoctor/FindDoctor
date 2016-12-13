@@ -106,6 +106,7 @@ class RegisterController extends Controller
         return Medico::create([
 			'nome' => $data['nome'],
 			'crm' => $data['crm'],
+      'especialidade' => $data['especialidade'],
 			'telefone' => $data['telefone'],
 			'email' => $data['email'],
 			'cep' => $data['cep'],

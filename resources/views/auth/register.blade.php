@@ -69,7 +69,63 @@
                             </div>
                         </div>
 					@endif
-
+          @if (!$errors->any() || old('crm') || $errors->has('crm'))
+          <div class="form-group especialidade">
+            <label class="col-md-4 control-label" for="especialidade">Especialidade</label>
+            <div class="col-md-6">
+              <select id="especialidade" name="especialidade" class="form-control">
+                <option value="Todas">Todas</option>
+                <option value="Anatomia Patológica">Anatomia Patológica</option>
+                <option value="Anestesiologia">Anestesiologia</option>
+                <option value="Angiologia e Cirurgia Vascular">Angiologia e Cirurgia Vascular</option>
+                <option value="Cardiologia">Cardiologia</option>
+                <option value="Cardiologia Pediátrica">Cardiologia Pediátrica</option>
+                <option value="Cirurgia Cardiotorácica">Cirurgia Cardiotorácica</option>
+                <option value="Cirurgia Geral">Cirurgia Geral</option>
+                <option value="Cirurgia Maxilo-Facial">Cirurgia Maxilo-Facial</option>
+                <option value="Cirurgia Pediátrica">Cirurgia Pediátrica</option>
+                <option value="Cirurgia Plástica Reconstrutiva e Estética">Cirurgia Plástica Reconstrutiva e Estética</option>
+                <option value="Dermato-Venereologia">Dermato-Venereologia</option>
+                <option value="Doenças Infecciosas">Doenças Infecciosas</option>
+                <option value="Endocrinologia e Nutrição">Endocrinologia e Nutrição</option>
+                <option value="Estomatologia">Estomatologia</option>
+                <option value="Gastrenterologia">Gastrenterologia</option>
+                <option value="Genética Médica">Genética Médica</option>
+                <option value="Ginecologia/Obstetrícia">Ginecologia/Obstetrícia</option>
+                <option value="Imunoalergologia">Imunoalergologia</option>
+                <option value="Imunohemoterapia">Imunohemoterapia</option>
+                <option value="Farmacologia Clínica">Farmacologia Clínica</option>
+                <option value="Hematologia Clínica">Hematologia Clínica</option>
+                <option value="Medicina Desportiva">Medicina Desportiva</option>
+                <option value="Medicina do Trabalho">Medicina do Trabalho</option>
+                <option value="Medicina Física e de Reabilitação">Medicina Física e de Reabilitação</option>
+                <option value="Medicina Geral e Familiar">Medicina Geral e Familiar</option>
+                <option value="Medicina Interna">Medicina Interna</option>
+                <option value="Medicina Legal">Medicina Legal</option>
+                <option value="Medicina Nuclear">Medicina Nuclear</option>
+                <option value="Medicina Tropical">Medicina Tropical</option>
+                <option value="Nefrologia">Nefrologia</option>
+                <option value="Neurocirurgia">Neurocirurgia</option>
+                <option value="Neurologia">Neurologia</option>
+                <option value="Neurorradiologia">Neurorradiologia</option>
+                <option value="Oftalmologia">Oftalmologia</option>
+                <option value="Oncologia Médica">Oncologia Médica</option>
+                <option value="Ortopedia">Ortopedia</option>
+                <option value="Otorrinolaringologia">Otorrinolaringologia</option>
+                <option value="Patologia Clínica">Patologia Clínica</option>
+                <option value="Pediatria">Pediatria</option>
+                <option value="Pneumologia">Pneumologia</option>
+                <option value="Psiquiatria">Psiquiatria</option>
+                <option value="Psiquiatria da Infância e da Adolescência">Psiquiatria da Infância e da Adolescência</option>
+                <option value="Radiologia">Radiologia</option>
+                <option value="Radioncologia">Radioncologia</option>
+                <option value="Reumatologia">Reumatologia</option>
+                <option value="Saúde Pública">Saúde Pública</option>
+                <option value="Urologia">Urologia</option>
+              </select>
+            </div>
+          </div>
+          @endif
                         <div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">
                             <label for="telefone" class="col-md-4 control-label">Telefone</label>
 

@@ -4,6 +4,7 @@ $('#tipoPaciente').click(function () {
 	$('#tipoCadastro').hide();
 	$('#crm').remove();
 	$('#foto').remove();
+	$('.especialidade').remove();
 	$('#formCadastro').attr('action', '/paciente/register').show();
 });
 
