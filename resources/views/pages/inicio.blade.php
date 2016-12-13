@@ -88,7 +88,7 @@
 
                 @foreach ($medicos as $medico)
                     <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
+                    <div class="thumbnail <?php echo $medico->premium == 1 ? 'golden' : ''?>">
                       <img src="{{ $medico->foto != '' ? '/imgs/medicos/'.$medico->foto : '/imgs/base_medico.jpg' }}" alt="{{ $medico->nome }}">
                       <div class="caption">
                         <h3>{{ $medico->nome }}</h3>

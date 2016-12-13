@@ -178,6 +178,12 @@ class MedicoController extends Controller
 
     public function virarPremium(){
         var_dump($_POST);
+
+        DB::table('medicos')
+            ->where('id', $_POST['id'])
+            ->update(['premium' => 1]);
+
+        return redirect('/medico/' . $_POST['id']);
     }
 
 }

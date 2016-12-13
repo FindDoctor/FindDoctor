@@ -95,6 +95,11 @@ html, body {
 .container{
   .cards-medicos{
     .row{
+
+      .golden{
+        border: 2px solid yellow;
+      }
+
       .thumbnail{
         background:#D8CFBE;
         color:white;

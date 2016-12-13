@@ -124,9 +124,18 @@ $(document).ready(function () {
       							console.log('Geocode was not successful for the following reason: ' + status);
     						}
   						});
+								if(value.premium == 1)
+									var golden = 'golden';
+								else
+									var golden = '';
 
-							   string += '<div class="col-sm-6 col-md-4"><div class="thumbnail">';
-			                   string += '<img src="http://oregionalpr.com.br/wp-content/uploads/2013/08/istock_000019133180medium.jpg" alt="...">';
+								if(value.foto == null)
+									var foto = baseUrl + '/imgs/base_medico.jpg';
+								else
+									var foto = baseUrl + '/imgs/medicos/' + value.foto;
+
+							   string += '<div class="col-sm-6 col-md-4"><div class="thumbnail ' + golden + '">';
+			                   string += '<img src="'+ foto + '" alt="...">';
 			                   string += '<div class="caption"><h3>' + value.nome + '</h3><p>Info do médico</p><p><a href="' + baseUrl + '/medico/' + value.id + '" class="btn btn-primary" role="button">Ver Médico</a></p></div></div></div>'
 
 							});
@@ -181,7 +190,6 @@ $(document).ready(function () {
 				}
 
 				$.each(data, function( index, value ) {
-					console.log(value);
 					var latLng = {lat: parseInt(value.latitude), lng: parseInt(value.longitude)};
 					var marker = new google.maps.Marker({
 						map: map,
