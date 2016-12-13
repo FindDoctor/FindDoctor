@@ -11,9 +11,10 @@
 			</div>
 			<div id="info_medico" class="col-md-8">
 				<h2>{{$medico->nome }}</h2>
+				<h5><strong>Especialidade: </strong>{{$medico->especialidade}}</h5>
 				<h5><strong>Email: </strong>{{$medico->email}}</h5>
 				<h5><strong>Telefone: </strong>{{$medico->telefone}}</h5>
-				<h5><strong>Endereço: </strong>{{$medico->endereco}}</h5>
+				<h5><strong>Endereço: </strong>{{$medico->endereco}}, {{$medico->numero}}, {{$medico->bairro}} - {{$medico->cidade}}, {{$medico->estado}}</h5>
 			</div>
 		</div>
 		<div class="col-md-3">

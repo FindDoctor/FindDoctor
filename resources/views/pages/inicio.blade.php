@@ -70,7 +70,7 @@
 
                     <!-- Text input-->
                       <div class="col-md-4">
-                        <label class="control-label" for="distancia">Distancia (em km)</label>
+                        <label class="control-label" for="distancia">Limite de distancia (em kilometros)</label>
                         <input id="distancia" name="distancia" type="number" min="0" max="100" placeholder="0" class="form-control input-md">
                       </div>
 
