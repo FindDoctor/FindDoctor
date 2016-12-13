@@ -89,7 +89,7 @@
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="hidden" name="id" value="{{$medico->id}}">
 				<label>Nota</label><input id="nota" name="nota" type="number" min="0" max="5" \>
-				<label>Comentários sobre o médico</label><textarea id="comentarios_avaliacao" name="comentarios_avaliacao" class="comentarios-avaliacao"></textarea>
+				<label>Comentários</label><textarea id="comentarios_avaliacao" name="comentarios_avaliacao" class="comentarios-avaliacao"></textarea>
 			</form>
 		</div>
 		<div>

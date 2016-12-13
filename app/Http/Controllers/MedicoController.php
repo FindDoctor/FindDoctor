@@ -32,12 +32,9 @@ class MedicoController extends Controller
         $this->middleware('auth');
 
         if(Auth::guard("paciente")->user() != null){
-          $cpf = Auth::guard("paciente")->user()->cpf;
-        }else if(Auth::guard("medico")->user() != null){
-            $cpf = "40701186836";
-            //$cpf = Auth::guard("medico")->user()['crm'];
+            $cpf = Auth::guard("paciente")->user()->cpf;
         }else{
-            return redirect('/medico/'.$_POST['id']);
+            return redirect('/');
         }
 
     	DB::table('consulta')->insert(
@@ -48,8 +45,8 @@ class MedicoController extends Controller
                       ->select('nota', 'comentarios')
                       ->where('medico_id', '=', $_POST['id']);
 
-      return view ('pages.medico', ['comentarios' => $comentarios]);
-        //return redirect('/medico/'.$_POST['id']);
+      //return view ('pages.medico', ['comentarios' => $comentarios]);
+        return redirect('/medico/'.$_POST['id']);
     }
 
     public function atualizaCadastro(){
