@@ -89,11 +89,6 @@ class MedicoController extends Controller
         unset($insert['consultorio']);
         unset($insert['crm']);
 
-        // $address = $insert['endereco'] . ' ' . $insert['numero'];
-
-        // $address = str_replace(" ", "+", $address); // replace all the white space with "+" sign to match with google search pattern
-
-
         $address  = $insert['cep'];
         $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address=$address";
 
@@ -115,9 +110,6 @@ class MedicoController extends Controller
     public function adicionarConsultorio(){
 
         $insert = $_POST;
-
-
-        var_dump($insert);
 
         unset($insert['Salvarsubmit']);
         unset($insert['_token']);
@@ -156,7 +148,18 @@ class MedicoController extends Controller
 
     public function avaliaMedico(){
 
+        $this->middleware('auth');
+
         $id = $_POST['id'];
+
+
+        if(Auth::guard("paciente")->user() != null){
+            $cpf = Auth::guard("paciente")->user()->cpf;
+        }else{
+            return redirect('/');
+        }
+
+        var_dump($cpf);
 
         $medico_return = DB::table('medicos')->where('id',$id)->get();
 
@@ -170,21 +173,11 @@ class MedicoController extends Controller
         $insert['comentarios'] = $_POST['comentarios_avaliacao'];
         $insert['medico_id'] = $id;
 
-
-        if(Auth::user() != null){
-            $cpf = "40701186836";
-        }else if(Auth::guard("medico")->user() != null){
-            $cpf = "40701186836";
-            //$cpf = Auth::guard("medico")->user()['crm'];
-        }else{
-            return redirect('/');
-        }
-
         $insert['paciente_cpf'] = $cpf;
 
         DB::table('avalia')->insert($insert);
 
-        return redirect('/');
+        return redirect('/medico/' . $id);
 
     }
 
