@@ -156,8 +156,6 @@ class MedicoController extends Controller
             return redirect('/');
         }
 
-        var_dump($cpf);
-
         $medico_return = DB::table('medicos')->where('id',$id)->get();
 
         $notaFinal = ($medico_return[0]->n_avaliacoes * $medico_return[0]->nota + $_POST['nota']) / ($medico_return[0]->n_avaliacoes + 1);
@@ -176,6 +174,10 @@ class MedicoController extends Controller
 
         return redirect('/medico/' . $id);
 
+    }
+
+    public function virarPremium(){
+        var_dump($_POST);
     }
 
 }

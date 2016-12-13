@@ -57,10 +57,10 @@ Route::post('atualizaConsultorio', 'MedicoController@atualizaConsultorio');
 Route::post('removerConsultorio', 'MedicoController@removerConsultorio');
 Route::post('adicionarConsultorio', 'MedicoController@adicionarConsultorio');
 Route::post('avalia-medico', 'MedicoController@avaliaMedico');
-
+Route::post('', 'MedicoController@avaliaMedico');
+Route::post('virarPremium', 'MedicoController@virarPremium');
 
 //Logins
-
 Route::get('/cadastroPaciente', 'LoginController@cadastrarPaciente');
 
 //load de medicos na home

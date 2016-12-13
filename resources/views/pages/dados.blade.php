@@ -324,14 +324,12 @@ JohnDoe
 					</div>
 				</div>
 			</li>
-
-
-
 		</ul>
 
 	</div>
 
 </div>
+
 
 <div class="container consultasSolicitadas">
 	<div class="titulo">Consultas: </div>
@@ -345,6 +343,14 @@ JohnDoe
 			</div>
 		@endforeach
 	</div>
+</div>
+
+<div class="container">
+	<form id="virarPremium" formaction="{{ url('/virarPremium') }}" method="post">
+		<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+		<input type="hidden" name="id" value='{{ Auth::guard("medico")->user()->id }}'>
+		<input class="btn" type="submit" name="premiumsubmit" value="Virar Premium">
+	</form>
 </div>
 @else
 	<!-- USUARIO COMUM -->
