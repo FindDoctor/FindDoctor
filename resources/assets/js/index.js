@@ -32,6 +32,8 @@ $(document).ready(function () {
 		}
 
 		var marker = new google.maps.Marker(markerOptions);
+
+		loadMarkers(map);
 	}
 
 	function drop() {
@@ -162,4 +164,39 @@ $(document).ready(function () {
 		drop();
 	});
 
+	function loadMarkers(map) {
+		$.ajax({
+			url: baseUrl + '/carregamarkers',
+			type: 'POST',
+			data: $('#filtros-home').serialize(),
+			dataType: 'json',
+			success: function(data) {
+				geocoder = new google.maps.Geocoder();
+
+				var uluru = {lat: 0, lng: 0};
+
+				var mapOptions = {
+					center: uluru,
+					zoom: 14,
+				}
+
+				$.each(data, function( index, value ) {
+					console.log(value);
+					var latLng = {lat: parseInt(value.latitude), lng: parseInt(value.longitude)};
+					var marker = new google.maps.Marker({
+						map: map,
+						position: latLng,
+						title: value.nome
+					});
+				});
+			},
+			error: function(e) {
+				console.log(e);
+			},
+			complete: function(e) {
+			}
+		});
+	}
+
+	loadMarkers();
 });

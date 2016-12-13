@@ -65,6 +65,7 @@ Route::get('/cadastroPaciente', 'LoginController@cadastrarPaciente');
 
 //load de medicos na home
 Route::post('/carregamedicos', 'IndexController@loadMedics');
+Route::post('/carregamarkers', 'IndexController@loadMarkers');
 
 //Pagina do médico
 Route::get('/medico', function(){

@@ -48,9 +48,22 @@ class IndexController extends Controller
         //Incluir campos de WHERE
 
     }
+
     public function infomedico()
     {
     	session_start();
         return view('pages.infomedico');
     }
+
+	public function loadMarkers(Request $request) {
+		$result = DB::table('medicos')
+					->join('consultorio', 'medicos.id', '=', 'consultorio.medico_id')
+					->select('medicos.nome', 'consultorio.latitude', 'consultorio.longitude')
+					->get();
+
+		$result = json_encode($result);
+
+		echo $result;
+		exit();
+	}
 }
