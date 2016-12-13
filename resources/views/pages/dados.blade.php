@@ -109,10 +109,10 @@ JohnDoe
 
 			<li>
 				<div>
-					<div class="container panel panel-default" data-toggle="collapse" data-target="#{{$consultorio->id_consultorio }}">
+					<div class="container panel panel-default">
 
 						<div class="panel-heading">
-							<h3 class="panel-title" style="float:left;line-height:34px;">{{$consultorio->endereco}}, {{$consultorio->numero}}</h3>
+								<a data-toggle="collapse" href="#{{$consultorio->id_consultorio }}"><h3 class="panel-title" style="float:left;line-height:34px;">{{$consultorio->endereco}}, {{$consultorio->numero}}</h3></a>
 						</div>
 
 						<div id="{{$consultorio->id_consultorio }}" class="collapse panel-body">
@@ -220,10 +220,10 @@ JohnDoe
 
 			<li id="li_novo_consultorio" class="novo_consultorio">
 				<div>
-					<div class="container panel panel-default" data-toggle="collapse" data-target="#novoConsultorio">
+					<div class="container panel panel-default">
 
 						<div class="panel-heading">
-							<h3 class="panel-title" style="float:left;line-height:34px;">Novo consultorio</h3>
+							 <a data-toggle="collapse" href="#novoConsultorio"><h3 class="panel-title" style="float:left;line-height:34px;">Novo consultorio</h3></a>
 						</div>
 
 						<div id="novoConsultorio" class="collapse panel-body">
@@ -280,7 +280,7 @@ JohnDoe
 											</td>
 
 											<td>
-												<input type="text" name="telefone" class="telefone" >
+												<input type="text" name="complemento" class="complemento" >
 											</td>
 										</tr>
 
