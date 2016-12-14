@@ -162,7 +162,7 @@ $(document).ready(function () {
 							else
 								var golden = '';
 
-							if(value.foto == null)
+							if(!value.foto)
 								var foto = baseUrl + '/imgs/base_medico.jpg';
 							else
 								var foto = baseUrl + '/imgs/medicos/' + value.foto;
